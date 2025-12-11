@@ -1,52 +1,45 @@
-<!-- ==================== BLOG INDEX (save as /blog/index.html) ==================== -->
-
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog — OrganiqFarm</title>
-<meta name="description" content="Blog: Practical articles for organic farmers.">
-<link rel="icon" href="/assets/favicon.svg">
-<style>
-body{font-family:Inter,system-ui,Arial;margin:0;background:#f7fbf7;color:#153118}
-.wrap{max-width:920px;margin:22px auto;padding:18px}
-header{display:flex;justify-content:space-between;align-items:center}
-.post{background:#fff;padding:16px;border-radius:10px;margin-bottom:12px}
-.post h2{margin:0}
-a{color:#2fa84f;text-decoration:none}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog — OrganiqFarm</title>
+  <meta name="description" content="Blog: Practical articles for organic farmers." />
+  <link rel="icon" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body>
-<div class="wrap">
-<header>
-<h1>OrganiqFarm — Blog</h1>
-<nav><a href="/">Home</a> • <a href="/contact.html">Contact</a></nav>
-</header>
+  <div class="container wrap">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <h1>OrganiqFarm — Blog</h1>
+      <nav><a href="/">Home</a> • <a href="/contact.html">Contact</a></nav>
+    </header>
 
+    <main style="margin-top:18px">
+      <div class="post-row">
+        <article class="post-item">
+          <div>
+            <h3><a href="/blog/2025-01-composting.html">Composting on a small farm</a></h3>
+            <div class="meta">Jan 2025 • Practical steps for low-cost compost</div>
+          </div>
+          <div style="text-align:right">
+            <a href="/blog/2025-01-composting.html" class="btn-outline">Read</a>
+          </div>
+        </article>
 
-<main style="margin-top:18px">
-<article class="post">
-<h2><a href="/blog/2025-01-composting.html">Composting on a small farm</a></h2>
-<p class="meta">Jan 2025 • Practical steps for low-cost compost</p>
-<p>Short excerpt — include 2–3 lines that summarise the post.</p>
-</article>
+        <article class="post-item">
+          <div>
+            <h3><a href="/blog/2025-02-pest-natural.html">Natural pest control methods</a></h3>
+            <div class="meta">Feb 2025 • Botanical sprays and traps</div>
+          </div>
+          <div style="text-align:right">
+            <a href="/blog/2025-02-pest-natural.html" class="btn-outline">Read</a>
+          </div>
+        </article>
+      </div>
+    </main>
 
-
-<article class="post">
-<h2><a href="/blog/2025-02-pest-natural.html">Natural pest control methods</a></h2>
-<p class="meta">Feb 2025 • Botanical sprays and traps</p>
-<p>Short excerpt — telling readers what they will learn.</p>
-</article>
-
-
-</main>
-<footer style="margin-top:24px;color:#5b6b5b">© OrganiqFarm</footer>
-</div>
+    <footer style="margin-top:22px;color:var(--muted)">© OrganiqFarm</footer>
+  </div>
 </body>
 </html>
-
-
-<!-- ==================== /BLOG INDEX END ==================== -->
-
