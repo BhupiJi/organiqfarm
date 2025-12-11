@@ -1,0 +1,45 @@
+/* main.css
+   Small layer of custom CSS to complement Tailwind utilities.
+   Keeps spacing / token examples and small tweaks centralised.
+*/
+
+/* Basic container utility */
+.container { max-width: 1100px; margin-left:auto; margin-right:auto; }
+
+/* Spacing tokens inspired by reference patterns */
+:root{
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+}
+
+/* Buttons (primary + ghost) — semantic classes used where Tailwind utilities limited */
+.btn-primary{
+  background-color: theme('colors.primary');
+  color: white;
+}
+.btn-ghost{
+  background-color: transparent;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+/* small accessibility improvements */
+a:focus, button:focus, input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 3px rgba(47,122,84,0.15); }
+
+/* Card baseline style (used across pages) */
+.card-card { transition: transform .18s ease, box-shadow .18s ease; }
+.card-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px -10px rgba(2,6,23,0.15); }
+
+/* Tiny chips and badges */
+.chip { display:inline-block; padding: 6px 10px; border-radius: 999px; background: #f3f4f6; font-size: .85rem; color: #0f172a; }
+
+/* Project modal layout tweaks */
+#project-modal [role="dialog"] { max-width: 720px; }
+
+/* Make sure images are visually consistent */
+img { display:block; max-width:100%; height:auto; }
+
+/* Utility used by scripts for visually-hidden text */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border:0; }
