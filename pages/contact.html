@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Alex Rivera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/responsive.css">
+</head>
+<body class="antialiased text-neutral bg-white">
+  <header class="border-b">
+    <div class="container mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="../index.html" class="font-semibold">← Back</a>
+      <nav class="hidden md:flex gap-6">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-5 py-12">
+    <h1 class="text-2xl font-semibold">Contact</h1>
+    <p class="text-gray-600 mt-2">Prefer email? hi@alexrivera.dev — or use the form below.</p>
+
+    <form id="contact-form" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" novalidate>
+      <label class="block">
+        <span class="text-sm font-medium">Name</span>
+        <input required name="name" class="mt-1 block w-full rounded border px-3 py-2" />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-medium">Email</span>
+        <input required type="email" name="email" class="mt-1 block w-full rounded border px-3 py-2" />
+      </label>
+
+      <label class="block md:col-span-2">
+        <span class="text-sm font-medium">Message</span>
+        <textarea required name="message" rows="6" class="mt-1 block w-full rounded border px-3 py-2"></textarea>
+      </label>
+
+      <div class="md:col-span-2 text-right">
+        <!-- Note: This is a static site — form posts should be handled with a form service or mailto/Netlify Forms -->
+        <button type="submit" class="btn-primary px-6 py-2 rounded">Send message</button>
+      </div>
+    </form>
+
+    <p class="mt-6 text-xs text-gray-500">Tip: For GitHub Pages, connect a form service (Formspree, Netlify Forms, or similar) to receive messages.</p>
+  </main>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
