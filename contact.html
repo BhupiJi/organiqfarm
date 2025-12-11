@@ -1,0 +1,48 @@
+!-- ==================== CONTACT (save as contact.html) ==================== -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — OrganiqFarm</title>
+<meta name="description" content="Contact OrganiqFarm — ask questions, send tips or partnership requests.">
+<link rel="icon" href="/assets/favicon.svg">
+<style>
+body{font-family:Inter,system-ui,Arial;margin:0;background:#f7fbf7;color:#153118}
+.wrap{max-width:720px;margin:30px auto;padding:18px}
+.card{background:#fff;padding:18px;border-radius:10px}
+label{display:block;margin-top:10px;font-weight:600}
+input,textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6efe6}
+button{background:#2fa84f;color:#fff;padding:10px 14px;border-radius:8px;border:0;margin-top:12px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a href="/">← Home</a>
+<h1>Contact OrganiqFarm</h1>
+<div class="card">
+<!-- Replace youremail@example.com with your email, or use formsubmit.co route -->
+<form id="contactForm" action="https://formsubmit.co/youremail@example.com" method="POST">
+<!-- Recommended: change to your email address at formsubmit.co - follow their verification step -->
+<label for="name">Name</label>
+<input id="name" name="name" required>
+<label for="email">Email</label>
+<input id="email" name="email" type="email" required>
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="6" required></textarea>
+<!-- hidden to prevent spam (optional) -->
+<input type="hidden" name="_subject" value="New message from OrganiqFarm site">
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Send Message</button>
+</form>
+<p style="margin-top:10px;color:#5b6b5b">Or email directly: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+</div>
+</div>
+</body>
+</html>
+
+
+<!-- ==================== /CONTACT END ==================== -->
+
