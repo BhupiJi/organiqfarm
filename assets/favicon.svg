@@ -1,5 +1,0 @@
-<!-- assets/favicon.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#2fa84f"/>
-  <path d="M20 36c4-6 12-8 18-6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-</svg>
