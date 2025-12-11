@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Alex Rivera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/responsive.css">
+</head>
+<body class="antialiased text-neutral bg-white">
+  <header class="border-b">
+    <div class="container mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="../index.html" class="font-semibold">← Back</a>
+      <nav class="hidden md:flex gap-6">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-5 py-12">
+    <h1 class="text-2xl font-semibold">Projects</h1>
+    <p class="text-gray-600 mt-2">A selection of recent work using component-led approaches and accessible patterns.</p>
+
+    <div class="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Repeatable project cards -->
+      <article class="card-card border rounded-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-44 object-cover">
+        <div class="p-4">
+          <h3 class="font-semibold">Design System Library</h3>
+          <p class="text-sm text-gray-600 mt-2">A tokens-first approach for consistent theming across products.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-xs text-gray-500">Figma • React</div>
+            <button class="btn-link text-primary" data-project='{"title":"Design System Library","desc":"Tokens, components, and documentation for product teams."}'>Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add more project cards here -->
+    </div>
+  </main>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
