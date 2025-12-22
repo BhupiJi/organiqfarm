@@ -1,129 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Organic Farming Guide</title>
-    <meta name="description" content="Learn about our mission to promote sustainable organic farming practices worldwide.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">🌱 OrganicFarming<span>Guide</span></a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="blog.html">Resources</a>
-                <a href="contact.html">Contact</a>
-                <a href="#newsletter" class="btn-nav">Free Guide</a>
-            </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>About Organiqfarm.com</h1>
-            <p>Our mission to promote sustainable agriculture worldwide</p>
-        </div>
-    </section>
-
-    <section class="about-content">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2024, Organiqfarm.com emerged from a simple observation: while interest in organic farming was growing globally, reliable, practical information remained scattered and often inaccessible to beginners.</p>
-                    <p>We set out to create the most comprehensive, beginner-friendly resource for organic farming practices, bringing together expert knowledge, scientific research, and real-world experience into one accessible platform.</p>
-                    
-                    <h2>Our Mission</h2>
-                    <p>To empower farmers, gardeners, and agricultural enthusiasts with the knowledge and tools needed to practice sustainable, chemical-free farming that benefits both people and the planet.</p>
-                    
-                    <h2>What We Offer</h2>
-                    <ul>
-                        <li><strong>Educational Resources:</strong> Step-by-step guides, tutorials, and how-to articles</li>
-                        <li><strong>Expert Insights:</strong> Contributions from agricultural scientists and experienced farmers</li>
-                        <li><strong>Community Support:</strong> Connecting like-minded individuals passionate about sustainable agriculture</li>
-                        <li><strong>Practical Tools:</strong> Planning calendars, calculators, and downloadable resources</li>
-                    </ul>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Detailed Guides</div>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            if (menuToggle) {
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (validateEmail(email)) {
+                // Simulate successful subscription
+                emailInput.value = '';
+                
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.innerHTML = `
+                    <div style="background: #4caf50; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Thank you! Check your email for the free Starter Kit.</span>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5,000+</div>
-                        <div class="stat-label">Monthly Readers</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100+</div>
-                        <div class="stat-label">Countries Reached</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Resource Access</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                `;
+                this.appendChild(successMsg);
+                
+                // Remove message after 5 seconds
+                setTimeout(() => successMsg.remove(), 5000);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Skip if it's just "#"
+            if (href === '#') return;
+            
+            // Check if it's an external link with hash
+            if (href.includes('#')) {
+                const [path, hash] = href.split('#');
+                if (path && path !== window.location.pathname) {
+                    return; // Let normal navigation handle it
+                }
+            }
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Add click handlers to cards
+    document.querySelectorAll('.feature-card, .guide-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on a link inside
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                return;
+            }
+            
+            const link = this.querySelector('a');
+            if (link) {
+                window.location.href = link.href;
+            }
+        });
+        
+        // Add hover effect for clickable cards
+        card.style.cursor = 'pointer';
+    });
+    
+    // Email validation function
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // Add current year if needed
+    const yearElements = document.querySelectorAll('[data-current-year]');
+    yearElements.forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+});
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Organic Farming Journey?</h2>
-            <p>Join thousands of successful farmers who transformed their practices using our resources.</p>
-            <a href="blog.html" class="btn-primary">Explore Resources</a>
-            <a href="contact.html" class="btn-secondary">Contact Us</a>
-        </div>
-    </section>
+// Handle query parameters for contact form
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
 
-    <!-- Same footer as index.html -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">🌱 OrganicFarming<span>Guide</span></a>
-                    <p>Promoting sustainable, chemical-free farming practices worldwide since 2024.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="blog.html">Farming Guides</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Domain Sale Terms</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-envelope"></i> contact@yourdomain.com</p>
-                    <p><i class="fas fa-globe"></i> Organiqfarm.com</p>
-                    <p>For domain inquiries only</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Organiqfarm.com. All rights reserved. | This domain and website are available for purchase.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+// Auto-fill contact form subject if provided in URL
+document.addEventListener('DOMContentLoaded', function() {
+    const subject = getQueryParam('subject');
+    if (subject && document.getElementById('contactSubject')) {
+        document.getElementById('contactSubject').value = subject;
+    }
+});
