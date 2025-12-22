@@ -3,128 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oraganiq Farm - Organic Farming Tips and Resources</title>
+    <title>OrganiqFarm | The Future of Regenerative Agriculture 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Oraganiq Farm</h1>
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="affiliates.html">Affiliates</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="blogs.html">Insights</a></li>
+                <li><a href="facts.html">Fact Check</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">Mission</a></li>
+            </ul>
+            <a href="contact.html" class="btn-sm">Get Involved</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Ecosystem Report 2026</span>
+            <h1>Healing the Earth <br><span class="gradient-text">Through Soil Intelligence</span></h1>
+            <p>OrganiqFarm is pioneering carbon-negative cultivation. Explore our 2026 research on bio-density, nutrient scaling, and sustainable yields.</p>
+            <div class="hero-btns">
+                <a href="blogs.html" class="btn-primary">Read 2026 Insights</a>
+                <a href="facts.html" class="btn-secondary">View Impact Data</a>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Discover the World of Organic Farming</h1>
-            <p>Sustainable practices for a healthier planet. Explore tips, resources, and more!</p>
-            <a href="blog.html" class="btn">Start Exploring</a>
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>4.8k</h3>
+            <p>Acres Regenerated</p>
+        </div>
+        <div class="stat-item">
+            <h3>-32%</h3>
+            <p>Carbon Footprint</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Organic Verified</p>
+        </div>
+        <div class="stat-item">
+            <h3>2026</h3>
+            <p>Current Audit</p>
         </div>
     </section>
 
-    <section class="featured">
-        <div class="container">
-            <h2>Featured Blogs</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <img src="https://freshharvest.com/blog/wp-content/uploads/2024/06/IMG_0222-scaled-1.jpg" alt="Organic Garden">
-                    <h3>Starting Your Organic Garden</h3>
-                    <p>Beginner tips for setting up your first plot.</p>
-                    <a href="blog-post-1.html" class="btn secondary">Read More</a>
+    <main class="container">
+        <div class="section-header">
+            <h2>Featured 2026 Research</h2>
+            <p>Latest breakthroughs in organic technology and food security.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card" onclick="location.href='post-1.html'">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=800')"></div>
+                <div class="card-body">
+                    <span class="tag">Technology</span>
+                    <h3>AI-Driven Soil Analysis</h3>
+                    <p>How we use microbial sensors to track soil health in real-time across OrganiqFarm plots.</p>
+                    <div class="card-footer">
+                        <span>Feb 10, 2026</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="https://media.istockphoto.com/id/2169259581/vector/regenerative-agriculture-and-sustainable-farming-practices-outline-collection.jpg?s=612x612&w=0&k=20&c=LVdl9rl2i3BV0ik2iDpxFAsqYxNP2BWYzPLLXGWdqiM=" alt="Sustainable Practices">
-                    <h3>Sustainable Farming Practices</h3>
-                    <p>Methods to enhance soil health and reduce waste.</p>
-                    <a href="blog-post-2.html" class="btn secondary">Read More</a>
-                </div>
-                <div class="card">
-                    <img src="https://thumbs.dreamstime.com/b/sustainable-agriculture-farming-eco-green-nature-crops-wheat-field-practices-vector-design-generative-illustration-representing-371271816.jpg" alt="Pest Control">
-                    <h3>Organic Pest Control</h3>
-                    <p>Natural ways to protect your crops.</p>
-                    <a href="blog-post-3.html" class="btn secondary">Read More</a>
+            </div>
+
+            <div class="card" onclick="location.href='post-2.html'">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?q=80&w=800')"></div>
+                <div class="card-body">
+                    <span class="tag">Nutrition</span>
+                    <h3>The Micronutrient Gap</h3>
+                    <p>Why 2026 organic produce contains 40% more polyphenols than industrial counterparts.</p>
+                    <div class="card-footer">
+                        <span>Feb 14, 2026</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="banner">
-        <div class="banner-text">
-            <h2>Join the Organic Movement</h2>
-            <p>Sign up for tips, updates, and exclusive offers.</p>
-            <a href="contact.html" class="btn transparent">Subscribe Now</a>
-        </div>
-    </section>
-
-    <section class="teasers">
-        <div class="container">
-            <h2>Explore More</h2>
-            <div class="teaser-grid">
-                <div class="teaser-card">
-                    <h3>Resources</h3>
-                    <p>Detailed guides and data on organic farming.</p>
-                    <a href="resources.html" class="btn secondary">View Resources</a>
-                </div>
-                <div class="teaser-card">
-                    <h3>Affiliates</h3>
-                    <p>Recommended products for your farm.</p>
-                    <a href="affiliates.html" class="btn secondary">Shop Affiliates</a>
-                </div>
-                <div class="teaser-card">
-                    <h3>About Us</h3>
-                    <p>Our mission for sustainable agriculture.</p>
-                    <a href="about.html" class="btn secondary">Learn More</a>
-                </div>
-            </div>
-            <!-- AdSense Placeholder -->
-            <div class="ad-placeholder"><!-- AdSense code goes here --></div>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Social</h4>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <p>Email: info@oraganiqfarm.com</p>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="#" class="logo">ORGANIQ<span>FARM</span></a>
+                <p>Leading the global transition to regenerative, organic food systems. Data-backed. Nature-driven.</p>
             </div>
-            <p>&copy; 2025 OraganiqFarm.com. All rights reserved.</p>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="facts.html">Fact Check</a></li>
+                    <li><a href="nutrition.html">Nutrition Database</a></li>
+                    <li><a href="blogs.html">Research Papers</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Platform</h4>
+                <p>Status: Cloudflare Secured</p>
+                <p>Location: Global Operations</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 OrganiqFarm Portal. All rights reserved.
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
