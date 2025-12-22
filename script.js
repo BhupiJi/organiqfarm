@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
     });
 
-    // Smooth Scrolling for Links
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contact Form Validation and Alert
+    // Form Validation
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            alert('Thank you for your message! We'll get back to you soon.');
+            alert('Thank you! Your message has been sent.');
             form.reset();
         });
     }
