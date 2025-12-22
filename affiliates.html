@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affiliates - Oraganiq Farm</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="assets/logo.png" alt="Oraganiq Farm Logo" class="logo">
-            <nav>
+            <h1 class="logo">Oraganiq Farm</h1>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -20,21 +21,37 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <section class="content">
         <div class="container">
             <h1>Recommended Organic Products</h1>
-            <p>We partner with affiliates to recommend quality products. Purchases through these links support the site.</p>
+            <p>We recommend high-quality products through affiliates. Purchases support us at no extra cost.</p>
             <!-- AdSense Placeholder: Paste your Google AdSense code here -->
             <div class="ad-placeholder"><!-- AdSense code goes here --></div>
-            <ul>
-                <li><a href="https://www.amazon.com/organic-fertilizer?tag=youraffiliateid" target="_blank">Organic Fertilizer</a> - Great for beginners.</li>
-                <li><a href="https://www.amazon.com/heirloom-seeds?tag=youraffiliateid" target="_blank">Heirloom Seeds Pack</a> - Non-GMO and sustainable.</li>
-                <li><a href="https://www.amazon.com/gardening-tools?tag=youraffiliateid" target="_blank">Eco-Friendly Tools</a> - Durable and green.</li>
-            </ul>
-            <p>Replace these with your real affiliate links.</p>
+            <div class="teaser-grid">
+                <div class="teaser-card">
+                    <h3>Organic Fertilizer</h3>
+                    <p>Perfect for nutrient-rich soil.</p>
+                    <a href="https://www.amazon.com/organic-fertilizer?tag=youraffiliateid" target="_blank" class="btn secondary">Buy on Amazon</a>
+                </div>
+                <div class="teaser-card">
+                    <h3>Heirloom Seeds Pack</h3>
+                    <p>Non-GMO seeds for your garden.</p>
+                    <a href="https://www.amazon.com/heirloom-seeds?tag=youraffiliateid" target="_blank" class="btn secondary">Buy on Amazon</a>
+                </div>
+                <div class="teaser-card">
+                    <h3>Eco-Friendly Tools</h3>
+                    <p>Durable tools for sustainable farming.</p>
+                    <a href="https://www.amazon.com/gardening-tools?tag=youraffiliateid" target="_blank" class="btn secondary">Buy on Amazon</a>
+                </div>
+            </div>
         </div>
     </section>
 
