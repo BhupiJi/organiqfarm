@@ -103,3 +103,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add hover effect for clickable cards
         card.style.cursor = 'pointer';
     });
+    
+    // Email validation function
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // Add current year if needed
+    const yearElements = document.querySelectorAll('[data-current-year]');
+    yearElements.forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+});
+
+// Handle query parameters for contact form
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Auto-fill contact form subject if provided in URL
+document.addEventListener('DOMContentLoaded', function() {
+    const subject = getQueryParam('subject');
+    if (subject && document.getElementById('contactSubject')) {
+        document.getElementById('contactSubject').value = subject;
+    }
+});
