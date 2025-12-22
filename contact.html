@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Oraganiq Farm</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="assets/logo.png" alt="Oraganiq Farm Logo" class="logo">
-            <nav>
+            <h1 class="logo">Oraganiq Farm</h1>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -20,23 +21,28 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <section class="content">
         <div class="container">
             <h1>Contact Us</h1>
-            <p>Have questions about organic farming? Reach out!</p>
-            <form>
+            <p>Questions about organic farming? Get in touch!</p>
+            <form id="contact-form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" required>
                 <label for="message">Message:</label>
                 <textarea id="message" required></textarea>
-                <button type="submit" class="btn">Send</button>
+                <button type="submit" class="btn">Send Message</button>
             </form>
-            <p>Note: This is a static form. For real submissions, consider adding Formspree or similar (free tier available).</p>
+            <p>Note: For real email submissions, integrate with Formspree (free) by adding action="https://formspree.io/your-email" method="POST" to the form tag.</p>
         </div>
     </section>
 
