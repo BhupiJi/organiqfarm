@@ -2,81 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Oraganiq Farm</title>
+    <title>Contact Us | OrganiqFarm</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Oraganiq Farm</h1>
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="affiliates.html">Affiliates</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="container" style="padding-top: 150px; max-width: 600px;">
+        <div class="section-header">
+            <h1 class="gradient-text">Join the Movement</h1>
+            <p>Have questions about our 2026 research or partnerships?</p>
+        </div>
+        <form style="background: var(--glass); padding: 3rem; border-radius: 20px; border: 1px solid var(--glass-border);">
+            <div style="margin-bottom: 1.5rem;">
+                <label>Full Name</label>
+                <input type="text" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;">
             </div>
-        </div>
-    </header>
-
-    <section class="content">
-        <div class="container">
-            <h1>Contact Us</h1>
-            <p>Have questions or suggestions? We'd love to hear from you!</p>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <p>For real submissions, add Formspree: action="https://formspree.io/your-email" method="POST".</p>
-            <!-- AdSense Placeholder -->
-            <div class="ad-placeholder"><!-- AdSense code goes here --></div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Social</h4>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <p>Email: info@oraganiqfarm.com</p>
-                </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label>Email Address</label>
+                <input type="email" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;">
             </div>
-            <p>&copy; 2025 OraganiqFarm.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+            <div style="margin-bottom: 2rem;">
+                <label>Message</label>
+                <textarea rows="5" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;"></textarea>
+            </div>
+            <button type="button" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+        </form>
+    </div>
 </body>
 </html>
