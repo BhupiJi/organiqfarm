@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Farming Resources | Guides, Tips & Tutorials</title>
+    <meta name="description" content="Free organic farming guides, tutorials, and resources for beginners and experienced farmers.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for blog page */
+        .blog-header {
+            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .blog-header h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .blog-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: white;
+            color: var(--primary-color);
+            border-color: white;
+        }
+        
+        .blog-container {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .blog-image {
+            height: 220px;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #c5e1a5, #8bc34a);
+            opacity: 0.7;
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--primary-dark);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .blog-title a {
+            color: var(--text-dark);
+        }
+        
+        .blog-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        
+        .page-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: white;
+            color: var(--text-dark);
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .page-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+        
+        .popular-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .popular-post img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #e8f5e9;
+        }
+        
+        .popular-post-content h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .popular-post-content h4 a {
+            color: var(--text-dark);
+        }
+        
+        .popular-post-content h4 a:hover {
+            color: var(--primary-color);
+        }
+        
+        .popular-post-date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .newsletter-sidebar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .newsletter-sidebar h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-sidebar input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">🌱 OrganicFarming<span>Guide</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="blog.html" class="active">Resources</a>
+                <a href="contact.html">Contact</a>
+                <a href="#newsletter" class="btn-nav">Free Guide</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <div class="container">
+            <h1>Organic Farming Resources</h1>
+            <p>Free guides, tutorials, and practical tips for sustainable agriculture. From beginner basics to advanced techniques.</p>
+            <div class="category-filters">
+                <button class="category-btn active" data-filter="all">All Topics</button>
+                <button class="category-btn" data-filter="beginner">Beginner</button>
+                <button class="category-btn" data-filter="intermediate">Intermediate</button>
+                <button class="category-btn" data-filter="advanced">Advanced</button>
+                <button class="category-btn" data-filter="tools">Tools & Equipment</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-container">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card" data-category="beginner">
+                    <div class="blog-image">
+                        <span>🌱 Starting Your First Organic Garden</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Beginner Guide</span>
+                        <h2 class="blog-title"><a href="#">How to Start Organic Gardening: Complete Step-by-Step Guide</a></h2>
+                        <p class="blog-excerpt">Starting organic gardening is easier than you think. This guide walks you through soil preparation, plant selection, and natural pest control methods for your first successful harvest.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> March 15, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 10 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card" data-category="intermediate">
+                    <div class="blog-image">
+                        <span>💧 Smart Water Management</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Water Conservation</span>
+                        <h2 class="blog-title"><a href="#">7 Water-Saving Techniques for Organic Farms</a></h2>
+                        <p class="blog-excerpt">Learn drip irrigation, rainwater harvesting, and moisture retention methods that can reduce your water usage by up to 60% while improving crop health and yield.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> March 10, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 8 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card" data-category="tools">
+                    <div class="blog-image">
+                        <span>🛠️ Essential Farming Tools</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Tools & Equipment</span>
+                        <h2 class="blog-title"><a href="#">Top 15 Must-Have Tools for Small Organic Farms</a></h2>
+                        <p class="blog-excerpt">From hand tools to irrigation systems, discover the essential equipment every organic farmer needs. Budget-friendly options and professional-grade tools compared.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> March 5, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 12 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card" data-category="beginner">
+                    <div class="blog-image">
+                        <span>🌾 Composting Basics</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Soil Health</span>
+                        <h2 class="blog-title"><a href="#">Composting 101: Turn Kitchen Waste into Garden Gold</a></h2>
+                        <p class="blog-excerpt">Simple composting methods that anyone can do at home. Learn what to compost, what to avoid, and how to create nutrient-rich soil amendments in weeks.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> February 28, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 7 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="advanced">
+                    <div class="blog-image">
+                        <span>🐝 Natural Pest Control</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Pest Management</span>
+                        <h2 class="blog-title"><a href="#">Complete Guide to Organic Pest Control Methods</a></h2>
+                        <p class="blog-excerpt">Companion planting, natural predators, and homemade organic sprays that actually work. Control pests without harmful chemicals using these proven techniques.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> February 22, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 15 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="intermediate">
+                    <div class="blog-image">
+                        <span>🌽 Crop Rotation Guide</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Crop Management</span>
+                        <h2 class="blog-title"><a href="#">Crop Rotation Plans for Higher Yields & Healthier Soil</a></h2>
+                        <p class="blog-excerpt">Prevent soil depletion and disease buildup with smart crop rotation. Downloadable rotation charts for different farm sizes and climate zones included.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> February 18, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 9 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="blog-card" data-category="tools">
+                    <div class="blog-image">
+                        <span>📱 Farming Technology</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Modern Tools</span>
+                        <h2 class="blog-title"><a href="#">10 Mobile Apps Every Organic Farmer Should Use</a></h2>
+                        <p class="blog-excerpt">From planting calendars to pest identification, these free and paid apps can save you hours of work and improve your farming efficiency significantly.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> February 12, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 11 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="blog-card" data-category="advanced">
+                    <div class="blog-image">
+                        <span>🏷️ Certification Process</span>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Business Guide</span>
+                        <h2 class="blog-title"><a href="#">How to Get USDA Organic Certification: Complete Checklist</a></h2>
+                        <p class="blog-excerpt">Step-by-step guide to getting certified organic status. Documentation requirements, inspection process, and tips for first-time applicants explained simply.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> February 5, 2024
+                            </div>
+                            <div class="read-time">
+                                <i class="far fa-clock"></i> 14 min read
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3 class="sidebar-title">Popular Guides</h3>
+                <div class="popular-posts">
+                    <div class="popular-post">
+                        <div class="popular-post-image">
+                            <div style="width:80px;height:80px;background:#c5e1a5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary-color);font-size:2rem;">🌱</div>
+                        </div>
+                        <div class="popular-post-content">
+                            <h4><a href="#">Beginner's Checklist: First 30 Days of Organic Farming</a></h4>
+                            <div class="popular-post-date">March 2024 • 8 min read</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-post-image">
+                            <div style="width:80px;height:80px;background:#c5e1a5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary-color);font-size:2rem;">💸</div>
+                        </div>
+                        <div class="popular-post-content">
+                            <h4><a href="#">Budget-Friendly Organic Farming: Start Under $200</a></h4>
+                            <div class="popular-post-date">February 2024 • 10 min read</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-post-image">
+                            <div style="width:80px;height:80px;background:#c5e1a5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary-color);font-size:2rem;">🥕</div>
+                        </div>
+                        <div class="popular-post-content">
+                            <h4><a href="#">Best Vegetables for First-Time Organic Gardeners</a></h4>
+                            <div class="popular-post-date">January 2024 • 6 min read</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="newsletter-sidebar">
+                    <h3>Get Weekly Farming Tips</h3>
+                    <p>Join thousands of farmers receiving practical advice every week.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn-primary" style="width:100%;background:white;color:var(--primary-color);">Subscribe Now</button>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-btn active">1</a>
+                <a href="#" class="page-btn">2</a>
+                <a href="#" class="page-btn">3</a>
+                <a href="#" class="page-btn">4</a>
+                <a href="#" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">🌱 OrganicFarming<span>Guide</span></a>
+                    <p>Promoting sustainable, chemical-free farming practices worldwide since 2024.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="blog.html">Farming Guides</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Domain Sale Terms</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> contact@yourdomain.com</p>
+                    <p><i class="fas fa-globe"></i> Organiqfarm.com</p>
+                    <p>For domain inquiries only</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Organiqfarm.com. All rights reserved. | This domain and website are available for purchase.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.category-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide blog cards based on filter
+                    blogCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Newsletter subscription
+            const sidebarForm = document.querySelector('.newsletter-sidebar button');
+            const sidebarInput = document.querySelector('.newsletter-sidebar input');
+            
+            if (sidebarForm) {
+                sidebarForm.addEventListener('click', function() {
+                    if (sidebarInput.value.trim() !== '') {
+                        sidebarInput.value = '';
+                        alert('Thank you for subscribing to our weekly farming tips!');
+                    }
+                });
+                
+                sidebarInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        if (sidebarInput.value.trim() !== '') {
+                            sidebarInput.value = '';
+                            alert('Thank you for subscribing to our weekly farming tips!');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
