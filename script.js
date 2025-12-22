@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Counter Animation
+    // Animated Counters
     const counters = document.querySelectorAll('.counter');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 1 });
     counters.forEach(c => observer.observe(c));
 
-    // 2. Security: Disable Right Click on images
+    // Security: Anti-Right Click for Images
     document.addEventListener('contextmenu', e => {
         if (e.target.tagName === 'IMG') e.preventDefault();
     });
