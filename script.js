@@ -6,86 +6,100 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            menuToggle.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     }
     
-    // Close menu when clicking outside on mobile
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 768) {
-            if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            if (menuToggle) {
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
-        }
+        });
     });
     
-    // Newsletter Form Submission
-    const emailForm = document.getElementById('emailForm');
-    if (emailForm) {
-        emailForm.addEventListener('submit', function(e) {
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const emailInput = this.querySelector('input[type="email"]');
             const email = emailInput.value.trim();
             
             if (validateEmail(email)) {
-                // Simulate form submission
+                // Simulate successful subscription
                 emailInput.value = '';
-                alert('Thank you! Your free Organic Farming Starter Kit will be emailed to you shortly.');
                 
-                // Here you would normally send data to your server
-                // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({email}) })
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.innerHTML = `
+                    <div style="background: #4caf50; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Thank you! Check your email for the free Starter Kit.</span>
+                    </div>
+                `;
+                this.appendChild(successMsg);
+                
+                // Remove message after 5 seconds
+                setTimeout(() => successMsg.remove(), 5000);
             } else {
                 alert('Please enter a valid email address.');
             }
         });
     }
     
-    // Email validation function
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            // Skip if it's just "#"
+            if (href === '#') return;
             
-            const targetElement = document.querySelector(targetId);
+            // Check if it's an external link with hash
+            if (href.includes('#')) {
+                const [path, hash] = href.split('#');
+                if (path && path !== window.location.pathname) {
+                    return; // Let normal navigation handle it
+                }
+            }
+            
+            const targetElement = document.querySelector(href);
             if (targetElement) {
+                e.preventDefault();
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                }
             }
         });
     });
     
-    // Add current year to footer
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-    
-    // Simple page view counter (for demo - would use analytics in production)
-    const viewCount = localStorage.getItem('pageViews') || 0;
-    localStorage.setItem('pageViews', parseInt(viewCount) + 1);
-});
-
-// AdSense auto ads (example placement)
-function loadAdSense() {
-    // This would be the actual AdSense code
-    console.log('AdSense would load here with your publisher ID');
-}
+    // Add click handlers to cards
+    document.querySelectorAll('.feature-card, .guide-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on a link inside
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                return;
+            }
+            
+            const link = this.querySelector('a');
+            if (link) {
+                window.location.href = link.href;
+            }
+        });
+        
+        // Add hover effect for clickable cards
+        card.style.cursor = 'pointer';
+    });
