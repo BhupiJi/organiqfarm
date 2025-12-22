@@ -3,19 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Organic Farming Guide</title>
-    <meta name="description" content="Get in touch for domain purchase inquiries, partnerships, or questions about organic farming.">
+    <title>Contact - Oraganiq Farm</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
+    <header>
         <div class="container">
-            <a href="index.html" class="logo">🌱 OrganicFarming<span>Guide</span></a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="blog.html">Resources</a>
-                <a href="contact.html" class="active">Contact</a>
-                <a href="#newsletter" class="btn-nav">Free Guide</a>
+            <img src="assets/logo.png" alt="Oraganiq Farm Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="affiliates.html">Affiliates</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Have questions about organic farming? Reach out!</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <p>Note: This is a static form. For real submissions, consider adding Formspree or similar (free tier available).</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 OraganiqFarm.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
