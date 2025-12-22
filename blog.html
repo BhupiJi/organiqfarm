@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Oraganiq Farm</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="assets/logo.png" alt="Oraganiq Farm Logo" class="logo">
-            <nav>
+            <h1 class="logo">Oraganiq Farm</h1>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -20,21 +21,26 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <section class="content">
         <div class="container">
             <h1>Organic Farming Blog</h1>
-            <p>Latest tips and articles on sustainable farming.</p>
+            <p>Stay updated with the latest tips and insights on sustainable agriculture.</p>
             <!-- AdSense Placeholder: Paste your Google AdSense code here -->
             <div class="ad-placeholder"><!-- AdSense code goes here --></div>
-            <article>
-                <h2>Example Post: Starting Your Organic Garden</h2>
-                <p>Learn the basics of soil preparation and seed selection.</p>
-                <a href="blog-post-example.html">Read More</a>
+            <article class="teaser-card">
+                <h2>Starting Your Organic Garden</h2>
+                <p>Basics of soil preparation and seed selection for beginners.</p>
+                <a href="blog-post-example.html" class="btn secondary">Read More</a>
             </article>
-            <!-- Add more <article> blocks as you create new posts -->
+            <!-- Add more articles here as you create new posts -->
         </div>
     </section>
 
