@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oraganiq Farm - Organic Farming Tips and Resources</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="assets/logo.png" alt="Oraganiq Farm Logo" class="logo">
-            <nav>
+            <h1 class="logo">Oraganiq Farm</h1>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -20,31 +21,43 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <img src="assets/hero-image.jpg" alt="Organic Farm Landscape" class="hero-image">
         <div class="hero-text">
             <h1>Welcome to Oraganiq Farm</h1>
-            <p>Your guide to sustainable organic farming. Learn tips, get resources, and start your green journey today!</p>
-            <a href="blog.html" class="btn">Read Our Blog</a>
+            <p>Your ultimate guide to sustainable organic farming. Discover tips, resources, and start your green journey today!</p>
+            <a href="blog.html" class="btn">Explore Our Blog</a>
         </div>
     </section>
 
-    <section class="content">
+    <section class="teasers">
         <div class="container">
-            <h2>Why Organic Farming?</h2>
-            <p>Organic farming promotes health, sustainability, and better taste. Avoid chemicals and grow naturally.</p>
+            <div class="teaser-grid">
+                <div class="teaser-card">
+                    <h2>About Us</h2>
+                    <p>Learn more about our passion for organic farming.</p>
+                    <a href="about.html" class="btn secondary">Read More</a>
+                </div>
+                <div class="teaser-card">
+                    <h2>Latest Blog</h2>
+                    <p>Check out our tips on starting an organic garden.</p>
+                    <a href="blog.html" class="btn secondary">View Posts</a>
+                </div>
+                <div class="teaser-card">
+                    <h2>Affiliate Products</h2>
+                    <p>Recommended tools and seeds for your farm.</p>
+                    <a href="affiliates.html" class="btn secondary">Shop Now</a>
+                </div>
+            </div>
             <!-- AdSense Placeholder: Paste your Google AdSense code here for a banner ad -->
             <div class="ad-placeholder"><!-- AdSense code goes here --></div>
-            <h3>Quick Tips</h3>
-            <ul>
-                <li>Use compost for natural fertilizer.</li>
-                <li>Plant companion crops to deter pests.</li>
-                <li>Harvest rainwater for irrigation.</li>
-            </ul>
-            <p>Affiliate: Check out <a href="https://www.amazon.com/organic-seeds?tag=youraffiliateid" target="_blank">organic seeds on Amazon</a> to get started.</p>
         </div>
     </section>
 
