@@ -3,115 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';">
+    <title>OrganiqFarm - The 2026 Data Hub</title>
+    <meta name="description" content="The definitive source for the 2026 transition to organic farming. Verified data on soil health, nutrition, and climate resilience.">
+    <meta property="og:title" content="OrganiqFarm: The 2026 Transition">
+    <meta property="og:description" content="Organic Farming is no longer an option. It's a necessity. Access the 2026 Data Hub.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
+    <meta property="og:url" content="https://organiqfarm.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com; script-src 'self';">
     
-    <title>OrganiqFarm | 2026 Global Organic Intelligence Portal</title>
-    
-    <meta property="og:title" content="OrganiqFarm: The 2026 Organic Transition Report">
-    <meta property="og:description" content="Access verified soil data, nutrition indexes, and climate-impact reports.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=1200&q=80">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blogs.html">Blog Insights</a></li>
-            <li><a href="facts.html">Verified Facts</a></li>
-            <li><a href="nutrition.html">Nutrition Index</a></li>
-            <li><a href="donate.html">Support Us</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">OrganiqFarm<span style="color:#fff;">2026</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="facts.html">Facts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html" class="btn" style="padding: 5px 20px; font-size: 0.9rem;">Donate</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <header style="padding: 160px 8% 100px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; text-align: center;">
-        <div class="container">
-            <span style="text-transform: uppercase; letter-spacing: 3px; font-weight: 600; color: var(--accent);">Empowering The 2026 Transition</span>
-            <h1 style="font-size: 4rem; margin: 1rem 0; line-height: 1.1;">Organic Farming is no longer an <br>option. It's a necessity.</h1>
-            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">Explore the world's most comprehensive database on soil health, nutritional density, and pesticide-free living for the year 2026.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="facts.html" style="background: var(--accent); color: white; padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700;">View 2026 Reports</a>
-                <a href="#impact" style="background: white; color: var(--primary); padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700;">Explore Impact</a>
-            </div>
+    <header class="hero">
+        <div class="hero-content container">
+            <h1>Organic Farming is no longer an option.<br>It's a necessity.</h1>
+            <p>The 2026 Data Hub: Prepare for the Global Agricultural Shift.</p>
+            <a href="facts.html" class="btn">View 2026 Forecasts</a>
         </div>
     </header>
 
-    <section id="impact" class="section-padding container">
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <h2 style="font-size: 2.5rem; color: var(--primary);">Global Organic Impact Index</h2>
-            <p>Real-time metrics monitored by OrganiqFarm Labs in 2026</p>
-        </div>
-        
-        <div class="card-grid">
-            <div class="rich-card" style="padding: 3rem; text-align: center;">
-                <h3 style="font-size: 3rem; color: var(--primary);">84.2%</h3>
-                <p style="font-weight: 600; color: var(--accent);">Soil Health Score</p>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Average soil biological activity in our partner regenerative farms this year.</p>
-            </div>
-            <div class="rich-card" style="padding: 3rem; text-align: center;">
-                <h3 id="soil-moisture" style="font-size: 3rem; color: var(--primary);">42.1%</h3>
-                <p style="font-weight: 600; color: var(--accent);">Water Retention</p>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Improved resilience during the 2026 summer heatwaves compared to conventional soil.</p>
-            </div>
-            <div class="rich-card" style="padding: 3rem; text-align: center;">
-                <h3 style="font-size: 3rem; color: var(--primary);">2.4M</h3>
-                <p style="font-weight: 600; color: var(--accent);">Carbon Sequestered</p>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Tons of atmospheric carbon trapped via organic root systems across the globe.</p>
+    <section id="impact-section">
+        <div class="container">
+            <h2 class="section-title">Global Organic Impact Index (2026 Projections)</h2>
+            <div class="impact-grid">
+                <div class="glass-card">
+                    <h3 class="stat-number" data-target="45">0</h3>
+                    <p>% Soil Recovery Rate</p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="stat-number" data-target="30">0</h3>
+                    <p>% Better Water Retention</p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="stat-number" data-target="1200">0</h3>
+                    <p>Megatons Carbon Offset</p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="stat-number" data-target="85">0</h3>
+                    <p>Biodiversity Score</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" style="background: #f0f4f0;">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
-                <div>
-                    <h2 style="font-size: 2.5rem; color: var(--primary);">Latest Research</h2>
-                    <p>Evidence-based articles published in <span class="current-year"></span></p>
-                </div>
-                <a href="blogs.html" style="color: var(--primary); font-weight: 700;">View All Insights &rarr;</a>
-            </div>
+    <section class="container" style="text-align:center;">
+        <div class="glass-card" style="border-left: 5px solid var(--primary-green);">
+            <h2>Why 2026 is the Tipping Point</h2>
+            <p style="margin-top:1rem; max-width:800px; margin-left:auto; margin-right:auto;">
+                The convergence of extreme weather events and depleted topsoil has created a critical deadline. Our data labs indicate that 2026 is the year conventional chemical farming becomes economically unviable for 60% of smallholders. The transition must happen now.
+            </p>
+        </div>
+    </section>
 
-            <div class="card-grid">
-                <div class="rich-card">
-                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=80" class="card-img">
-                    <div class="card-body">
-                        <span class="card-tag">Research Paper</span>
-                        <h3 style="margin: 1rem 0;">The 2026 Nitrate Crisis</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">How conventional runoff is affecting 2026 groundwater and the organic solution.</p>
-                        <a href="blog-post-1.html" style="text-decoration: none; color: var(--primary); font-weight: 700;">Read Analysis</a>
-                    </div>
-                </div>
-                </div>
+    <section class="container">
+        <h2 class="section-title">Featured Insights</h2>
+        <div class="blog-grid">
+            <a href="blog-post-1.html" class="glass-card blog-card">
+                <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500&q=80" alt="Field">
+                <p class="blog-date">Jan 12, 2026</p>
+                <h3>The 2026 Nitrate Crisis</h3>
+                <p>An in-depth analysis of soil saturation levels.</p>
+            </a>
+            <a href="blog-post-2.html" class="glass-card blog-card">
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500&q=80" alt="Tech">
+                <p class="blog-date">Feb 04, 2026</p>
+                <h3>AI and Organic Yields</h3>
+                <p>Predictive modeling for the coming harvest.</p>
+            </a>
+            <a href="blog-post-3.html" class="glass-card blog-card">
+                <img src="https://images.unsplash.com/photo-1615811361523-9204a0a93f11?w=500&q=80" alt="Water">
+                <p class="blog-date">Mar 10, 2026</p>
+                <h3>Water Wars: The Organic Shield</h3>
+                <p>How organic soil structures prevent drought loss.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 4rem;">
+        <div class="glass-card" style="background: linear-gradient(45deg, var(--primary-green), var(--earth-brown)); text-align: center;">
+            <h2>Support the Transition</h2>
+            <p style="margin: 1rem 0;">Our research is open-source and community funded. Help us keep the data free.</p>
+            <a href="donate.html" class="btn" style="background: white; color: var(--primary-green);">Donate Now</a>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-grid">
-            <div>
-                <a href="#" class="logo" style="color:white">ORGANIQ<span>FARM</span></a>
-                <p style="margin-top: 1.5rem; opacity: 0.8;">The world's leading authority on organic agricultural data and nutritional transparency in <span class="current-year"></span>.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>OrganiqFarm</h3>
+                    <p>Cultivating the future.</p>
+                    <span class="verified-badge">Verified by OrganiqFarm Labs 2026</span>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">Mission</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                        <li><a href="affiliates.html">Affiliates</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <p>info@organiqfarm.com</p>
+                    <p>Noida, India (HQ)</p>
+                </div>
             </div>
-            <div>
-                <h4 class="footer-head">Explore</h4>
-                <p><a href="facts.html" style="color:white; text-decoration:none; opacity:0.8;">Verified Facts</a></p>
-                <p><a href="nutrition.html" style="color:white; text-decoration:none; opacity:0.8;">Nutrition Index</a></p>
-                <p><a href="weather.html" style="color:white; text-decoration:none; opacity:0.8;">Weather Trends</a></p>
-            </div>
-            <div>
-                <h4 class="footer-head">Support</h4>
-                <p><a href="donate.html" style="color:white; text-decoration:none; opacity:0.8;">Donate to Research</a></p>
-                <p><a href="affiliates.html" style="color:white; text-decoration:none; opacity:0.8;">Partner Tools</a></p>
-            </div>
-            <div>
-                <h4 class="footer-head">Newsletter</h4>
-                <input type="email" placeholder="Email Address" style="width:100%; padding: 0.8rem; border-radius: 5px; border:none;">
-                <button style="width:100%; margin-top: 1rem; padding: 0.8rem; background: var(--accent); color:white; border:none; border-radius: 5px; cursor:pointer;">Subscribe</button>
-            </div>
-        </div>
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-            <p style="opacity: 0.6; font-size: 0.8rem;">&copy; <span class="current-year"></span> OrganiqFarm Portal. Verified Organic Data Distribution.</p>
+            <p style="text-align: center; opacity: 0.7; font-size: 0.8rem;">&copy; 2026 OrganiqFarm. Open Source.</p>
         </div>
     </footer>
 
