@@ -2,37 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nutrition Values | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Index 2026 | OrganiqFarm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .nutri-box { display: flex; align-items: center; gap: 3rem; background: var(--glass); padding: 3rem; border-radius: 25px; margin-bottom: 3rem; border: 1px solid var(--glass-border); }
-        .nutri-img { width: 350px; height: 350px; border-radius: 20px; object-fit: cover; }
-        .bar-container { width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 10px 0 20px; overflow: hidden; }
-        .bar-fill { height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+        .meter-bg { background: rgba(255,255,255,0.05); height: 12px; border-radius: 10px; margin: 10px 0 25px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .meter-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); box-shadow: 0 0 15px var(--primary); }
     </style>
 </head>
 <body>
-    <div class="container" style="padding-top: 120px;">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Research Blog</a></li>
+                <li><a href="facts.html">Verified Facts</a></li>
+                <li><a href="nutrition.html" class="active">Nutrition Index</a></li>
+                <li><a href="about.html">Our Mission</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 150px;">
         <div class="section-header">
-            <h1 class="gradient-text">Nutrient Density Index 2026</h1>
-            <p>OrganiqFarm produce contains significantly higher bio-available compounds.</p>
+            <span class="badge">Lab Report 2026</span>
+            <h1 class="gradient-text" style="font-size: 3rem;">Nutritional Density Index</h1>
+            <p class="section-desc">We track the phytonutrient levels of our crops to ensure every bite delivers maximum biological value.</p>
         </div>
 
-        <div class="nutri-box">
-            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800" class="nutri-img" alt="Carrots">
-            <div style="flex: 1;">
-                <span class="tag">Produce ID: #2026-C</span>
-                <h2>Beta-Carotene Density (Carrots)</h2>
-                <p>Our regenerative soil allows for deeper root penetration, pulling 3x the minerals from the bedrock layers.</p>
-                
-                <p style="margin-top: 1.5rem;">Vitamin A Concentration</p>
-                <div class="bar-container"><div class="bar-fill" style="width: 94%;"></div></div>
-                
-                <p>Antioxidant Capacity</p>
-                <div class="bar-container"><div class="bar-fill" style="width: 88%;"></div></div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=600')"></div>
+                <div class="card-content">
+                    <h3 style="color: var(--primary);"><i class="fas fa-apple-whole"></i> Regenerative Carrots</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">Batch ID: #ORG-2026-XC</p>
+                    
+                    <label>Beta-Carotene Concentration</label>
+                    <div class="meter-bg"><div class="meter-fill" style="width: 92%;"></div></div>
+                    
+                    <label>Bio-available Magnesium</label>
+                    <div class="meter-bg"><div class="meter-fill" style="width: 88%;"></div></div>
+                    
+                    <p style="font-size: 0.85rem;">Result: <span style="color: var(--primary);">+42% Higher than Retail</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8fd3d9ebc4a5?q=80&w=600')"></div>
+                <div class="card-content">
+                    <h3 style="color: var(--primary);"><i class="fas fa-leaf"></i> Ancient Kale</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">Batch ID: #ORG-2026-KL</p>
+                    
+                    <label>Iron Absorption Rate</label>
+                    <div class="meter-bg"><div class="meter-fill" style="width: 95%;"></div></div>
+                    
+                    <label>Chlorophyll Density</label>
+                    <div class="meter-bg"><div class="meter-fill" style="width: 91%;"></div></div>
+                    
+                    <p style="font-size: 0.85rem;">Result: <span style="color: var(--primary);">+38% Higher than Retail</span></p>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div><a href="index.html" class="logo">ORGANIQ<span>FARM</span></a><p>The global authority on regenerative data 2026.</p></div>
+            <div><h4>Research</h4><a href="blogs.html" style="color:#64748b; text-decoration:none; display:block;">Library</a></div>
+            <div><h4>Contact</h4><p style="color:#64748b;">support@organiqfarm.com</p></div>
+            <div><h4>Security</h4><p style="color:#64748b;"><i class="fas fa-shield-check"></i> Encrypted Access</p></div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 OrganiqFarm Portal.</div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
