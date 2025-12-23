@@ -3,62 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';">
-    <title>2026 Nutritional Index | OrganiqFarm</title>
-    <meta property="og:title" content="Organic vs Conventional: 2026 Nutrient Density Study">
-    <meta property="og:description" content="Compare vitamin, mineral, and pesticide levels across 20 essential food items.">
+    <title>2026 Nutrition Index | OrganiqFarm</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; color: #fff; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background: rgba(46, 125, 50, 0.5); }
+        tr:hover { background: rgba(255,255,255,0.05); }
+        .positive { color: var(--accent-lime); font-weight: bold; }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blogs.html">Insights</a></li>
-            <li><a href="facts.html">Fact Check</a></li>
-            <li><a href="nutrition.html" style="color:var(--accent)">Nutrition</a></li>
-            <li><a href="donate.html">Support</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar"><div class="container nav-container"><a href="index.html" class="logo">OrganiqFarm<span>2026</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="facts.html">Facts</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="about.html">About</a></li></ul></div></nav>
 
-    <header class="hero" style="height: 40vh; background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1920&q=80');">
-        <h1>Nutritional Index 2026</h1>
-        <p>Data-Backed Comparison of Organic vs. Chemical Agriculture</p>
-    </header>
+    <div class="container" style="padding: 4rem 20px;">
+        <h1 class="section-title">2026 Nutritional Density Index</h1>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+            The 2026 harvest data indicates a widening gap between organic and conventional produce. Due to soil depletion in conventional farms, nutrient density has dropped significantly.
+        </p>
 
-    <section class="container">
-        <div class="card" style="margin-bottom: 2rem;">
-            <h3>Why Data Matters</h3>
-            <p>Our 2026 labs show that soil depletion in conventional farming has reached a 10-year high. Organic produce now averages 25% higher antioxidant counts.</p>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Food Item</th>
-                    <th>Organic Vitamin C</th>
-                    <th>Conventional</th>
-                    <th>Pesticide Risk</th>
-                    <th>2026 Benefit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Spinach</td><td>84mg</td><td>52mg</td><td>High (Conventional)</td><td>+61% Magnesium</td></tr>
-                <tr><td>Blueberries</td><td>120 units</td><td>70 units</td><td>Extreme</td><td>Anthocyanin Rich</td></tr>
-                <tr><td>Apples (Fuji)</td><td>High</td><td>Low</td><td>Medium</td><td>No Wax Coating</td></tr>
-                <tr><td>Tomatoes</td><td>+40% Lycopene</td><td>Base</td><td>Low</td><td>Heart Health</td></tr>
-                <tr><td>Kale</td><td>Superior</td><td>Average</td><td>High</td><td>Clean Fibers</td></tr>
-                <tr><td>Potatoes</td><td>Mineral Rich</td><td>Starch Only</td><td>High</td><td>Soil Integrity</td></tr>
-                <tr><td>Carrots</td><td>Beta-Carotene++</td><td>Base</td><td>Medium</td><td>Taste Profile</td></tr>
-                <tr><td>Strawberries</td><td>Highest</td><td>Low</td><td>Critical</td><td>Bio-available</td></tr>
-                <tr><td>Bell Peppers</td><td>Active</td><td>Dormant</td><td>High</td><td>Immune Support</td></tr>
-                <tr><td>Avocado</td><td>Omega-3+</td><td>Standard</td><td>Low</td><td>Healthy Fats</td></tr>
+        <div class="glass-card" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Key Nutrient</th>
+                        <th>Organic Advantage</th>
+                        <th>Health Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tomato</td><td>Lycopene</td><td class="positive">+22%</td><td>Cancer prevention support</td></tr>
+                    <tr><td>Spinach</td><td>Iron</td><td class="positive">+18%</td><td>Blood health, energy</td></tr>
+                    <tr><td>Blueberries</td><td>Antioxidants</td><td class="positive">+40%</td><td>Cellular repair</td></tr>
+                    <tr><td>Carrots</td><td>Beta-carotene</td><td class="positive">+12%</td><td>Vision, immunity</td></tr>
+                    <tr><td>Milk</td><td>Omega-3</td><td class="positive">+56%</td><td>Heart health, brain function</td></tr>
+                    <tr><td>Potatoes</td><td>Magnesium</td><td class="positive">+10%</td><td>Muscle function</td></tr>
+                    <tr><td>Apples</td><td>Flavonoids</td><td class="positive">+25%</td><td>Anti-inflammatory</td></tr>
+                    <tr><td>Strawberries</td><td>Vitamin C</td><td class="positive">+19%</td><td>Immune boost</td></tr>
+                    <tr><td>Broccoli</td><td>Glucosinolates</td><td class="positive">+30%</td><td>Detoxification</td></tr>
+                    <tr><td>Bell Peppers</td><td>Vitamin C</td><td class="positive">+15%</td><td>Skin health</td></tr>
+                    <tr><td>Wheat</td><td>Zinc</td><td class="positive">+11%</td><td>Immune defense</td></tr>
+                    <tr><td>Kale</td><td>Calcium</td><td class="positive">+14%</td><td>Bone density</td></tr>
                 </tbody>
-        </table>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 OrganiqFarm Data Research. <a href="donate.html" style="color:var(--accent)">Support our Labs</a></p>
-    </footer>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
