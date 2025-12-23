@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog | OrganiqFarm</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Research Archive 2026 | OrganiqFarm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,28 +12,39 @@
             <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="affiliates.html">Affiliates</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="blogs.html" class="active">Research Blog</a></li>
+                <li><a href="facts.html">Verified Facts</a></li>
+                <li><a href="nutrition.html">Nutrition Index</a></li>
+                <li><a href="about.html">Our Mission</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container" style="padding-top: 120px;">
-        <div class="section-header">
-            <h1 class="gradient-text">Research & Insights</h1>
-        </div>
+    <div class="container" style="padding-top: 150px;">
+        <h2 class="section-title">2026 Insights Library</h2>
+        <p class="section-desc">Deep-dive technical articles into the science of regenerative agriculture.</p>
+        
         <div class="grid">
             <div class="card" onclick="location.href='blog-post-1.html'">
-                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=400" alt="Post">
-                <h3>Soil Intelligence</h3>
-                <p>Read about the 2026 microbial breakthrough.</p>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=600')"></div>
+                <div class="card-content">
+                    <span style="color: var(--primary); font-size: 0.8rem; font-weight: 800;">SOIL BIOLOGY</span>
+                    <h3>The Mycelial Revolution</h3>
+                    <p>Understanding the underground fungal internet...</p>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; color: #64748b;">Jan 20, 2026</p>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='blog-post-2.html'">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?q=80&w=600')"></div>
+                <div class="card-content">
+                    <span style="color: var(--primary); font-size: 0.8rem; font-weight: 800;">NUTRITION</span>
+                    <h3>Bio-Available Minerals</h3>
+                    <p>Why organic produce tastes and heals better...</p>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; color: #64748b;">Jan 25, 2026</p>
+                </div>
             </div>
             </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
