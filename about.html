@@ -3,67 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Mission | OrganiqFarm 2026</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>About Us | OrganiqFarm</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .timeline { border-left: 2px solid var(--glass-border); margin-left: 20px; padding-left: 30px; position: relative; }
-        .timeline-item { margin-bottom: 40px; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -41px; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); }
-    </style>
 </head>
 <body>
+    <nav class="navbar"><div class="container nav-container"><a href="index.html" class="logo">OrganiqFarm<span>2026</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="facts.html">Facts</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="about.html">About</a></li></ul></div></nav>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Research Blog</a></li>
-                <li><a href="facts.html">Verified Facts</a></li>
-                <li><a href="nutrition.html">Nutrition Index</a></li>
-                <li><a href="about.html" class="active">Our Mission</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container" style="padding-top: 4rem;">
+        <div class="glass-card">
+            <h1 class="section-title">Our Mission</h1>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+                "To accelerate the global transition to verifiable, sustainable organic agriculture by 2026 through open data, public education, and community funding."
+            </p>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 2rem 0;">
 
-    <div class="container" style="padding-top: 150px;">
-        <div class="grid" style="align-items: center; margin-bottom: 5rem;">
-            <div>
-                <h1 class="gradient-text" style="font-size: 3.5rem;">Soil First. <br>People Always.</h1>
-                <p style="margin: 1.5rem 0; font-size: 1.1rem; color: #cbd5e1;">Founded in the wake of the 2024 agricultural shift, OrganiqFarm was built to prove that technology doesn't have to fight nature—it can amplify it.</p>
-                <p>We are a collective of soil scientists, organic farmers, and data engineers dedicated to restoring the Earth's microbiome while feeding a growing population.</p>
-            </div>
-            <div class="card" style="padding: 0; height: 400px; background: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=800') center/cover;"></div>
-        </div>
-
-        <h2 class="section-title">The Evolution</h2>
-        <div class="timeline" style="max-width: 800px; margin: 4rem auto;">
-            <div class="timeline-item">
-                <h4 style="color: var(--primary);">2024: The Foundation</h4>
-                <p>Acquired 400 acres of depleted industrial land to begin our first regeneration pilot.</p>
-            </div>
-            <div class="timeline-item">
-                <h4 style="color: var(--primary);">2025: The Tech Integration</h4>
-                <p>Launched our first AI-microbial sensor network across the Central Valley plots.</p>
-            </div>
-            <div class="timeline-item">
-                <h4 style="color: var(--primary);">2026: Global Authority</h4>
-                <p>OrganiqFarm.com becomes the primary data portal for regenerative organic standards.</p>
+            <h2>How This Site is Sustained</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div>
+                    <h3 style="color: var(--accent-lime);">Affiliate Partnerships</h3>
+                    <p>We curate links to organic seeds, tools, and books. A portion of these sales directly funds our soil testing kits.</p>
+                    <a href="affiliates.html" style="text-decoration: underline;">View Partners</a>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-lime);">Community Donations</h3>
+                    <p>Direct funding helps us produce the "2026 Impact Reports" and support smallholder transitions.</p>
+                    <a href="donate.html" style="text-decoration: underline;">Donate Here</a>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-lime);">Sponsored Research</h3>
+                    <p>We partner with ethical institutions to publish foundational studies on climate resilience.</p>
+                </div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div><a href="index.html" class="logo">ORGANIQ<span>FARM</span></a><p>The global authority on regenerative data 2026.</p></div>
-            <div><h4>Research</h4><a href="blogs.html" style="color:#64748b; text-decoration:none; display:block;">Library</a></div>
-            <div><h4>Contact</h4><p style="color:#64748b;">mission@organiqfarm.com</p></div>
-            <div><h4>Security</h4><p style="color:#64748b;"><i class="fas fa-shield-check"></i> System Secured</p></div>
-        </div>
-        <div class="footer-bottom">&copy; 2026 OrganiqFarm Portal.</div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
