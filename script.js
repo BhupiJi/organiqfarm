@@ -1,28 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Animated Counters
+    // 1. STATS COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
+    const animate = (el) => {
+        const target = +el.getAttribute('data-target');
+        let count = 0;
+        const update = () => {
+            const inc = target / 80;
+            if (count < target) {
+                count += inc;
+                el.innerText = Math.ceil(count);
+                setTimeout(update, 15);
+            } else { el.innerText = target; }
+        };
+        update();
+    };
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = +entry.target.getAttribute('data-target');
-                let count = 0;
-                const update = () => {
-                    const inc = target / 100;
-                    if (count < target) {
-                        count += inc;
-                        entry.target.innerText = Math.ceil(count);
-                        setTimeout(update, 20);
-                    } else { entry.target.innerText = target; }
-                };
-                update();
+                animate(entry.target);
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 1 });
+    }, { threshold: 0.8 });
     counters.forEach(c => observer.observe(c));
 
-    // Security: Anti-Right Click for Images
-    document.addEventListener('contextmenu', e => {
-        if (e.target.tagName === 'IMG') e.preventDefault();
-    });
+    // 2. SECURITY: DISABLE RIGHT CLICK & DRAG
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = (e) => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0)))) return false;
+    };
 });
