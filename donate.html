@@ -3,31 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate | OrganiqFarm</title>
+    <title>Fuel the Revolution | OrganiqFarm</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Donate Page */
+        .impact-pill {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(46, 125, 50, 0.3);
+            border: 1px solid var(--primary-green);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .donate-card {
+            position: relative;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .donate-card:hover { border-color: var(--accent-lime); }
+        .donate-card.selected { 
+            border-color: var(--primary-green); 
+            background: rgba(46, 125, 50, 0.15);
+        }
+
+        .amount-highlight {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-lime);
+            margin: 1rem 0;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            height: 10px;
+            border-radius: 5px;
+            margin: 2rem 0 1rem 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-green);
+            width: 65%; /* Dummy data */
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar"><div class="container nav-container"><a href="index.html" class="logo">OrganiqFarm<span>2026</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="facts.html">Facts</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="about.html">About</a></li></ul></div></nav>
 
-    <div class="container" style="padding: 4rem 0; text-align: center;">
-        <h1 class="section-title">Fuel the Revolution</h1>
-        <div class="impact-grid">
-            <div class="glass-card">
-                <h3>$1.99</h3>
-                <p>Funds 1 Soil Test Kit for a small farmer.</p>
-                <button class="btn" style="margin-top:1rem;">Select</button>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">OrganiqFarm<span>2026</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="facts.html">Facts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="height: 50vh; background-image: url('https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?w=1920&q=80');">
+        <div class="hero-content">
+            <span class="impact-pill">Non-Profit & Open Source</span>
+            <h1>Data costs money. <br>The truth is priceless.</h1>
+            <p>Help us keep the 2026 Agricultural Reports free for every farmer on Earth.</p>
+        </div>
+    </header>
+
+    <section class="container" style="padding-top: 4rem;">
+        <div class="glass-card" style="border-left: 5px solid #d32f2f;">
+            <h2><i class="fas fa-shield-alt"></i> Why We Need Independent Funding</h2>
+            <p style="margin-top: 1rem;">
+                Most agricultural data is funded by the same chemical conglomerates selling the fertilizers. They have a vested interest in hiding the "Nitrate Plateau." 
+                <br><br>
+                <strong>OrganiqFarm is different.</strong> We take $0 from corporate agribusiness. Our soil sensors, satellite access, and lab tests are 100% funded by people like you. This ensures our data remains unbiased, uncorrupted, and open-source.
+            </p>
+        </div>
+    </section>
+
+    <section class="container" style="text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3>Current Project: The "Global Water Map 2026"</h3>
+            <p style="opacity: 0.8;">Mapping aquifer depletion in real-time to help farmers find water.</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
             </div>
-            <div class="glass-card" style="border-color: var(--accent-lime);">
-                <h3>$3.99</h3>
-                <p>Supports the "2026 Water Report" research.</p>
-                <button class="btn" style="margin-top:1rem;">Select</button>
-            </div>
-            <div class="glass-card">
-                <h3>$9.99</h3>
-                <p>Sponsors a workshop on Regenerative Ag.</p>
-                <button class="btn" style="margin-top:1rem;">Select</button>
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; opacity: 0.7;">
+                <span>Raised: $5,000</span>
+                <span>Goal: $10,000</span>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 4rem;">
+        <h2 class="section-title">Choose Your Impact</h2>
+        
+        <div class="donation-grid">
+            
+            <div class="glass-card donate-card" onclick="selectCard(this)">
+                <h3>The Seedling</h3>
+                <div class="amount-highlight">$10</div>
+                <p><strong>Impact:</strong> Uploads 5GB of climate data to our open-source servers.</p>
+                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Monthly Newsletter</li>
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Name on "Backers" page</li>
+                </ul>
+                <button class="btn" style="width: 100%; margin-top: 1.5rem; background: transparent; border: 1px solid var(--primary-green);">Select</button>
+            </div>
+
+            <div class="glass-card donate-card selected" style="transform: scale(1.05);" onclick="selectCard(this)">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-lime); color: #000; padding: 2px 10px; font-size: 0.7rem; border-radius: 10px; font-weight: bold;">MOST POPULAR</div>
+                <h3>The Cultivator</h3>
+                <div class="amount-highlight">$50</div>
+                <p><strong>Impact:</strong> Funds 1 complete Soil Testing Kit for a smallholder farmer.</p>
+                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> All previous rewards</li>
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Digital "Verified Donor" Badge</li>
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Early access to Q3 Reports</li>
+                </ul>
+                <button class="btn" style="width: 100%; margin-top: 1.5rem;">Select</button>
+            </div>
+
+            <div class="glass-card donate-card" onclick="selectCard(this)">
+                <h3>The Harvester</h3>
+                <div class="amount-highlight">$250</div>
+                <p><strong>Impact:</strong> Sponsors a full regional workshop on Regenerative Ag.</p>
+                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> All previous rewards</li>
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Private Zoom with Researchers</li>
+                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Printed Annual Report</li>
+                </ul>
+                <button class="btn" style="width: 100%; margin-top: 1.5rem; background: transparent; border: 1px solid var(--primary-green);">Select</button>
+            </div>
+
+        </div>
+
+        <div class="glass-card" style="max-width: 500px; margin: 3rem auto; text-align: center;">
+            <h3>Complete Donation</h3>
+            <p style="margin-bottom: 1rem; font-size: 0.9rem;">Secure SSL Encrypted Payment (Stripe/PayPal)</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 1rem;">
+                <button style="padding: 10px 20px; background: #fff; color: #000; border: none; border-radius: 5px; font-weight: bold;">Credit Card</button>
+                <button style="padding: 10px 20px; background: #0070ba; color: #fff; border: none; border-radius: 5px; font-weight: bold;">PayPal</button>
+                <button style="padding: 10px 20px; background: #5d4037; color: #fff; border: none; border-radius: 5px; font-weight: bold;">Crypto</button>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.6;">*This is a demo site. No actual money will be charged.*</p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; opacity: 0.6; margin-top: 2rem;">
+            <div class="trust-badge"><i class="fas fa-lock"></i> 256-bit SSL Secure</div>
+            <div class="trust-badge"><i class="fas fa-university"></i> Registered 501(c)(3)</div>
+            <div class="trust-badge"><i class="fas fa-check-circle"></i> 100% Transparency Guarantee</div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 OrganiqFarm. Open Source Data for a Greener World.</p>
+        </div>
+    </footer>
+
+    <script>
+        function selectCard(card) {
+            // Remove 'selected' from all cards
+            document.querySelectorAll('.donate-card').forEach(c => {
+                c.classList.remove('selected');
+                c.style.transform = 'scale(1)';
+                c.querySelector('.btn').style.background = 'transparent';
+                c.querySelector('.btn').style.color = '#fff';
+            });
+            // Add 'selected' to clicked card
+            card.classList.add('selected');
+            card.style.transform = 'scale(1.05)';
+            card.querySelector('.btn').style.background = 'var(--primary-green)';
+        }
+    </script>
 </body>
 </html>
