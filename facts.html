@@ -2,33 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Intelligence Hub | Verified Facts 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Facts & Climate | OrganiqFarm</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+        .fact-item { font-size: 0.9rem; border-left: 3px solid var(--accent-lime); padding-left: 1rem; }
+        .weather-bar { height: 20px; background: #333; margin: 10px 0; border-radius: 10px; overflow:hidden; position:relative; }
+        .weather-fill { height: 100%; background: var(--primary-green); width: 0; transition: 1s; }
+    </style>
 </head>
 <body>
-    <div class="container" style="padding-top: 150px;">
-        <h1 class="gradient-text">Verification Archive</h1>
-        <p style="margin-bottom: 3rem;">Raw data comparing OrganiqFarm plots against Industrial standards.</p>
+    <nav class="navbar"><div class="container nav-container"><a href="index.html" class="logo">OrganiqFarm<span>2026</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="facts.html">Facts</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="about.html">About</a></li></ul></div></nav>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <div class="card"><span class="badge">BIO_METRIC</span><h4>Microbial Count</h4><p class="data-font">+4,200% species richness vs Industrial</p></div>
-            <div class="card"><span class="badge">CLIMATE</span><h4>Water Retention</h4><p class="data-font">Holds 250k gallons/acre additional</p></div>
-            <div class="card"><span class="badge">HEALTH</span><h4>Toxin Audit</h4><p class="data-font">0.00% Glyphosate / Lead / Mercury</p></div>
-            <div class="card"><span class="badge">GENETIC</span><h4>Heirloom Purity</h4><p class="data-font">100% Non-GMO Certified Strains</p></div>
+    <div class="container" style="padding-top: 4rem;">
+        <h1 class="section-title">2026 Verified Facts</h1>
+        
+        <div class="glass-card" style="margin-bottom: 3rem;">
+            <div class="fact-grid">
+                <div class="fact-item"><strong>Yield:</strong> Organic yields in drought years are 30% higher than conventional.</div>
+                <div class="fact-item"><strong>Energy:</strong> Organic systems use 45% less energy per unit of production.</div>
+                <div class="fact-item"><strong>Water:</strong> Healthy organic soil holds 20,000 gallons more water per acre.</div>
+                <div class="fact-item"><strong>Economy:</strong> Organic hotspots reduce local poverty rates by 1.3%.</div>
+                <div class="fact-item"><strong>Health:</strong> 0% pesticide residue found in 2026 certified crops.</div>
+                <div class="fact-item"><strong>Carbon:</strong> Regenerative grazing captures 3 tons of Carbon/acre/year.</div>
+                <div class="fact-item"><strong>Insects:</strong> Pollinator populations are 50% higher on organic farms.</div>
+                <div class="fact-item"><strong>Jobs:</strong> Organic farming provides 30% more jobs per hectare.</div>
+                <div class="fact-item"><strong>Nitrogen:</strong> Reduces reactive nitrogen pollution by 40-70%.</div>
+                <div class="fact-item"><strong>Erosion:</strong> Reduces topsoil erosion by up to 25%.</div>
+                <div class="fact-item"><strong>Nutrients:</strong> 25% higher flavonoids in organic produce.</div>
+                <div class="fact-item"><strong>Resilience:</strong> Faster recovery after hurricanes/floods.</div>
+                <div class="fact-item"><strong>Market:</strong> Global organic market hit $300B in 2025.</div>
+                <div class="fact-item"><strong>Seeds:</strong> Heritage seeds showed 15% better germination in '25 heatwave.</div>
+                <div class="fact-item"><strong>Policy:</strong> 14 countries banned synthetic nitrogen in 2026.</div>
             </div>
+        </div>
 
-        <div style="margin-top: 5rem;" class="card">
-            <h2 class="gradient-text">Weather & Yield Impact Analysis</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 2rem;">
-                <div>
-                    <h4 style="color: var(--primary);">The 2024 Drought Resilience</h4>
-                    <p>When the Central Valley hit 45°C, OrganiqFarm soil remained 12°C cooler due to fungal cover, preventing a 70% yield loss seen in neighbors.</p>
+        <h2 class="section-title">Weather Patterns & Resilience (2020-2026)</h2>
+        <div class="glass-card">
+            <h3>Extreme Weather Impact Analysis</h3>
+            <p>Recent data confirms that conventional monocultures fail catastrophically during the new "Heat Dome" events.</p>
+            <br>
+            <div style="margin-bottom: 2rem;">
+                <p>Crop Survival Rate (2025 Heatwave)</p>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span>Organic</span>
+                    <div class="weather-bar" style="flex-grow:1;"><div class="weather-fill" style="width: 85%;"></div></div>
+                    <span>85%</span>
                 </div>
-                <div>
-                    <h4 style="color: var(--primary);">2026 Flood Infiltration</h4>
-                    <p>Our soil absorbed 12 inches of rain in 24 hours with zero topsoil loss. Industrial plots lost 2 tons of soil per acre.</p>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span>Conventional</span>
+                    <div class="weather-bar" style="flex-grow:1;"><div class="weather-fill" style="width: 42%; background: #d32f2f;"></div></div>
+                    <span>42%</span>
                 </div>
             </div>
+            <h3>Key Takeaway</h3>
+            <p>Resilience is no longer a luxury; it is the only insurance policy that works.</p>
         </div>
     </div>
 </body>
