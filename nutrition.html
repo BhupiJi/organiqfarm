@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nutrition Index | OrganiqFarm 2026</title>
+    <title>2026 Nutrition Density Index | OrganiqFarm</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:;">
     <link rel="stylesheet" href="style.css">
-    <style>
-        table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: var(--card-bg); border-radius: 20px; overflow: hidden; }
-        th, td { padding: 1.5rem; text-align: left; border-bottom: 1px solid var(--glass-border); }
-        th { background: var(--primary); color: var(--dark); }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -26,18 +21,26 @@
     </nav>
 
     <div class="container" style="padding-top: 150px;">
-        <h1 class="gradient-text section-title">The 2026 Nutrition Benchmark</h1>
-        <table>
-            <thead>
-                <tr><th>Nutrient</th><th>Ind. Average</th><th>OrganiqFarm</th><th>Health Impact</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Magnesium</td><td>15mg</td><td>58mg</td><td>Nerve Function</td></tr>
-                <tr><td>Vitamin C</td><td>8mg</td><td>32mg</td><td>Immunity</td></tr>
-                <tr><td>Antioxidants</td><td>Low</td><td>Ultra-High</td><td>Cell Repair</td></tr>
-                <tr><td>Omega-3</td><td>0.01g</td><td>0.45g</td><td>Brain Health</td></tr>
-                </tbody>
-        </table>
+        <h1 class="gradient-text section-title">2026 Bio-Density Index</h1>
+        <p class="section-desc">Comparison of micronutrient concentration per 100g of produce.</p>
+        
+        <div style="overflow-x:auto;">
+            <table style="width:100%; border-collapse: collapse; background: var(--card-bg); border-radius: 20px;">
+                <tr style="background: var(--primary); color: var(--dark);">
+                    <th style="padding:15px;">Micronutrient</th><th style="padding:15px;">Industrial Avg</th><th style="padding:15px;">OrganiqFarm</th><th style="padding:15px;">Increase</th>
+                </tr>
+                <tr><td style="padding:15px;">Magnesium</td><td>18mg</td><td>62mg</td><td>+244%</td></tr>
+                <tr><td style="padding:15px;">Vitamin C</td><td>6mg</td><td>34mg</td><td>+466%</td></tr>
+                <tr><td style="padding:15px;">Zinc</td><td>0.3mg</td><td>1.2mg</td><td>+300%</td></tr>
+                <tr><td style="padding:15px;">Iron</td><td>0.5mg</td><td>2.1mg</td><td>+320%</td></tr>
+                <tr><td style="padding:15px;">Antioxidants</td><td>120 units</td><td>850 units</td><td>+608%</td></tr>
+                <tr><td style="padding:15px;">Potassium</td><td>150mg</td><td>480mg</td><td>+220%</td></tr>
+                <tr><td style="padding:15px;">Calcium</td><td>24mg</td><td>68mg</td><td>+183%</td></tr>
+                <tr><td style="padding:15px;">Omega-3</td><td>0.02g</td><td>0.54g</td><td>+2600%</td></tr>
+                <tr><td style="padding:15px;">Lycopene</td><td>3.0mg</td><td>9.2mg</td><td>+206%</td></tr>
+                <tr><td style="padding:15px;">Selenium</td><td>0.4mcg</td><td>1.8mcg</td><td>+350%</td></tr>
+            </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
