@@ -1,76 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&family=Space+Grotesk:wght@300;700&display=swap');
+/* OrganiqFarm 2026 - Master Stylesheet 
+   Design: Modern Information Portal / Glassmorphism
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary: #00ff88; 
-    --accent: #facc15;
-    --bg: #020301;
-    --card: rgba(255,255,255,0.03);
-    --border: rgba(0, 255, 136, 0.2);
+    --primary: #2d5a27;
+    --secondary: #4a7c44;
+    --accent: #f4a261;
+    --glass: rgba(255, 255, 255, 0.9);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --text: #2b2d42;
 }
 
-* { margin:0; padding:0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
 body {
-    background: var(--bg);
-    color: #e2e8f0;
-    font-family: 'Space Grotesk', sans-serif;
+    background: #f0f2f0; /* Fallback */
+    background: linear-gradient(135deg, #f0f2f0 0%, #e0e8e0 100%);
+    color: var(--text);
     line-height: 1.6;
-    background-image: radial-gradient(var(--border) 1px, transparent 1px);
-    background-size: 40px 40px;
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, #fff, var(--primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
+/* Sticky Navbar */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
 }
 
-.data-font { font-family: 'JetBrains Mono', monospace; }
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
 
-.navbar {
-    padding: 1.5rem 5%;
-    background: rgba(2,3,1,0.9);
-    border-bottom: 1px solid var(--border);
-    position: fixed; width: 100%; top:0; z-index: 1000;
-    display: flex; justify-content: space-between; align-items: center;
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; text-decoration:none; color: #fff; }
-.logo span { color: var(--primary); }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-.nav-links { display: flex; list-style: none; gap: 2rem; }
-.nav-links a { color: #94a3b8; text-decoration:none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
-.container { max-width: 1200px; margin: auto; padding: 0 5%; }
+/* Data Cards */
+.container { padding: 4rem 10%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
 .card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: var(--glass);
     padding: 2rem;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
-    transition: 0.3s;
-}
-.card:hover { border-color: var(--primary); background: rgba(0,255,136,0.05); }
-
-.btn-primary {
-    background: transparent;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    font-weight: 800;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
     cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.2);
 }
-.btn-primary:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
 
-.badge { background: var(--primary); color: #000; padding: 2px 10px; font-size: 0.7rem; font-weight: 800; margin-bottom: 10px; display: inline-block; }
+.card:hover { transform: translateY(-10px); background: #ffffff; }
 
-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
-th { text-align: left; border-bottom: 2px solid var(--primary); padding: 10px; color: var(--primary); }
-td { padding: 15px 10px; border-bottom: 1px solid var(--border); }
+/* Tables for Nutrition */
+table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: white; border-radius: 10px; overflow: hidden; }
+th { background: var(--primary); color: white; padding: 1rem; }
+td { padding: 1rem; border-bottom: 1px solid #eee; text-align: center; }
+
+/* Footer */
+footer { background: var(--primary); color: white; padding: 3rem 10% 1rem; margin-top: 4rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
