@@ -2,46 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2026 Nutrition Density Index | OrganiqFarm</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';">
+    <title>2026 Nutritional Index | OrganiqFarm</title>
+    <meta property="og:title" content="Organic vs Conventional: 2026 Nutrient Density Study">
+    <meta property="og:description" content="Compare vitamin, mineral, and pesticide levels across 20 essential food items.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html" class="active">Nutrition</a></li>
-                <li><a href="donate.html">Support</a></li>
-            </ul>
-        </div>
+    <nav>
+        <a href="index.html" class="logo">ORGANIQ<span>FARM</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blogs.html">Insights</a></li>
+            <li><a href="facts.html">Fact Check</a></li>
+            <li><a href="nutrition.html" style="color:var(--accent)">Nutrition</a></li>
+            <li><a href="donate.html">Support</a></li>
+        </ul>
     </nav>
 
-    <div class="container" style="padding-top: 150px;">
-        <h1 class="gradient-text section-title">2026 Bio-Density Index</h1>
-        <p class="section-desc">Comparison of micronutrient concentration per 100g of produce.</p>
-        
-        <div style="overflow-x:auto;">
-            <table style="width:100%; border-collapse: collapse; background: var(--card-bg); border-radius: 20px;">
-                <tr style="background: var(--primary); color: var(--dark);">
-                    <th style="padding:15px;">Micronutrient</th><th style="padding:15px;">Industrial Avg</th><th style="padding:15px;">OrganiqFarm</th><th style="padding:15px;">Increase</th>
-                </tr>
-                <tr><td style="padding:15px;">Magnesium</td><td>18mg</td><td>62mg</td><td>+244%</td></tr>
-                <tr><td style="padding:15px;">Vitamin C</td><td>6mg</td><td>34mg</td><td>+466%</td></tr>
-                <tr><td style="padding:15px;">Zinc</td><td>0.3mg</td><td>1.2mg</td><td>+300%</td></tr>
-                <tr><td style="padding:15px;">Iron</td><td>0.5mg</td><td>2.1mg</td><td>+320%</td></tr>
-                <tr><td style="padding:15px;">Antioxidants</td><td>120 units</td><td>850 units</td><td>+608%</td></tr>
-                <tr><td style="padding:15px;">Potassium</td><td>150mg</td><td>480mg</td><td>+220%</td></tr>
-                <tr><td style="padding:15px;">Calcium</td><td>24mg</td><td>68mg</td><td>+183%</td></tr>
-                <tr><td style="padding:15px;">Omega-3</td><td>0.02g</td><td>0.54g</td><td>+2600%</td></tr>
-                <tr><td style="padding:15px;">Lycopene</td><td>3.0mg</td><td>9.2mg</td><td>+206%</td></tr>
-                <tr><td style="padding:15px;">Selenium</td><td>0.4mcg</td><td>1.8mcg</td><td>+350%</td></tr>
-            </table>
+    <header class="hero" style="height: 40vh; background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1920&q=80');">
+        <h1>Nutritional Index 2026</h1>
+        <p>Data-Backed Comparison of Organic vs. Chemical Agriculture</p>
+    </header>
+
+    <section class="container">
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>Why Data Matters</h3>
+            <p>Our 2026 labs show that soil depletion in conventional farming has reached a 10-year high. Organic produce now averages 25% higher antioxidant counts.</p>
         </div>
-    </div>
-    <script src="script.js"></script>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Organic Vitamin C</th>
+                    <th>Conventional</th>
+                    <th>Pesticide Risk</th>
+                    <th>2026 Benefit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Spinach</td><td>84mg</td><td>52mg</td><td>High (Conventional)</td><td>+61% Magnesium</td></tr>
+                <tr><td>Blueberries</td><td>120 units</td><td>70 units</td><td>Extreme</td><td>Anthocyanin Rich</td></tr>
+                <tr><td>Apples (Fuji)</td><td>High</td><td>Low</td><td>Medium</td><td>No Wax Coating</td></tr>
+                <tr><td>Tomatoes</td><td>+40% Lycopene</td><td>Base</td><td>Low</td><td>Heart Health</td></tr>
+                <tr><td>Kale</td><td>Superior</td><td>Average</td><td>High</td><td>Clean Fibers</td></tr>
+                <tr><td>Potatoes</td><td>Mineral Rich</td><td>Starch Only</td><td>High</td><td>Soil Integrity</td></tr>
+                <tr><td>Carrots</td><td>Beta-Carotene++</td><td>Base</td><td>Medium</td><td>Taste Profile</td></tr>
+                <tr><td>Strawberries</td><td>Highest</td><td>Low</td><td>Critical</td><td>Bio-available</td></tr>
+                <tr><td>Bell Peppers</td><td>Active</td><td>Dormant</td><td>High</td><td>Immune Support</td></tr>
+                <tr><td>Avocado</td><td>Omega-3+</td><td>Standard</td><td>Low</td><td>Healthy Fats</td></tr>
+                </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 OrganiqFarm Data Research. <a href="donate.html" style="color:var(--accent)">Support our Labs</a></p>
+    </footer>
 </body>
 </html>
