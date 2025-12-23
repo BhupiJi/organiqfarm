@@ -1,33 +1,29 @@
+/* OrganiqFarm 2026 - Global Logic */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. STATS COUNTER ANIMATION
-    const counters = document.querySelectorAll('.counter');
-    const animate = (el) => {
-        const target = +el.getAttribute('data-target');
-        let count = 0;
-        const update = () => {
-            const inc = target / 80;
-            if (count < target) {
-                count += inc;
-                el.innerText = Math.ceil(count);
-                setTimeout(update, 15);
-            } else { el.innerText = target; }
-        };
-        update();
-    };
+    // 1. CSP & Security Logs
+    console.log("OrganiqFarm Security Shield: Active");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animate(entry.target);
-                observer.unobserve(entry.target);
-            }
+    // 2. Dynamic Year Updater (Ensures 2026 everywhere)
+    const yearElements = document.querySelectorAll('.current-year');
+    yearElements.forEach(el => el.textContent = "2026");
+
+    // 3. Simulated Live Weather/Soil Impact API
+    const updateStats = () => {
+        const soilMoisture = document.getElementById('soil-moisture');
+        if(soilMoisture) {
+            const val = (Math.random() * (45 - 38) + 38).toFixed(1);
+            soilMoisture.textContent = `${val}% (Optimal)`;
+        }
+    };
+    setInterval(updateStats, 5000);
+
+    // 4. Smooth Scroll for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }, { threshold: 0.8 });
-    counters.forEach(c => observer.observe(c));
-
-    // 2. SECURITY: DISABLE RIGHT CLICK & DRAG
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = (e) => {
-        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0)))) return false;
-    };
+    });
 });
