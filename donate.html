@@ -3,205 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuel the Revolution | OrganiqFarm</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    
+    <title>Donate to OrganiqFarm 2026 - Fund Research for Organic Transition</title>
+    <meta name="description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://organiqfarm.com/donate.html">
+    <meta property="og:title" content="Donate to OrganiqFarm 2026 - Fund Research for Organic Transition">
+    <meta property="og:description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://organiqfarm.com/donate.html">
+    <meta property="twitter:title" content="Donate to OrganiqFarm 2026 - Fund Research for Organic Transition">
+    <meta property="twitter:description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Specific Styles for Donate Page */
-        .impact-pill {
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(46, 125, 50, 0.3);
-            border: 1px solid var(--primary-green);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
+        /* Additional styles for donate page */
+        .donate-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
         }
         
-        .donation-grid {
+        .donate-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .donate-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .donation-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
-
-        .donate-card {
-            position: relative;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: 0.3s;
+        
+        .donation-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .donate-card:hover { border-color: var(--accent-lime); }
-        .donate-card.selected { 
-            border-color: var(--primary-green); 
-            background: rgba(46, 125, 50, 0.15);
+        
+        .donation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-
-        .amount-highlight {
+        
+        .donation-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        
+        .donation-amount {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--accent-lime);
-            margin: 1rem 0;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0.8;
-            font-size: 0.9rem;
+            color: var(--primary-green);
+            margin: 20px 0;
         }
         
-        .progress-container {
-            width: 100%;
-            background: rgba(255,255,255,0.1);
-            height: 10px;
-            border-radius: 5px;
-            margin: 2rem 0 1rem 0;
-            overflow: hidden;
+        .donation-description {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
-        .progress-bar {
-            height: 100%;
-            background: var(--primary-green);
-            width: 65%; /* Dummy data */
-            border-radius: 5px;
+        
+        .donate-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .custom-donation {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .custom-amount {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .custom-input {
+            padding: 15px;
+            border: 2px solid var(--light-green);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            width: 200px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 60px 0;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .impact-stat {
+            text-align: center;
+        }
+        
+        .impact-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+        
+        .impact-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .transparency-section {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .transparency-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .transparency-item i {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .transparency-item h4 {
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+        
+        @media (max-width: 768px) {
+            .donate-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .donation-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .custom-amount {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .impact-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">OrganiqFarm<span>2026</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="about.html">About</a></li>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">Organiq<span class="logo-highlight">Farm</span> 2026</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="facts.html" class="nav-link">Facts</a></li>
+                <li class="nav-item"><a href="nutrition.html" class="nav-link">Nutrition</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="donate.html" class="nav-link active donate-btn">Donate</a></li>
             </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <header class="hero" style="height: 50vh; background-image: url('https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?w=1920&q=80');">
-        <div class="hero-content">
-            <span class="impact-pill">Non-Profit & Open Source</span>
-            <h1>Data costs money. <br>The truth is priceless.</h1>
-            <p>Help us keep the 2026 Agricultural Reports free for every farmer on Earth.</p>
-        </div>
-    </header>
-
-    <section class="container" style="padding-top: 4rem;">
-        <div class="glass-card" style="border-left: 5px solid #d32f2f;">
-            <h2><i class="fas fa-shield-alt"></i> Why We Need Independent Funding</h2>
-            <p style="margin-top: 1rem;">
-                Most agricultural data is funded by the same chemical conglomerates selling the fertilizers. They have a vested interest in hiding the "Nitrate Plateau." 
-                <br><br>
-                <strong>OrganiqFarm is different.</strong> We take $0 from corporate agribusiness. Our soil sensors, satellite access, and lab tests are 100% funded by people like you. This ensures our data remains unbiased, uncorrupted, and open-source.
-            </p>
-        </div>
-    </section>
-
-    <section class="container" style="text-align: center;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h3>Current Project: The "Global Water Map 2026"</h3>
-            <p style="opacity: 0.8;">Mapping aquifer depletion in real-time to help farmers find water.</p>
-            
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; opacity: 0.7;">
-                <span>Raised: $5,000</span>
-                <span>Goal: $10,000</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" style="padding-bottom: 4rem;">
-        <h2 class="section-title">Choose Your Impact</h2>
-        
-        <div class="donation-grid">
-            
-            <div class="glass-card donate-card" onclick="selectCard(this)">
-                <h3>The Seedling</h3>
-                <div class="amount-highlight">$10</div>
-                <p><strong>Impact:</strong> Uploads 5GB of climate data to our open-source servers.</p>
-                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Monthly Newsletter</li>
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Name on "Backers" page</li>
-                </ul>
-                <button class="btn" style="width: 100%; margin-top: 1.5rem; background: transparent; border: 1px solid var(--primary-green);">Select</button>
-            </div>
-
-            <div class="glass-card donate-card selected" style="transform: scale(1.05);" onclick="selectCard(this)">
-                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-lime); color: #000; padding: 2px 10px; font-size: 0.7rem; border-radius: 10px; font-weight: bold;">MOST POPULAR</div>
-                <h3>The Cultivator</h3>
-                <div class="amount-highlight">$50</div>
-                <p><strong>Impact:</strong> Funds 1 complete Soil Testing Kit for a smallholder farmer.</p>
-                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> All previous rewards</li>
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Digital "Verified Donor" Badge</li>
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Early access to Q3 Reports</li>
-                </ul>
-                <button class="btn" style="width: 100%; margin-top: 1.5rem;">Select</button>
-            </div>
-
-            <div class="glass-card donate-card" onclick="selectCard(this)">
-                <h3>The Harvester</h3>
-                <div class="amount-highlight">$250</div>
-                <p><strong>Impact:</strong> Sponsors a full regional workshop on Regenerative Ag.</p>
-                <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:1rem 0;">
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> All previous rewards</li>
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Private Zoom with Researchers</li>
-                    <li><i class="fas fa-check" style="color:var(--primary-green);"></i> Printed Annual Report</li>
-                </ul>
-                <button class="btn" style="width: 100%; margin-top: 1.5rem; background: transparent; border: 1px solid var(--primary-green);">Select</button>
-            </div>
-
-        </div>
-
-        <div class="glass-card" style="max-width: 500px; margin: 3rem auto; text-align: center;">
-            <h3>Complete Donation</h3>
-            <p style="margin-bottom: 1rem; font-size: 0.9rem;">Secure SSL Encrypted Payment (Stripe/PayPal)</p>
-            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 1rem;">
-                <button style="padding: 10px 20px; background: #fff; color: #000; border: none; border-radius: 5px; font-weight: bold;">Credit Card</button>
-                <button style="padding: 10px 20px; background: #0070ba; color: #fff; border: none; border-radius: 5px; font-weight: bold;">PayPal</button>
-                <button style="padding: 10px 20px; background: #5d4037; color: #fff; border: none; border-radius: 5px; font-weight: bold;">Crypto</button>
-            </div>
-            <p style="font-size: 0.8rem; opacity: 0.6;">*This is a demo site. No actual money will be charged.*</p>
-        </div>
-
-        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; opacity: 0.6; margin-top: 2rem;">
-            <div class="trust-badge"><i class="fas fa-lock"></i> 256-bit SSL Secure</div>
-            <div class="trust-badge"><i class="fas fa-university"></i> Registered 501(c)(3)</div>
-            <div class="trust-badge"><i class="fas fa-check-circle"></i> 100% Transparency Guarantee</div>
-        </div>
-
-    </section>
-
-    <footer>
+    <!-- Donate Hero -->
+    <section class="donate-hero">
         <div class="container">
-            <p style="text-align: center; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 OrganiqFarm. Open Source Data for a Greener World.</p>
+            <h1>Fund the 2026 Organic Transition</h1>
+            <p>Your donation directly supports critical research, soil testing, and data verification that drives the global shift to sustainable agriculture. 100% of donations go to specified projects.</p>
+            <a href="#options" class="btn btn-primary">View Funding Options</a>
+        </div>
+    </section>
+
+    <!-- Donation Options -->
+    <section class="donation-options" id="options">
+        <div class="container">
+            <h2 class="section-title">Choose Your Impact</h2>
+            <p class="section-subtitle">Select a specific project to fund or make a general donation. All donations are transparently allocated.</p>
+            
+            <div class="donation-options">
+                <!-- Option 1 -->
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Fund a Soil Test Kit</h3>
+                    <div class="donation-amount">$85</div>
+                    <p class="donation-description">Provides complete soil analysis for one transitioning farm, including nutrient levels, organic matter, and microbial activity. Includes interpretation and recommendations.</p>
+                    <button class="btn btn-primary donate-btn" data-amount="85">Donate $85</button>
+                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">247 kits funded to date</p>
+                </div>
+                
+                <!-- Option 2 -->
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Support a Regional Report</h3>
+                    <div class="donation-amount">$250</div>
+                    <p class="donation-description">Funds data collection and analysis for one agricultural region, producing an open-access report on organic transition opportunities and challenges.</p>
+                    <button class="btn btn-primary donate-btn" data-amount="250">Donate $250</button>
+                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">18 reports published</p>
+                </div>
+                
+                <!-- Option 3 -->
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Community Farm Initiative</h3>
+                    <div class="donation-amount">$500</div>
+                    <p class="donation-description">Supports a beginning farmer transitioning to organic practices through mentorship, resources, and initial certification costs.</p>
+                    <button class="btn btn-primary donate-btn" data-amount="500">Donate $500</button>
+                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">42 farmers supported</p>
+                </div>
+            </div>
+            
+            <!-- Custom Donation -->
+            <div class="custom-donation">
+                <h3>Custom Donation Amount</h3>
+                <p>Choose any amount to support our general research fund, which allocates resources to the highest priority projects.</p>
+                
+                <div class="custom-amount">
+                    <input type="number" class="custom-input" id="custom-amount" placeholder="Enter amount" min="10" step="5">
+                    <button class="btn btn-primary" id="custom-donate-btn">Donate Custom Amount</button>
+                </div>
+                
+                <div class="quick-amounts" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-secondary quick-amount" data-amount="25">$25</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="50">$50</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="100">$100</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="250">$250</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="section-title">Your Impact in Action</h2>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="impact-value">3,500+</div>
+                    <div class="impact-label">Data Points Verified</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-value">247</div>
+                    <div class="impact-label">Soil Tests Funded</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-value">18</div>
+                    <div class="impact-label">Regional Reports</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-value">42</div>
+                    <div class="impact-label">Farmers Supported</div>
+                </div>
+            </div>
+            
+            <div class="recent-projects" style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-green);">Recently Funded Projects</h3>
+                
+                <div class="project-highlights" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Midwest Water Quality Study</h4>
+                        <p style="font-size: 0.9rem; color: var(--gray);">Funded March 2026: Monitoring nitrate levels in 45 watersheds to track impact of organic transition.</p>
+                    </div>
+                    
+                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Beginning Farmer Network</h4>
+                        <p style="font-size: 0.9rem; color: var(--gray);">Funded February 2026: Supporting 12 new organic farmers with mentorship and resources.</p>
+                    </div>
+                    
+                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Drought Resilience Analysis</h4>
+                        <p style="font-size: 0.9rem; color: var(--gray);">Funded January 2026: Studying organic systems' performance during 2025 drought conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency-section">
+        <div class="container">
+            <h2 class="section-title">Complete Transparency</h2>
+            <p class="section-subtitle">We believe donors deserve to know exactly how their contributions are used.</p>
+            
+            <div class="transparency-grid">
+                <div class="transparency-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Financial Reports</h4>
+                    <p>Quarterly reports detail exactly how every dollar was allocated, with project-specific breakdowns.</p>
+                </div>
+                
+                <div class="transparency-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Project Updates</h4>
+                    <p>Regular updates on funded projects with photos, data, and impact measurements.</p>
+                </div>
+                
+                <div class="transparency-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>No Administrative Fees</h4>
+                    <p>100% of designated donations go to specified projects. Administrative costs are covered separately.</p>
+                </div>
+                
+                <div class="transparency-item">
+                    <i class="fas fa-award"></i>
+                    <h4>Tax Deductible</h4>
+                    <p>OrganiqFarm Labs is a 501(c)(3) nonprofit. Donations are tax-deductible to the extent allowed by law.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="mailto:finance@organiqfarm.com" class="btn btn-secondary">Request Financial Statements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        <span class="logo-text">Organiq<span class="logo-highlight">Farm</span></span>
+                    </a>
+                    <p class="footer-motto">Verified data for the 2026 organic transition.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified by OrganiqFarm Labs 2026</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Insights</a></li>
+                        <li><a href="facts.html">Verified Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                        <li><a href="about.html">About Our Mission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="facts.html#weather">Weather & Climate Data</a></li>
+                        <li><a href="nutrition.html#comparison">Food Comparisons</a></li>
+                        <li><a href="blog-post-6.html">Transition Guides</a></li>
+                        <li><a href="affiliates.html">Organic Product Partners</a></li>
+                        <li><a href="donate.html">Fund a Research Project</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@organiqfarm.com">contact@organiqfarm.com</a></li>
+                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="#">Data Partnerships</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access for educational purposes.</p>
+                <p class="footer-disclaimer">This site is sustained through affiliate partnerships, community donations, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        function selectCard(card) {
-            // Remove 'selected' from all cards
-            document.querySelectorAll('.donate-card').forEach(c => {
-                c.classList.remove('selected');
-                c.style.transform = 'scale(1)';
-                c.querySelector('.btn').style.background = 'transparent';
-                c.querySelector('.btn').style.color = '#fff';
+        // Donation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const donateButtons = document.querySelectorAll('.donate-btn, .quick-amount');
+            const customDonateBtn = document.getElementById('custom-donate-btn');
+            const customAmountInput = document.getElementById('custom-amount');
+            
+            // Pre-set amount buttons
+            donateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const amount = this.getAttribute('data-amount');
+                    if (amount) {
+                        processDonation(amount);
+                    }
+                });
             });
-            // Add 'selected' to clicked card
-            card.classList.add('selected');
-            card.style.transform = 'scale(1.05)';
-            card.querySelector('.btn').style.background = 'var(--primary-green)';
-        }
+            
+            // Custom amount button
+            customDonateBtn.addEventListener('click', function() {
+                const amount = customAmountInput.value;
+                if (amount && amount >= 10) {
+                    processDonation(amount);
+                } else {
+                    alert('Please enter an amount of $10 or more.');
+                    customAmountInput.focus();
+                }
+            });
+            
+            function processDonation(amount) {
+                // In a real implementation, this would connect to a payment processor
+                // For this demo, we'll show a confirmation message
+                alert(`Thank you for your donation of $${amount}! In a production environment, this would redirect to a secure payment processing page.`);
+                
+                // Reset custom amount field
+                customAmountInput.value = '';
+                
+                // Log the donation (in a real app, this would go to a backend)
+                console.log(`Donation processed: $${amount}`);
+            }
+            
+            // Quick amount buttons populate the custom field
+            document.querySelectorAll('.quick-amount').forEach(button => {
+                button.addEventListener('click', function() {
+                    const amount = this.getAttribute('data-amount');
+                    customAmountInput.value = amount;
+                });
+            });
+        });
     </script>
 </body>
 </html>
