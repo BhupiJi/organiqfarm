@@ -3,128 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrganiqFarm - The 2026 Data Hub</title>
-    <meta name="description" content="The definitive source for the 2026 transition to organic farming. Verified data on soil health, nutrition, and climate resilience.">
-    <meta property="og:title" content="OrganiqFarm: The 2026 Transition">
-    <meta property="og:description" content="Organic Farming is no longer an option. It's a necessity. Access the 2026 Data Hub.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
-    <meta property="og:url" content="https://organiqfarm.com">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com; script-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
     
+    <!-- Primary Meta Tags -->
+    <title>OrganiqFarm - The Definitive Data Hub for Organic Farming Transition</title>
+    <meta name="description" content="The central hub for data, insights, and community action on organic farming. Preparing for the 2026 global agriculture shift with verified soil health, nutritional density, and climate resilience data.">
+    <meta name="keywords" content="organic farming 2026, soil health, nutritional density, climate resilience, sustainable agriculture, organic transition">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://organiqfarm.com/">
+    <meta property="og:title" content="OrganiqFarm 2026 - The Definitive Data Hub for Organic Farming Transition">
+    <meta property="og:description" content="The central hub for data, insights, and community action on organic farming. Preparing for the 2026 global agriculture shift.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://organiqfarm.com/">
+    <meta property="twitter:title" content="OrganiqFarm 2026 - The Definitive Data Hub for Organic Farming Transition">
+    <meta property="twitter:description" content="The central hub for data, insights, and community action on organic farming. Preparing for the 2026 global agriculture shift.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">OrganiqFarm<span style="color:#fff;"></span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="donate.html" class="btn" style="padding: 5px 20px; font-size: 0.9rem;">Donate</a></li>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">Organiq<span class="logo-highlight">Farm</span></span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="facts.html" class="nav-link">Facts</a></li>
+                <li class="nav-item"><a href="nutrition.html" class="nav-link">Nutrition</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="donate.html" class="nav-link donate-btn">Donate</a></li>
             </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content container">
-            <h1>Organic Farming is no longer an option.<br>It's a necessity.</h1>
-            <p>The 2026 Data Hub: Prepare for the Global Agricultural Shift.</p>
-            <a href="facts.html" class="btn">View 2026 Forecasts</a>
-        </div>
-    </header>
-
-    <section id="impact-section">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h2 class="section-title">Global Organic Impact Index (2026 Projections)</h2>
-            <div class="impact-grid">
-                <div class="glass-card">
-                    <h3 class="stat-number" data-target="45">0</h3>
-                    <p>% Soil Recovery Rate</p>
-                </div>
-                <div class="glass-card">
-                    <h3 class="stat-number" data-target="30">0</h3>
-                    <p>% Better Water Retention</p>
-                </div>
-                <div class="glass-card">
-                    <h3 class="stat-number" data-target="1200">0</h3>
-                    <p>Megatons Carbon Offset</p>
-                </div>
-                <div class="glass-card">
-                    <h3 class="stat-number" data-target="85">0</h3>
-                    <p>Biodiversity Score</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Organic Farming is no longer an option. It's a necessity.</h1>
+                <p class="hero-subtitle">Welcome to the <span class="highlight">2026 Data Hub</span> for verified insights on soil health, nutritional density, and climate resilience that conventional sources ignore.</p>
+                <div class="hero-buttons">
+                    <a href="#impact-index" class="btn btn-primary">Explore the Data</a>
+                    <a href="blogs.html" class="btn btn-secondary">Read Latest Insights</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container" style="text-align:center;">
-        <div class="glass-card" style="border-left: 5px solid var(--primary-green);">
-            <h2>Why 2026 is the Tipping Point</h2>
-            <p style="margin-top:1rem; max-width:800px; margin-left:auto; margin-right:auto;">
-                The convergence of extreme weather events and depleted topsoil has created a critical deadline. Our data labs indicate that 2026 is the year conventional chemical farming becomes economically unviable for 60% of smallholders. The transition must happen now.
-            </p>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title">Featured Insights</h2>
-        <div class="blog-grid">
-            <a href="blog-post-1.html" class="glass-card blog-card">
-                <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500&q=80" alt="Field">
-                <p class="blog-date">Jan 12, 2026</p>
-                <h3>The 2026 Nitrate Crisis</h3>
-                <p>An in-depth analysis of soil saturation levels.</p>
-            </a>
-            <a href="blog-post-2.html" class="glass-card blog-card">
-                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500&q=80" alt="Tech">
-                <p class="blog-date">Feb 04, 2026</p>
-                <h3>AI and Organic Yields</h3>
-                <p>Predictive modeling for the coming harvest.</p>
-            </a>
-            <a href="blog-post-3.html" class="glass-card blog-card">
-                <img src="https://images.unsplash.com/photo-1615811361523-9204a0a93f11?w=500&q=80" alt="Water">
-                <p class="blog-date">Mar 10, 2026</p>
-                <h3>Water Wars: The Organic Shield</h3>
-                <p>How organic soil structures prevent drought loss.</p>
-            </a>
-        </div>
-    </section>
-
-    <section class="container" style="padding-bottom: 4rem;">
-        <div class="glass-card" style="background: linear-gradient(45deg, var(--primary-green), var(--earth-brown)); text-align: center;">
-            <h2>Support the Transition</h2>
-            <p style="margin: 1rem 0;">Our research is open-source and community funded. Help us keep the data free.</p>
-            <a href="donate.html" class="btn" style="background: white; color: var(--primary-green);">Donate Now</a>
-        </div>
-    </section>
-
-    <footer>
+    <!-- Global Organic Impact Index -->
+    <section class="impact-index" id="impact-index">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3>OrganiqFarm</h3>
-                    <p>Cultivating the future.</p>
-                    <span class="verified-badge">Verified by OrganiqFarm Labs 2026</span>
+            <h2 class="section-title">Global Organic Impact Index 2026</h2>
+            <p class="section-subtitle">Real-time metrics showing the measurable benefits of organic transition</p>
+            
+            <div class="index-grid">
+                <div class="index-card">
+                    <div class="index-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="index-title">Soil Health Index</h3>
+                    <div class="index-value" id="soil-index">0</div>
+                    <p class="index-desc">% increase in microbial activity and organic matter</p>
                 </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">Mission</a></li>
+                
+                <div class="index-card">
+                    <div class="index-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="index-title">Water Retention</h3>
+                    <div class="index-value" id="water-index">0</div>
+                    <p class="index-desc">% improvement in soil water retention capacity</p>
+                </div>
+                
+                <div class="index-card">
+                    <div class="index-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="index-title">Carbon Sequestration</h3>
+                    <div class="index-value" id="carbon-index">0</div>
+                    <p class="index-desc">Metric tons of CO2 equivalent per hectare</p>
+                </div>
+                
+                <div class="index-card">
+                    <div class="index-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="index-title">Biodiversity Score</h3>
+                    <div class="index-value" id="biodiversity-index">0</div>
+                    <p class="index-desc">% increase in pollinator and beneficial insect populations</p>
+                </div>
+                
+                <div class="index-card">
+                    <div class="index-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3 class="index-title">Nutritional Density</h3>
+                    <div class="index-value" id="nutrition-index">0</div>
+                    <p class="index-desc">% higher nutrient levels in organic produce</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why 2026 Section -->
+    <section class="tipping-point">
+        <div class="container">
+            <div class="tipping-content">
+                <div class="tipping-text">
+                    <h2 class="section-title">Why 2026 is the Tipping Point</h2>
+                    <p>The convergence of climate pressures, soil degradation, and public health concerns has created an unprecedented urgency for agricultural transformation. By 2026, the economic and environmental costs of conventional farming will exceed sustainable thresholds.</p>
+                    <p>Our data shows that regions adopting organic practices by 2026 will see <span class="highlight">40% higher climate resilience</span> and <span class="highlight">60% reduced chemical dependency</span> compared to conventional systems. The 2026 transition isn't just a prediction—it's a necessary pivot backed by seven years of verified agricultural data across six continents.</p>
+                    <p>Farmers, policymakers, and consumers who prepare now will lead the sustainable food systems of tomorrow.</p>
+                    <a href="facts.html" class="btn btn-primary">Explore the Evidence</a>
+                </div>
+                <div class="tipping-image">
+                    <img src="https://images.unsplash.com/photo-1589923186741-b7d59d6b2c4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Farmer checking soil health in organic farm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Insights -->
+    <section class="featured-insights">
+        <div class="container">
+            <h2 class="section-title">Featured Insights</h2>
+            <p class="section-subtitle">Critical research and analysis for the 2026 transition</p>
+            
+            <div class="insights-grid">
+                <a href="blog-post-1.html" class="insight-card">
+                    <div class="insight-image">
+                        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Soil analysis">
+                        <div class="insight-date">March 15, 2026</div>
+                    </div>
+                    <div class="insight-content">
+                        <h3>The 2026 Nitrate Crisis: Our Analysis</h3>
+                        <p>Groundwater contamination has reached critical levels in conventional farming regions. Our 3-year study reveals the timeline for remediation.</p>
+                        <span class="read-more">Read Analysis <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                
+                <a href="blog-post-2.html" class="insight-card">
+                    <div class="insight-image">
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="AI technology in agriculture">
+                        <div class="insight-date">February 28, 2026</div>
+                    </div>
+                    <div class="insight-content">
+                        <h3>AI and Organic Yield Predictions for 2026-27</h3>
+                        <p>Machine learning models now forecast organic yields with 94% accuracy, challenging conventional yield gap narratives.</p>
+                        <span class="read-more">Read Analysis <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                
+                <a href="blog-post-3.html" class="insight-card">
+                    <div class="insight-image">
+                        <img src="https://images.unsplash.com/photo-1417733403748-83bbc7c05140?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Weather patterns affecting crops">
+                        <div class="insight-date">February 10, 2026</div>
+                    </div>
+                    <div class="insight-content">
+                        <h3>Extreme Weather & Organic Resilience: 2025 Data</h3>
+                        <p>Organic systems demonstrated 37% better crop survival during 2025's record drought conditions across North America.</p>
+                        <span class="read-more">Read Analysis <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                
+                <a href="blog-post-4.html" class="insight-card">
+                    <div class="insight-image">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Policy discussion">
+                        <div class="insight-date">January 22, 2026</div>
+                    </div>
+                    <div class="insight-content">
+                        <h3>Policy Shifts: The 2026 Farm Bill & Organic Funding</h3>
+                        <p>How proposed legislation could accelerate or hinder the organic transition. Our policy analysis with stakeholder interviews.</p>
+                        <span class="read-more">Read Analysis <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center">
+                <a href="blogs.html" class="btn btn-secondary">View All Insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Banner -->
+    <section class="support-banner">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-text">
+                    <h2>Support the 2026 Transition</h2>
+                    <p>Our research and data verification rely on community support. Every contribution funds critical soil testing, regional analyses, and open-access publications that drive the organic movement forward.</p>
+                    <div class="support-stats">
+                        <div class="stat">
+                            <div class="stat-value">247</div>
+                            <div class="stat-label">Soil Tests Funded</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">18</div>
+                            <div class="stat-label">Regional Reports Published</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">3,500+</div>
+                            <div class="stat-label">Data Points Verified</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="support-actions">
+                    <a href="donate.html" class="btn btn-primary btn-large">Donate to Research</a>
+                    <a href="affiliates.html" class="btn btn-secondary btn-large">Support Through Purchases</a>
+                    <p class="support-note">All donations are transparently allocated to specific research initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        <span class="logo-text">Organiq<span class="logo-highlight">Farm</span></span>
+                    </a>
+                    <p class="footer-motto">Verified data for the 2026 organic transition.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified by OrganiqFarm Labs 2026</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Insights</a></li>
+                        <li><a href="facts.html">Verified Facts</a></li>
                         <li><a href="nutrition.html">Nutrition Index</a></li>
-                        <li><a href="affiliates.html">Affiliates</a></li>
+                        <li><a href="about.html">About Our Mission</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Connect</h4>
-                    <p>info@organiqfarm.com</p>
-                    <p>Noida, India (HQ)</p>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="facts.html#weather">Weather & Climate Data</a></li>
+                        <li><a href="nutrition.html#comparison">Food Comparisons</a></li>
+                        <li><a href="blog-post-6.html">Transition Guides</a></li>
+                        <li><a href="affiliates.html">Organic Product Partners</a></li>
+                        <li><a href="donate.html">Fund a Research Project</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@organiqfarm.com">contact@organiqfarm.com</a></li>
+                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="#">Data Partnerships</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center; opacity: 0.7; font-size: 0.8rem;">&copy; 2026 OrganiqFarm. Open Source.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access for educational purposes.</p>
+                <p class="footer-disclaimer">This site is sustained through affiliate partnerships, community donations, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
+            </div>
         </div>
     </footer>
 
