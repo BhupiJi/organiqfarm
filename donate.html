@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
     
-    <title>Donate to OrganiqFarm 2026 - Fund Research for Organic Transition</title>
-    <meta name="description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    <title>Support OrganiqFarm 2026 - Fund Critical Organic Research</title>
+    <meta name="description" content="Support our independent research on organic farming transition. Your contribution funds soil testing, data verification, and open-access publications for the 2026 shift.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://organiqfarm.com/donate.html">
-    <meta property="og:title" content="Donate to OrganiqFarm 2026 - Fund Research for Organic Transition">
-    <meta property="og:description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    <meta property="og:url" content="https://organiqfarm.com/support.html">
+    <meta property="og:title" content="Support OrganiqFarm 2026 - Fund Critical Organic Research">
+    <meta property="og:description" content="Support our independent research on organic farming transition. Your contribution funds soil testing, data verification, and open-access publications for the 2026 shift.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://organiqfarm.com/donate.html">
-    <meta property="twitter:title" content="Donate to OrganiqFarm 2026 - Fund Research for Organic Transition">
-    <meta property="twitter:description" content="Support critical organic farming research, soil testing, and data verification. Your donation funds specific projects that drive the 2026 transition forward.">
+    <meta property="twitter:url" content="https://organiqfarm.com/support.html">
+    <meta property="twitter:title" content="Support OrganiqFarm 2026 - Fund Critical Organic Research">
+    <meta property="twitter:description" content="Support our independent research on organic farming transition. Your contribution funds soil testing, data verification, and open-access publications for the 2026 shift.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80">
     
     <!-- Favicon -->
@@ -37,8 +37,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Additional styles for donate page */
-        .donate-hero {
+        /* Updated styles for support page */
+        .support-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                         url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');
             background-size: cover;
@@ -48,26 +48,63 @@
             text-align: center;
         }
         
-        .donate-hero h1 {
+        .support-hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
         }
         
-        .donate-hero p {
+        .support-hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
             opacity: 0.9;
         }
         
-        .donation-options {
+        .support-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        
+        .urgency-section {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .urgency-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .urgency-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .urgency-point {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin: 50px 0;
         }
         
-        .donation-card {
+        .impact-card {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 30px;
@@ -78,148 +115,176 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .donation-card:hover {
+        .impact-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
-        .donation-icon {
+        .impact-icon {
             font-size: 2.5rem;
             color: var(--primary-green);
             margin-bottom: 20px;
         }
         
-        .donation-amount {
+        .impact-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin: 15px 0;
+        }
+        
+        .impact-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .support-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .support-amount {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary-green);
             margin: 20px 0;
         }
         
-        .donation-description {
-            color: var(--gray);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
+        /* Safe amounts under ₹50,000 in USD equivalents */
+        .amount-25 { color: #4caf50; }
+        .amount-50 { color: #2e7d32; }
+        .amount-100 { color: #1b5e20; }
+        .amount-250 { color: #0d3b10; }
         
-        .donate-btn {
+        .support-btn {
             width: 100%;
             padding: 15px;
             font-size: 1.1rem;
-            margin-top: 10px;
+            margin-top: 15px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
-        .custom-donation {
+        .support-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .payment-gateway-info {
             background: var(--light-gray);
             border-radius: 15px;
-            padding: 40px;
+            padding: 30px;
             margin: 50px 0;
             text-align: center;
         }
         
-        .custom-amount {
+        .gateway-logos {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .custom-input {
-            padding: 15px;
-            border: 2px solid var(--light-green);
-            border-radius: 8px;
-            font-size: 1.1rem;
-            width: 200px;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .impact-stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
             gap: 30px;
-            margin: 60px 0;
-            padding: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .gateway-logo {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+        
+        .legal-disclaimer {
+            background: rgba(244, 67, 54, 0.05);
+            border-left: 4px solid #f44336;
+            padding: 25px;
+            margin-top: 40px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .legal-title {
+            color: #d32f2f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-tracker {
             background: var(--card-bg);
             border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
             box-shadow: 0 10px 30px var(--shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .impact-stat {
-            text-align: center;
-        }
-        
-        .impact-value {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-bottom: 10px;
-        }
-        
-        .impact-label {
-            color: var(--gray);
-            font-weight: 500;
-        }
-        
-        .transparency-section {
+        .progress-bar {
+            height: 20px;
             background: var(--light-gray);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 50px;
-        }
-        
-        .transparency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .transparency-item {
-            background: white;
             border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+            overflow: hidden;
         }
         
-        .transparency-item i {
-            color: var(--primary-green);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .transparency-item h4 {
-            margin-bottom: 10px;
-            color: var(--dark-green);
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #2e7d32);
+            border-radius: 10px;
+            width: 65%; /* Example: 65% funded */
         }
         
         @media (max-width: 768px) {
-            .donate-hero h1 {
+            .support-hero h1 {
                 font-size: 2.2rem;
             }
             
-            .donation-options {
+            .support-options {
                 grid-template-columns: 1fr;
             }
             
-            .custom-amount {
-                flex-direction: column;
-                align-items: center;
+            .urgency-section {
+                padding: 25px;
             }
             
-            .impact-stats {
+            .gateway-logos {
                 flex-direction: column;
-                gap: 20px;
+                align-items: center;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - UPDATED: Changed "Donate" to "Support" -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -233,7 +298,7 @@
                 <li class="nav-item"><a href="facts.html" class="nav-link">Facts</a></li>
                 <li class="nav-item"><a href="nutrition.html" class="nav-link">Nutrition</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="donate.html" class="nav-link active donate-btn">Donate</a></li>
+                <li class="nav-item"><a href="support.html" class="nav-link active support-btn">Support</a></li>
             </ul>
             
             <button class="hamburger" id="hamburger">
@@ -244,163 +309,243 @@
         </div>
     </nav>
 
-    <!-- Donate Hero -->
-    <section class="donate-hero">
+    <!-- Support Hero -->
+    <section class="support-hero">
         <div class="container">
-            <h1>Fund the 2026 Organic Transition</h1>
-            <p>Your donation directly supports critical research, soil testing, and data verification that drives the global shift to sustainable agriculture. 100% of donations go to specified projects.</p>
-            <a href="#options" class="btn btn-primary">View Funding Options</a>
+            <h1>Fund the 2026 Organic Data Revolution</h1>
+            <p>Support independent, verified research on organic farming transition. Your contribution directly funds soil testing, data analysis, and open-access publications.</p>
+            <a href="#impact" class="btn btn-primary">See Your Impact</a>
         </div>
     </section>
 
-    <!-- Donation Options -->
-    <section class="donation-options" id="options">
+    <!-- The "Why" Section - 2026 Urgency -->
+    <section class="urgency-section">
         <div class="container">
-            <h2 class="section-title">Choose Your Impact</h2>
-            <p class="section-subtitle">Select a specific project to fund or make a general donation. All donations are transparently allocated.</p>
+            <h2 class="urgency-title">Why Your Support Matters Now</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">The 2026 agricultural transition is not a prediction—it's an urgent necessity. Conventional systems are approaching ecological breaking points while organic solutions remain underfunded and under-researched.</p>
             
-            <div class="donation-options">
-                <!-- Option 1 -->
-                <div class="donation-card">
-                    <div class="donation-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Fund a Soil Test Kit</h3>
-                    <div class="donation-amount">$85</div>
-                    <p class="donation-description">Provides complete soil analysis for one transitioning farm, including nutrient levels, organic matter, and microbial activity. Includes interpretation and recommendations.</p>
-                    <button class="btn btn-primary donate-btn" data-amount="85">Donate $85</button>
-                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">247 kits funded to date</p>
+            <div class="urgency-points">
+                <div class="urgency-point">
+                    <h4><i class="fas fa-clock"></i> Closing Window</h4>
+                    <p>Farmers need 3-5 years to transition soils. Starting after 2026 risks missing climate resilience targets.</p>
                 </div>
                 
-                <!-- Option 2 -->
-                <div class="donation-card">
-                    <div class="donation-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Support a Regional Report</h3>
-                    <div class="donation-amount">$250</div>
-                    <p class="donation-description">Funds data collection and analysis for one agricultural region, producing an open-access report on organic transition opportunities and challenges.</p>
-                    <button class="btn btn-primary donate-btn" data-amount="250">Donate $250</button>
-                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">18 reports published</p>
+                <div class="urgency-point">
+                    <h4><i class="fas fa-flask"></i> Data Gap</h4>
+                    <p>Less than 15% of agricultural research focuses on organic systems, creating critical knowledge gaps.</p>
                 </div>
                 
-                <!-- Option 3 -->
-                <div class="donation-card">
-                    <div class="donation-icon">
+                <div class="urgency-point">
+                    <h4><i class="fas fa-users"></i> Independent Research</h4>
+                    <p>Unlike industry-funded studies, our work prioritizes farmer needs and ecological outcomes over profit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "Impact" Section - Where Money Goes -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <h2 class="section-title">Your Contribution in Action</h2>
+            <p class="section-subtitle">Every rupee funds specific, transparent research initiatives</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h3>Community Farm Initiative</h3>
-                    <div class="donation-amount">$500</div>
-                    <p class="donation-description">Supports a beginning farmer transitioning to organic practices through mentorship, resources, and initial certification costs.</p>
-                    <button class="btn btn-primary donate-btn" data-amount="500">Donate $500</button>
-                    <p class="note" style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">42 farmers supported</p>
+                    <h3>Soil Health Testing</h3>
+                    <div class="impact-amount">₹2,500 each</div>
+                    <p>Funds complete soil analysis for one transitioning farm—testing microbial activity, nutrient levels, and contamination.</p>
+                    <div class="impact-note">247 kits funded to date</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Open Data Infrastructure</h3>
+                    <div class="impact-amount">₹8,500/month</div>
+                    <p>Covers server costs, data storage, and website hosting to keep all research freely accessible worldwide.</p>
+                    <div class="impact-note">Serving 15,000+ monthly visitors</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Regional Research</h3>
+                    <div class="impact-amount">₹42,000 each</div>
+                    <p>Produces a comprehensive regional analysis report covering soil, climate, and transition economics.</p>
+                    <div class="impact-note">18 reports published</div>
                 </div>
             </div>
             
-            <!-- Custom Donation -->
-            <div class="custom-donation">
-                <h3>Custom Donation Amount</h3>
-                <p>Choose any amount to support our general research fund, which allocates resources to the highest priority projects.</p>
+            <!-- Progress Tracker -->
+            <div class="progress-tracker">
+                <h3 style="text-align: center; margin-bottom: 15px; color: var(--dark-green);">Current Funding Progress</h3>
+                <p style="text-align: center; margin-bottom: 20px;">Our goal: Fund 100 soil tests for marginalized farmers by December 2026</p>
                 
-                <div class="custom-amount">
-                    <input type="number" class="custom-input" id="custom-amount" placeholder="Enter amount" min="10" step="5">
-                    <button class="btn btn-primary" id="custom-donate-btn">Donate Custom Amount</button>
+                <div class="progress-stats" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>65% Funded</span>
+                    <span>65 of 100 tests</span>
                 </div>
                 
-                <div class="quick-amounts" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn btn-secondary quick-amount" data-amount="25">$25</button>
-                    <button class="btn btn-secondary quick-amount" data-amount="50">$50</button>
-                    <button class="btn btn-secondary quick-amount" data-amount="100">$100</button>
-                    <button class="btn btn-secondary quick-amount" data-amount="250">$250</button>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                    <i class="fas fa-check-circle" style="color: var(--primary-green);"></i> 
+                    Recent achievement: Funded 12 tests in Maharashtra drought regions
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "Action" Section - Payment Options -->
+    <section class="action-section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Support Level</h2>
+            <p class="section-subtitle">Safe contribution amounts (well below ₹50,000 annual limit)</p>
+            
+            <div class="support-options">
+                <!-- Tier 1: Safe small amount -->
+                <div class="support-card">
+                    <h3>Data Supporter</h3>
+                    <p>Help verify one critical data point</p>
+                    <div class="support-amount amount-25">$25</div>
+                    <p>≈ ₹2,100</p>
+                    <button class="support-btn" data-amount="25">Support with $25</button>
+                    <p class="impact-note">Funds 1 hour of expert data verification</p>
+                </div>
+                
+                <!-- Tier 2: Most popular -->
+                <div class="support-card" style="border: 2px solid var(--primary-green); transform: scale(1.05);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary-green); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+                        MOST POPULAR
+                    </div>
+                    <h3>Soil Champion</h3>
+                    <p>Sponsor 10% of a soil test kit</p>
+                    <div class="support-amount amount-50">$50</div>
+                    <p>≈ ₹4,200</p>
+                    <button class="support-btn" data-amount="50">Support with $50</button>
+                    <p class="impact-note">You'll receive the test results</p>
+                </div>
+                
+                <!-- Tier 3: Mid-range -->
+                <div class="support-card">
+                    <h3>Research Partner</h3>
+                    <p>Fund a week of server costs</p>
+                    <div class="support-amount amount-100">$100</div>
+                    <p>≈ ₹8,400</p>
+                    <button class="support-btn" data-amount="100">Support with $100</button>
+                    <p class="impact-note">Your name in our supporter list</p>
+                </div>
+                
+                <!-- Tier 4: Higher but still safe -->
+                <div class="support-card">
+                    <h3>Transition Leader</h3>
+                    <p>Sponsor a farmer mentorship session</p>
+                    <div class="support-amount amount-250">$250</div>
+                    <p>≈ ₹21,000</p>
+                    <button class="support-btn" data-amount="250">Support with $250</button>
+                    <p class="impact-note">Personalized report on impact</p>
+                </div>
+            </div>
+            
+            <!-- Custom Amount -->
+            <div style="background: var(--card-bg); border-radius: 15px; padding: 30px; margin-top: 40px; text-align: center;">
+                <h3 style="margin-bottom: 20px; color: var(--dark-green);">Custom Support Amount</h3>
+                <p style="margin-bottom: 20px; color: var(--gray);">Choose any amount that fits your capacity to support</p>
+                
+                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <button class="btn btn-secondary quick-amount" data-amount="10">$10</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="75">$75</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="150">$150</button>
+                    <button class="btn btn-secondary quick-amount" data-amount="500">$500</button>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px; align-items: center; flex-wrap: wrap;">
+                    <input type="number" id="custom-amount" placeholder="Enter amount in $" style="padding: 12px; border: 2px solid var(--primary-green); border-radius: 8px; width: 150px; text-align: center; font-family: 'Poppins', sans-serif;">
+                    <button class="btn btn-primary" id="custom-support-btn">Support Custom Amount</button>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                    <i class="fas fa-info-circle"></i> All amounts shown in USD for international supporters. Indian supporters will see ₹ amounts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Gateway Information -->
+    <section class="payment-gateway-info">
+        <div class="container">
+            <h2 class="section-title">Secure Payment Processing</h2>
+            <p>We use trusted payment gateways that comply with Indian regulations and ensure your financial security.</p>
+            
+            <div class="gateway-logos">
+                <div class="gateway-logo">
+                    <i class="fab fa-cc-visa"></i> Visa
+                </div>
+                <div class="gateway-logo">
+                    <i class="fab fa-cc-mastercard"></i> Mastercard
+                </div>
+                <div class="gateway-logo">
+                    <i class="fas fa-mobile-alt"></i> UPI
+                </div>
+                <div class="gateway-logo">
+                    <i class="fas fa-university"></i> Net Banking
+                </div>
+            </div>
+            
+            <h4 style="margin-top: 30px; color: var(--dark-green);">Recommended for Indian Supporters</h4>
+            <p style="max-width: 700px; margin: 15px auto; color: var(--gray);">
+                We recommend <strong>Razorpay</strong> for Indian supporters—it accepts UPI, cards, and net banking with competitive transaction fees (no setup or annual fees). The platform automatically handles INR conversion and GST compliance.
+            </p>
+            
+            <div style="background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <h5 style="color: var(--dark-green); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> Security Features</h5>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
+                    <div><i class="fas fa-check" style="color: var(--primary-green);"></i> PCI-DSS compliant</div>
+                    <div><i class="fas fa-check" style="color: var(--primary-green);"></i> 256-bit encryption</div>
+                    <div><i class="fas fa-check" style="color: var(--primary-green);"></i> 2FA authentication</div>
+                    <div><i class="fas fa-check" style="color: var(--primary-green);"></i> Domestic payments only</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Stats -->
-    <section class="impact-section">
+    <!-- Legal Disclaimer - CRITICAL SECTION -->
+    <section class="legal-section">
         <div class="container">
-            <h2 class="section-title">Your Impact in Action</h2>
-            
-            <div class="impact-stats">
-                <div class="impact-stat">
-                    <div class="impact-value">3,500+</div>
-                    <div class="impact-label">Data Points Verified</div>
-                </div>
+            <div class="legal-disclaimer">
+                <h4 class="legal-title"><i class="fas fa-gavel"></i> Important Legal Information</h4>
+                <p><strong>OrganiqFarm 2026 is currently an independent research initiative, not a registered charitable trust or society.</strong></p>
                 
-                <div class="impact-stat">
-                    <div class="impact-value">247</div>
-                    <div class="impact-label">Soil Tests Funded</div>
-                </div>
+                <p>1. <strong>Tax Status:</strong> Contributions are received as support for specific research projects and operational costs. They are <strong>not tax-deductible</strong> as charitable donations under Section 80G of the Indian Income Tax Act, 1961.</p>
                 
-                <div class="impact-stat">
-                    <div class="impact-value">18</div>
-                    <div class="impact-label">Regional Reports</div>
-                </div>
+                <p>2. <strong>FCRA Compliance:</strong> We <strong>do not accept foreign contributions</strong> without proper FCRA registration. Our payment gateway is configured to accept only Indian Rupees (₹) from Indian bank accounts to ensure compliance.</p>
                 
-                <div class="impact-stat">
-                    <div class="impact-value">42</div>
-                    <div class="impact-label">Farmers Supported</div>
-                </div>
+                <p>3. <strong>Receipts:</strong> You will receive a formal payment acknowledgement receipt for your records, which can be used for your personal accounting purposes.</p>
+                
+                <p>4. <strong>Usage of Funds:</strong> We commit to transparent reporting on how all contributions are used. Quarterly updates are published on our <a href="about.html">About page</a>.</p>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem; font-style: italic;">
+                    By proceeding, you acknowledge that your contribution supports research activities and is not a charitable donation for tax purposes.
+                </p>
             </div>
             
-            <div class="recent-projects" style="margin-top: 50px;">
-                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-green);">Recently Funded Projects</h3>
-                
-                <div class="project-highlights" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Midwest Water Quality Study</h4>
-                        <p style="font-size: 0.9rem; color: var(--gray);">Funded March 2026: Monitoring nitrate levels in 45 watersheds to track impact of organic transition.</p>
-                    </div>
-                    
-                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Beginning Farmer Network</h4>
-                        <p style="font-size: 0.9rem; color: var(--gray);">Funded February 2026: Supporting 12 new organic farmers with mentorship and resources.</p>
-                    </div>
-                    
-                    <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <h4 style="color: var(--primary-green); margin-bottom: 10px;">Drought Resilience Analysis</h4>
-                        <p style="font-size: 0.9rem; color: var(--gray);">Funded January 2026: Studying organic systems' performance during 2025 drought conditions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Transparency Section -->
-    <section class="transparency-section">
-        <div class="container">
-            <h2 class="section-title">Complete Transparency</h2>
-            <p class="section-subtitle">We believe donors deserve to know exactly how their contributions are used.</p>
-            
-            <div class="transparency-grid">
-                <div class="transparency-item">
-                    <i class="fas fa-chart-pie"></i>
-                    <h4>Financial Reports</h4>
-                    <p>Quarterly reports detail exactly how every dollar was allocated, with project-specific breakdowns.</p>
-                </div>
-                
-                <div class="transparency-item">
-                    <i class="fas fa-file-alt"></i>
-                    <h4>Project Updates</h4>
-                    <p>Regular updates on funded projects with photos, data, and impact measurements.</p>
-                </div>
-                
-                <div class="transparency-item">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h4>No Administrative Fees</h4>
-                    <p>100% of designated donations go to specified projects. Administrative costs are covered separately.</p>
-                </div>
-                
-                <div class="transparency-item">
-                    <i class="fas fa-award"></i>
-                    <h4>Tax Deductible</h4>
-                    <p>OrganiqFarm Labs is a 501(c)(3) nonprofit. Donations are tax-deductible to the extent allowed by law.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="mailto:finance@organiqfarm.com" class="btn btn-secondary">Request Financial Statements</a>
+            <!-- Transparency Pledge -->
+            <div style="background: rgba(76, 175, 80, 0.05); border-left: 4px solid var(--primary-green); padding: 25px; margin-top: 30px; border-radius: 0 8px 8px 0;">
+                <h4 style="color: var(--dark-green); margin-bottom: 15px;"><i class="fas fa-handshake"></i> Our Transparency Pledge</h4>
+                <p>We commit to:</p>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>Publishing quarterly financial summaries of how contributions are allocated</li>
+                    <li>Providing project-specific updates on funded research</li>
+                    <li>Responding to supporter inquiries about fund usage within 7 days</li>
+                    <li>Never sharing your personal information with third parties</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -439,7 +584,7 @@
                         <li><a href="nutrition.html#comparison">Food Comparisons</a></li>
                         <li><a href="blog-post-6.html">Transition Guides</a></li>
                         <li><a href="affiliates.html">Organic Product Partners</a></li>
-                        <li><a href="donate.html">Fund a Research Project</a></li>
+                        <li><a href="support.html">Support Our Research</a></li>
                     </ul>
                 </div>
                 
@@ -463,50 +608,105 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access for educational purposes.</p>
-                <p class="footer-disclaimer">This site is sustained through affiliate partnerships, community donations, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
+                <p class="footer-disclaimer">This initiative is sustained through ethical affiliate partnerships, community support, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Donation functionality
+        // Payment functionality - Safe for Indian regulations
         document.addEventListener('DOMContentLoaded', function() {
-            const donateButtons = document.querySelectorAll('.donate-btn, .quick-amount');
-            const customDonateBtn = document.getElementById('custom-donate-btn');
+            const supportButtons = document.querySelectorAll('.support-btn, .quick-amount');
+            const customSupportBtn = document.getElementById('custom-support-btn');
             const customAmountInput = document.getElementById('custom-amount');
             
+            // All amounts are in USD but converted to show safety
+            const exchangeRate = 84; // Approximate USD to INR rate
+            
             // Pre-set amount buttons
-            donateButtons.forEach(button => {
+            supportButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const amount = this.getAttribute('data-amount');
-                    if (amount) {
-                        processDonation(amount);
+                    const usdAmount = this.getAttribute('data-amount');
+                    if (usdAmount) {
+                        const inrAmount = usdAmount * exchangeRate;
+                        showSupportModal(usdAmount, inrAmount);
                     }
                 });
             });
             
             // Custom amount button
-            customDonateBtn.addEventListener('click', function() {
-                const amount = customAmountInput.value;
-                if (amount && amount >= 10) {
-                    processDonation(amount);
+            customSupportBtn.addEventListener('click', function() {
+                const usdAmount = customAmountInput.value;
+                if (usdAmount && usdAmount > 0) {
+                    const inrAmount = usdAmount * exchangeRate;
+                    
+                    // Check if amount exceeds safe limit
+                    if (inrAmount > 50000) {
+                        alert('For regulatory compliance, we recommend amounts below ₹50,000. Please consider a smaller contribution or contact us for alternative support options.');
+                        return;
+                    }
+                    
+                    showSupportModal(usdAmount, inrAmount);
                 } else {
-                    alert('Please enter an amount of $10 or more.');
+                    alert('Please enter a valid amount.');
                     customAmountInput.focus();
                 }
             });
             
-            function processDonation(amount) {
-                // In a real implementation, this would connect to a payment processor
-                // For this demo, we'll show a confirmation message
-                alert(`Thank you for your donation of $${amount}! In a production environment, this would redirect to a secure payment processing page.`);
+            function showSupportModal(usdAmount, inrAmount) {
+                // In production, this would redirect to Razorpay/Cashfree
+                // For demo, we show a confirmation with legal info
+                const modalHtml = `
+                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                        <div style="background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                            <h3 style="color: var(--dark-green); margin-bottom: 20px;">Confirm Your Support</h3>
+                            
+                            <div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-green);">$${usdAmount}</div>
+                                    <div style="color: var(--gray);">≈ ₹${inrAmount.toLocaleString('en-IN')}</div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 25px;">
+                                <h4 style="margin-bottom: 10px; color: var(--dark-green);">Legal Acknowledgement</h4>
+                                <div style="background: #fff8e1; padding: 15px; border-radius: 8px; border-left: 4px solid #ffb300; font-size: 0.9rem;">
+                                    <p>I understand that:</p>
+                                    <ul style="padding-left: 20px; margin-top: 10px;">
+                                        <li>This contribution supports research activities</li>
+                                        <li>It is not a tax-deductible charitable donation</li>
+                                        <li>I will receive a payment acknowledgement (not 80G receipt)</li>
+                                        <li>Only Indian Rupees from Indian bank accounts are accepted</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; gap: 15px;">
+                                <button id="cancel-support" style="padding: 12px 25px; background: #f5f5f5; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Cancel</button>
+                                <button id="proceed-payment" style="padding: 12px 25px; background: var(--primary-green); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Proceed to Secure Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
                 
-                // Reset custom amount field
-                customAmountInput.value = '';
+                // Add modal to page
+                const modalContainer = document.createElement('div');
+                modalContainer.innerHTML = modalHtml;
+                document.body.appendChild(modalContainer);
                 
-                // Log the donation (in a real app, this would go to a backend)
-                console.log(`Donation processed: $${amount}`);
+                // Add event listeners to modal buttons
+                document.getElementById('cancel-support').addEventListener('click', function() {
+                    document.body.removeChild(modalContainer);
+                });
+                
+                document.getElementById('proceed-payment').addEventListener('click', function() {
+                    // In production: Redirect to payment gateway (Razorpay/Cashfree)
+                    alert(`In production, this would redirect to a secure payment page for $${usdAmount} (≈ ₹${inrAmount.toLocaleString('en-IN')}).\n\nWe recommend using Razorpay with "Domestic Payments Only" enabled to ensure FCRA compliance.`);
+                    
+                    document.body.removeChild(modalContainer);
+                    customAmountInput.value = '';
+                });
             }
             
             // Quick amount buttons populate the custom field
