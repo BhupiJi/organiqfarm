@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Our Research | OrganiqFarm 2026</title>
-    <meta name="description" content="Support independent, verified research for the 2026 organic transition. Your contribution directly funds critical soil testing and open data.">
+    <title>Support Our Research | OrganiqFarm</title>
+    <meta name="description" content="Support independent organic farming research. Your $1 contribution helps verify critical data for the agricultural transition.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://organiqfarm.com/support.html">
-    <meta property="og:title" content="Support OrganiqFarm 2026 - Fund Critical Organic Research">
-    <meta property="og:description" content="Your support funds soil testing, data verification, and open-access publications for the 2026 agricultural shift.">
+    <meta property="og:url" content="https://organiqfarm.com/support">
+    <meta property="og:title" content="Support Organic Farming Research | OrganiqFarm">
+    <meta property="og:description" content="Your $1 helps fund soil testing and data verification for sustainable agriculture.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80">
     
     <!-- Fonts -->
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Additional styles for the support page */
         .support-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80');
@@ -49,33 +48,66 @@
             opacity: 0.9;
         }
         
-        .single-amount-card {
-            background: var(--card-bg);
-            max-width: 500px;
+        .support-container {
+            max-width: 800px;
             margin: 50px auto;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            padding: 0 20px;
         }
         
-        .donation-amount {
-            font-size: 4rem;
+        .impact-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+        }
+        
+        .support-amount {
+            font-size: 5rem;
             font-weight: 800;
             color: var(--primary-green);
             margin: 20px 0;
             line-height: 1;
         }
         
+        .amount-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .breakdown-item {
+            background: rgba(76, 175, 80, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .breakdown-item i {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        
+        .razorpay-section {
+            margin: 50px 0;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
         .currency-note {
-            color: var(--gray);
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
             font-size: 0.95rem;
-            margin-bottom: 30px;
-            padding: 10px;
-            background: rgba(76, 175, 80, 0.05);
-            border-radius: 8px;
+            color: var(--gray);
         }
         
         .currency-note i {
@@ -83,81 +115,36 @@
             margin-right: 8px;
         }
         
-        .razorpay-integration-area {
-            margin: 40px 0;
-            padding: 25px;
-            background: #f9f9f9;
-            border-radius: 12px;
-            border: 2px dashed #ddd;
-            text-align: center;
-        }
-        
-        .razorpay-integration-area h4 {
-            margin-bottom: 15px;
-            color: var(--dark-green);
-        }
-        
-        .impact-note {
-            margin-top: 25px;
-            padding: 15px;
-            background: rgba(76, 175, 80, 0.08);
-            border-radius: 10px;
-        }
-        
-        .impact-note a {
-            color: var(--primary-green);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        .impact-note a:hover {
-            text-decoration: underline;
-        }
-        
         .legal-disclaimer {
             background: rgba(244, 67, 54, 0.05);
             border-left: 4px solid #f44336;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.9rem;
-        }
-        
-        .legal-disclaimer h4 {
-            color: #d32f2f;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 25px;
+            margin-top: 50px;
+            border-radius: 0 10px 10px 0;
         }
         
         @media (max-width: 768px) {
-            .support-hero {
-                padding: 120px 0 60px;
-            }
-            
             .support-hero h1 {
                 font-size: 2.2rem;
             }
             
-            .single-amount-card {
-                padding: 25px;
-                margin: 30px 20px;
+            .support-amount {
+                font-size: 3.5rem;
             }
             
-            .donation-amount {
-                font-size: 3rem;
+            .impact-card {
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">🌱</span>
-                <span class="logo-text">Organiq<span class="logo-highlight">Farm</span> 2026</span>
+                <span class="logo-text">Organiq<span class="logo-highlight">Farm</span></span>
             </a>
             
             <ul class="nav-menu">
@@ -177,72 +164,101 @@
         </div>
     </nav>
 
-    <!-- Main Support Hero Section -->
+    <!-- Support Hero -->
     <section class="support-hero">
         <div class="container">
-            <h1>Fund a Critical Soil Health Test</h1>
-            <p>Your single contribution provides a complete soil analysis for a transitioning farm, generating open data for the 2026 organic shift.</p>
+            <h1>Every Dollar Verifies Critical Data</h1>
+            <p>Support independent research on organic farming. Your $1 contribution directly helps verify soil health data that farmers need for a sustainable transition.</p>
         </div>
     </section>
 
-    <!-- Single Amount Donation Card -->
-    <section class="container">
-        <div class="single-amount-card">
-            <h2><i class="fas fa-flask"></i> Support One Full Soil Test</h2>
-            <p class="section-subtitle">This comprehensive test analyzes microbial activity, nutrient levels, and contamination for one farm.</p>
+    <!-- Main Support Content -->
+    <section class="support-container">
+        <!-- Impact Card -->
+        <div class="impact-card">
+            <h2><i class="fas fa-hand-holding-heart"></i> Make a Direct Impact</h2>
+            <p class="section-subtitle">A small contribution from many supporters creates meaningful change.</p>
             
-            <div class="donation-amount">$25</div>
+            <div class="support-amount">$1</div>
             
-            <p class="currency-note">
-                <i class="fas fa-info-circle"></i> Amount is set in USD. For Indian supporters, the equivalent amount in INR (approx ₹2,100*) will be charged securely via Razorpay.
-            </p>
-            
-            <div class="razorpay-integration-area">
-                <h4>Secure Payment</h4>
-                <p>Click the button below. You will be redirected to Razorpay's secure checkout to complete your support.</p>
-                
-               
-<form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RvMwWBPpRu05Wq" async> </script>
-</form>
-               
-                
+            <div class="currency-note">
+                <i class="fas fa-info-circle"></i> Amount is set in USD. For Indian supporters, ₹101 will be charged securely via Razorpay.
             </div>
             
-            <div class="impact-note">
-                <p><i class="fas fa-check-circle" style="color: #4CAF50;"></i> <strong>247 tests funded to date.</strong> View recent results in our <a href="blogs.html">blog</a>.</p>
+            <div class="amount-breakdown">
+                <div class="breakdown-item">
+                    <i class="fas fa-flask"></i>
+                    <h4>Data Verification</h4>
+                    <p>Helps verify 5 critical soil data points</p>
+                </div>
+                
+                <div class="breakdown-item">
+                    <i class="fas fa-server"></i>
+                    <h4>Open Access</h4>
+                    <p>Supports 3 hours of public server access</p>
+                </div>
+                
+                <div class="breakdown-item">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Research</h4>
+                    <p>Contributes to regional analysis reports</p>
+                </div>
             </div>
         </div>
         
-        <!-- Urgency Section -->
-        <div class="urgency-section" style="background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; border-radius: 15px; padding: 30px; margin: 40px auto; max-width: 900px;">
-            <h3 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-clock"></i> Why 2026 is Critical</h3>
-            <p style="text-align: center; opacity: 0.9; margin-bottom: 20px;">The soil data we collect now determines which farming communities will be resilient to climate extremes by 2026. Every test accelerates the transition timeline.</p>
+        <!-- Razorpay Integration -->
+        <div class="razorpay-section">
+            <h3><i class="fas fa-lock"></i> Secure Payment</h3>
+            <p>Click the button below to proceed. You'll be redirected to Razorpay's secure checkout to complete your support.</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px;">
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">3-5 Years</div>
-                    <div style="font-size: 0.9rem;">Time needed to regenerate depleted soils</div>
+            <!-- PASTE YOUR RAZORPAY BUTTON CODE HERE -->
+            <!-- REPLACE THIS COMMENT WITH YOUR ACTUAL RAZORPAY CODE -->
+          
+                <form>
+                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RvMwWBPpRu05Wq" async> </script>
+                </form>
+          
+            
+            <div style="margin-top: 30px; font-size: 0.9rem; color: var(--gray);">
+                <p><i class="fas fa-shield-alt"></i> Payment secured with 256-bit encryption</p>
+            </div>
+        </div>
+        
+        <!-- Community Impact -->
+        <div style="background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center;">
+            <h3 style="margin-bottom: 20px;"><i class="fas fa-users"></i> Collective Impact</h3>
+            <p style="opacity: 0.9; margin-bottom: 25px;">When 100 supporters contribute $1, we can fund a complete soil test for a transitioning farm.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: 700;">247</div>
+                    <div>Soil Tests Funded</div>
                 </div>
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">40% Higher</div>
-                    <div style="font-size: 0.9rem;">Climate resilience of organic systems</div>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: 700;">3,500+</div>
+                    <div>Data Points Verified</div>
                 </div>
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">78% More</div>
-                    <div style="font-size: 0.9rem;">Microbial activity in organic soils</div>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 2rem; font-weight: 700;">42</div>
+                    <div>Farmers Supported</div>
                 </div>
             </div>
         </div>
         
         <!-- Legal Disclaimer -->
         <div class="legal-disclaimer">
-            <h4><i class="fas fa-gavel"></i> Important Legal & Compliance Information</h4>
-            <p><strong>OrganiqFarm 2026 is an independent research initiative, not a registered charitable trust or society.</strong></p>
-            <p>1. <strong>Tax Status:</strong> Contributions are received as support for specific research projects and operational costs. They are <strong>not tax-deductible</strong> as charitable donations under Section 80G of the Indian Income Tax Act, 1961.</p>
-            <p>2. <strong>FCRA Compliance:</strong> We <strong>do not accept foreign contributions</strong> without proper FCRA registration. Our payment gateway is configured to accept only Indian Rupees (₹) from Indian bank accounts.</p>
-            <p>3. <strong>Receipts:</strong> You will receive a formal payment acknowledgement receipt for your records via email from Razorpay.</p>
-            <p style="margin-top: 15px; font-size: 0.85rem; font-style: italic;">By proceeding with payment, you acknowledge understanding of the above terms.</p>
+            <h4><i class="fas fa-gavel"></i> Important Legal Information</h4>
+            <p><strong>OrganiqFarm is an independent research initiative, not a registered charitable trust or society.</strong></p>
+            
+            <p>1. <strong>Tax Status:</strong> Contributions support specific research projects and operational costs. They are <strong>not tax-deductible</strong> as charitable donations under Section 80G of the Indian Income Tax Act.</p>
+            
+            <p>2. <strong>FCRA Compliance:</strong> We <strong>do not accept foreign contributions</strong> without proper FCRA registration. Payments are processed in INR from Indian bank accounts only.</p>
+            
+            <p>3. <strong>Transparency:</strong> You will receive a payment acknowledgement receipt. Quarterly fund usage reports are published on our <a href="about.html" style="color: #d32f2f; font-weight: 600;">About page</a>.</p>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; font-style: italic;">
+                By proceeding with payment, you acknowledge understanding of these terms.
+            </p>
         </div>
     </section>
 
@@ -255,10 +271,10 @@
                         <span class="logo-icon">🌱</span>
                         <span class="logo-text">Organiq<span class="logo-highlight">Farm</span></span>
                     </a>
-                    <p class="footer-motto">Verified data for the 2026 organic transition.</p>
+                    <p class="footer-motto">Verified data for the organic transition.</p>
                     <div class="verified-badge">
                         <i class="fas fa-check-circle"></i>
-                        <span>Verified by OrganiqFarm Labs 2026</span>
+                        <span>Verified by OrganiqFarm Labs</span>
                     </div>
                 </div>
                 
@@ -285,20 +301,28 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h3 class="footer-title">Legal & Policies</h3>
+                    <h3 class="footer-title">Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="refund-policy.html">Refund Policy</a></li>
-                        <li><a href="shipping.html">Shipping Policy</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailto:contact@organiqfarm.com">contact@organiqfarm.com</a></li>
+                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="#">Data Partnerships</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
                     </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access for educational purposes.</p>
-                <p class="footer-disclaimer">This initiative is sustained through ethical affiliate partnerships, community support, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
+                <p class="footer-disclaimer">
+                    <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund-policy.html">Refund Policy</a> | <a href="contact.html">Contact</a>
+                </p>
             </div>
         </div>
     </footer>
