@@ -3,86 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Economic Flip | OrganiqFarm</title>
-    <link rel="stylesheet" href="style.css">
+    <title>The 2026 Farm Bill: Organic Funding Analysis | OrganiqFarm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-layout-container { display: grid; grid-template-columns: 7fr 3fr; gap: 50px; max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .blog-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-widget { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #eee; }
+        .sidebar-post { display: flex; gap: 15px; margin-bottom: 20px; text-decoration: none; color: #333; }
+        .sidebar-post img { width: 70px; height: 70px; border-radius: 6px; object-fit: cover; }
+        .blog-post-hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 0 80px; text-align: center; }
+        .blog-post-hero h1 { font-size: 2.5rem; max-width: 900px; margin: 20px auto; }
+        @media(max-width: 900px) { .blog-layout-container { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
-    <nav class="navbar"><div class="container nav-container"><a href="index.html" class="logo">OrganiqFarm<span>2026</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="facts.html">Facts</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="about.html">About</a></li></ul></div></nav>
 
-    <header class="hero" style="height: 60vh; background-image: url('https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=1920');">
-        <div class="hero-content">
-            <span class="verified-badge" style="border-color: gold; color: gold;">Market Watch</span>
-            <h1>The Economic Flip: Organic vs. Synthetic</h1>
-            <p><i class="far fa-calendar"></i> Apr 02, 2026 &nbsp;|&nbsp; <i class="fas fa-coins"></i> Financial Analysis</p>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">🌱</span> OrganiqFarm 2026</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <div class="container" style="display: grid; grid-template-columns: 1fr 300px; gap: 4rem; padding: 4rem 20px;">
-        <article class="article-content">
-            <p class="lead">
-                For decades, the argument was: "Organic is nice, but it can't feed the world because it's too expensive." In 2026, the script has flipped. Conventional farming has become the luxury of the ignorant, while organic is the choice of the pragmatist.
-            </p>
+    <section class="blog-post-hero">
+        <div class="container">
+            <span class="blog-category" style="background:rgba(255,255,255,0.2); padding:5px 15px; border-radius:20px;">Policy & Economics</span>
+            <h1>The 2026 Farm Bill: A Historic Shift for Organic Funding</h1>
+            <p>How the new "Resilience Rider" and transition grants are reshaping the economics of American agriculture.</p>
+        </div>
+    </section>
 
-            <h2><i class="fas fa-chart-pie"></i> The Input Cost Explosion</h2>
-            <p>
-                Geopolitical instability has caused the price of synthetic fertilizers (derived from natural gas) to triple since 2024. Meanwhile, the price of "organic inputs"—sunlight, rain, and cover crop seeds—has remained stable.
-            </p>
+    <div class="blog-layout-container">
+        <article class="blog-main-column">
+            <p class="lead" style="font-size: 1.2rem; font-weight: 500; color: #2E7D32;">The passage of the 2026 Farm Bill marks a watershed moment. For the first time since the 1970s, federal policy has shifted from subsidizing yield at all costs to subsidizing resilience and soil health. Our policy team breaks down the three critical components that will impact organic farmers.</p>
 
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Expense Category</th>
-                        <th>Conventional (2026)</th>
-                        <th>Organic (2026)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fertilizer/Acre</td>
-                        <td style="color: #ff5252;">$280</td>
-                        <td style="color: #69f0ae;">$15 (Cover Crop Seeds)</td>
-                    </tr>
-                    <tr>
-                        <td>Pesticides</td>
-                        <td style="color: #ff5252;">$120</td>
-                        <td style="color: #69f0ae;">$0</td>
-                    </tr>
-                    <tr>
-                        <td>Labor/Tech</td>
-                        <td>$50</td>
-                        <td>$80</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Net Profit/Acre</strong></td>
-                        <td style="color: #ff5252;"><strong>$45</strong></td>
-                        <td style="color: #69f0ae;"><strong>$310</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>1. The "Resilience Rider" Insurance Model</h2>
+            <p>Historically, crop insurance was the biggest barrier to organic adoption. Farmers who didn't use chemicals were considered "high risk" and charged higher premiums. The 2026 Bill reverses this. Based on actuarial data showing organic soil handles drought better, the new "Resilience Rider" offers a <strong>25% premium discount</strong> to farmers with certified Soil Organic Matter (SOM) above 3%.</p>
+            <p>This effectively subsidizes good farming practices rather than failure. For a 2,000-acre grain farm, this discount equates to roughly $45,000 in annual savings.</p>
 
-            <h2><i class="fas fa-shopping-basket"></i> Consumer Demand Shifts</h2>
-            <p>
-                It's not just about the cost to grow. It's about the price to sell. In 2026, consumers armed with portable "Nutrient Scanners" (attached to smartphones) are refusing to buy nutrient-void produce.
-            </p>
-            <p>
-                Big Box retailers are cancelling contracts with conventional growers because the produce rots too fast. Organic produce, with higher mineral content, has a shelf life that is 40% longer. This reduction in waste is saving retailers billions, and they are passing that preference down the supply chain.
-            </p>
+            <h2>2. Bridging the "Valley of Death"</h2>
+            <p>The "Valley of Death" is the 3-year transition period where a farmer must grow organically (high labor, no chemicals) but sell the crop at conventional prices because they aren't yet certified. This financial strain bankrupted many potential converters.</p>
             
-            <div class="highlight-box">
-                <h3>The Subsidies are Ending</h3>
-                <p>Governments are realizing they cannot subsidize climate destruction. The new "2026 Farm Bill" shifts subsidies from "Yield" to "Stewardship." If you don't sequester carbon, you don't get a check.</p>
+            <div style="background: #fff3cd; padding: 20px; border-left: 4px solid #ffc107; margin: 20px 0;">
+                <strong>New Funding:</strong> The Bill allocates $4 Billion for Transition Grants. Farmers now receive direct payments of <strong>$150 per acre/year</strong> during the 3-year transition, completely offsetting the certification costs and yield dips.
             </div>
 
-            <a href="blogs.html" class="btn">Back to Blog Hub</a>
+            <h2>3. Equipment Sharing Cooperatives</h2>
+            <p>Organic farming often requires specialized equipment (like roller-crimpers or flame weeders) that is too expensive for a single small farm to buy. The new legislation provides 75% matching grants for regional cooperatives to purchase this machinery.</p>
+            <p>We are already seeing "Machinery Hubs" popping up in Nebraska and Ohio, where 10-15 neighbors share a single $300,000 autonomous weeding robot, drastically lowering their individual capital expenditure.</p>
+
+            <h3>Conclusion</h3>
+            <p>This is no longer a niche movement. The federal government has recognized that soil health is a matter of national security. With these economic incentives in place, we project the US organic acreage to double by 2030.</p>
         </article>
 
-        <aside style="position: sticky; top: 100px;">
-            <div class="glass-card">
-                <h3>Investment Tip</h3>
-                <p>Farmland REITS focusing on regenerative transitions are outperforming the S&P 500 by 8%.</p>
+        <aside class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Read Next</h3>
+                <a href="blog-post-8.html" class="sidebar-post">
+                    <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=200&q=80" alt="Carbon">
+                    <div class="sidebar-post-content">
+                        <h4>Carbon Markets</h4>
+                        <span><i class="far fa-clock"></i> Nov 12, 2025</span>
+                    </div>
+                </a>
+                <a href="blog-post-1.html" class="sidebar-post">
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=200&q=80" alt="Nitrate">
+                    <div class="sidebar-post-content">
+                        <h4>Nitrate Crisis</h4>
+                        <span><i class="far fa-clock"></i> Mar 15, 2026</span>
+                    </div>
+                </a>
             </div>
         </aside>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom"><p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access.</p></div>
+        </div>
+    </footer>
 </body>
 </html>
