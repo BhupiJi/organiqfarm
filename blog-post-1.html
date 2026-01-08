@@ -3,111 +3,727 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 2026 Nitrate Crisis: Groundwater Analysis | OrganiqFarm</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>The 2026 Nitrate Crisis - OrganiqFarm Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Blog Layout Styles */
-        .blog-layout-container { display: grid; grid-template-columns: 7fr 3fr; gap: 50px; max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .blog-sidebar { position: sticky; top: 100px; height: fit-content; }
-        .sidebar-widget { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #eee; }
-        .sidebar-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; border-bottom: 2px solid #4CAF50; display: inline-block; padding-bottom: 5px; }
-        .sidebar-post { display: flex; gap: 15px; margin-bottom: 20px; text-decoration: none; color: #333; transition: transform 0.2s; }
-        .sidebar-post:hover { transform: translateX(5px); }
-        .sidebar-post img { width: 70px; height: 70px; border-radius: 6px; object-fit: cover; }
-        .sidebar-post-content h4 { font-size: 0.9rem; margin-bottom: 5px; line-height: 1.3; }
-        .sidebar-post-content span { font-size: 0.8rem; color: #888; }
+        :root {
+            --primary-green: #2E7D32;
+            --dark-green: #1B5E20;
+            --light-green: #4CAF50;
+            --card-bg: #ffffff;
+            --sidebar-bg: #f8f9fa;
+            --text-color: #333;
+            --gray: #666;
+        }
         
-        .blog-post-hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 0 80px; text-align: center; }
-        .blog-post-hero h1 { font-size: 2.5rem; max-width: 900px; margin: 20px auto; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        /* Main Column Typography */
-        .blog-main-column h2 { color: #2E7D32; margin-top: 40px; font-size: 1.8rem; }
-        .blog-main-column p { margin-bottom: 20px; line-height: 1.8; font-size: 1.1rem; color: #444; }
-        .highlight-box { background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background: #f5f7fa;
+        }
         
-        @media(max-width: 900px) { .blog-layout-container { grid-template-columns: 1fr; } }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Navigation */
+        .blog-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+        
+        .back-to-blogs {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Blog Layout */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 50px;
+            padding: 50px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        .blog-main {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .blog-hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 50px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .blog-category {
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--primary-green);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .blog-date {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark-green);
+            line-height: 1.3;
+        }
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--sidebar-bg);
+            border-radius: 10px;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark-green);
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .blog-article {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--dark-green);
+        }
+        
+        .blog-article p {
+            margin-bottom: 25px;
+        }
+        
+        .blog-article ul, .blog-article ol {
+            margin: 20px 0 20px 30px;
+        }
+        
+        .blog-article li {
+            margin-bottom: 10px;
+        }
+        
+        .data-chart {
+            background: var(--sidebar-bg);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .chart-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Sidebar */
+        .blog-sidebar {
+            background: var(--sidebar-bg);
+            border-radius: 15px;
+            padding: 30px;
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-green);
+        }
+        
+        .related-blogs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .related-blog {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .related-blog:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .related-blog-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .related-blog-content {
+            flex: 1;
+        }
+        
+        .related-blog-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-green);
+        }
+        
+        .related-blog-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .newsletter-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--dark-green);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-motto {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: white;
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .footer-disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .footer-disclaimer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 1024px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-content {
+                padding: 30px;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .blog-hero-image {
+                height: 300px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo"><span class="logo-icon">🌱</span> OrganiqFarm 2026</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="blogs.html" class="nav-link">Blogs</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-            </ul>
+    <!-- Header -->
+    <header class="blog-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span>🌱</span>
+                <span>Organiq<span style="color: #2E7D32;">Farm</span> 2026</span>
+            </a>
+            <a href="blogs.html" class="back-to-blogs">
+                <i class="fas fa-arrow-left"></i> Back to All Blogs
+            </a>
         </div>
-    </nav>
+    </header>
 
-    <section class="blog-post-hero">
-        <div class="container">
-            <span class="blog-category" style="background:rgba(255,255,255,0.2); padding:5px 15px; border-radius:20px;">Soil Health</span>
-            <h1>The 2026 Nitrate Crisis: Groundwater Analysis & Solutions</h1>
-            <p>Our 3-year study reveals conventional farming regions have reached critical nitrate levels. We project remediation timelines.</p>
-        </div>
-    </section>
-
-    <div class="blog-layout-container">
-        <article class="blog-main-column">
-            <p class="lead" style="font-size: 1.2rem; font-weight: 500; color: #2E7D32;">Our comprehensive groundwater monitoring across 12 major agricultural regions in North America has revealed a disturbing trend: nitrate concentrations have exceeded safe drinking water limits (10 mg/L) in 78% of tested wells adjacent to conventional farming operations. This represents a 22% increase from 2023 levels.</p>
-
-            <h2>The Scale of the Problem</h2>
-            <p>Nitrate pollution primarily stems from synthetic fertilizer application, with an estimated 35-40% of applied nitrogen leaching into groundwater. This not only represents a significant economic loss for farmers ($28 billion annually in wasted fertilizer globally) but also poses serious health risks.</p>
+    <!-- Blog Content -->
+    <div class="container blog-layout">
+        <!-- Main Content -->
+        <main class="blog-main">
+            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80" 
+                 alt="Soil analysis in lab" class="blog-hero-image">
             
-            <div class="highlight-box">
-                <strong>Key Finding:</strong> The average nitrate concentration in groundwater beneath conventional corn and soybean fields now stands at 14.8 mg/L—48% above the EPA's Maximum Contaminant Level. In the most affected regions (central California, Iowa), levels exceed 25 mg/L.
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span class="blog-category">Soil Health</span>
+                    <span class="blog-date"><i class="far fa-calendar"></i> March 15, 2026</span>
+                </div>
+                
+                <h1 class="blog-title">The 2026 Nitrate Crisis: Our Analysis of Groundwater Contamination</h1>
+                
+                <div class="blog-author">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                         alt="Dr. Sarah Chen" class="author-image">
+                    <div class="author-info">
+                        <h4>Dr. Sarah Chen</h4>
+                        <p>Lead Soil Scientist, OrganiqFarm Research Division</p>
+                    </div>
+                </div>
+                
+                <article class="blog-article">
+                    <p>Our comprehensive 3-year study, spanning across 12 agricultural regions in North America, reveals a concerning trend: conventional farming areas have reached critical nitrate contamination levels in groundwater. As we approach the 2026 organic transition deadline, understanding the full scope of this environmental crisis is paramount.</p>
+                    
+                    <h2>The Scale of Contamination</h2>
+                    <p>Our research team collected over 5,000 groundwater samples from regions with intensive conventional agriculture. The findings are alarming:</p>
+                    
+                    <ul>
+                        <li><strong>78% of sampled wells</strong> exceeded EPA safe nitrate limits (10 mg/L)</li>
+                        <li><strong>45% showed levels above 20 mg/L</strong>, posing immediate health risks</li>
+                        <li><strong>Average nitrate concentration</strong> increased by 32% since 2023</li>
+                        <li><strong>Highest contamination levels</strong> were found in corn and soybean monoculture regions</li>
+                    </ul>
+                    
+                    <div class="data-chart">
+                        <h3>Nitrate Levels in Groundwater (2023-2026)</h3>
+                        <div class="chart-placeholder">
+                            Interactive Chart: Nitrate Concentration Over Time
+                        </div>
+                        <p><small>Data collected from 12 agricultural regions across North America</small></p>
+                    </div>
+                    
+                    <h2>Health Implications</h2>
+                    <p>Elevated nitrate levels in drinking water have been linked to serious health conditions:</p>
+                    
+                    <ol>
+                        <li><strong>Methemoglobinemia (Blue Baby Syndrome):</strong> Infants under 6 months are particularly vulnerable to nitrate poisoning</li>
+                        <li><strong>Thyroid Disorders:</strong> Nitrates interfere with iodine uptake, potentially causing thyroid dysfunction</li>
+                        <li><strong>Increased Cancer Risk:</strong> Studies link long-term nitrate exposure to gastric, esophageal, and bladder cancers</li>
+                        <li><strong>Reproductive Issues:</strong> Emerging research suggests potential impacts on fertility and pregnancy outcomes</li>
+                    </ol>
+                    
+                    <h2>Economic Impact Analysis</h2>
+                    <p>The cost of remediation is staggering. Our projections for the 2026 transition include:</p>
+                    
+                    <p><strong>Water Treatment Costs:</strong> Municipal water systems in affected regions will require an estimated $4.2 billion in filtration upgrades over the next decade.</p>
+                    
+                    <p><strong>Healthcare Costs:</strong> Preventable nitrate-related health conditions could cost the healthcare system $1.8 billion annually if current contamination trends continue.</p>
+                    
+                    <p><strong>Agricultural Productivity:</strong> Soil degradation from synthetic fertilizer overuse reduces long-term productivity by an estimated 15-20% in heavily contaminated regions.</p>
+                    
+                    <h2>The Organic Solution</h2>
+                    <p>Our research shows that transitioning to organic practices can reduce nitrate leaching by 60-80% within 3-5 years. Key strategies include:</p>
+                    
+                    <ul>
+                        <li><strong>Cover Cropping:</strong> Planting nitrogen-fixing cover crops between cash crop seasons</li>
+                        <li><strong>Compost Application:</strong> Slow-release organic fertilizers that minimize nitrate runoff</li>
+                        <li><strong>Crop Rotation:</strong> Diversifying crops to balance nutrient demands</li>
+                        <li><strong>Buffer Strips:</strong> Vegetative barriers around fields to filter runoff</li>
+                    </ul>
+                    
+                    <h2>Projected Remediation Timelines</h2>
+                    <p>Based on our soil and water monitoring data, we project the following recovery timelines for transitioning regions:</p>
+                    
+                    <p><strong>Year 1-2:</strong> 30-40% reduction in nitrate leaching as synthetic fertilizer use declines</p>
+                    <p><strong>Year 3-4:</strong> 50-60% reduction as soil organic matter increases and microbial activity improves</p>
+                    <p><strong>Year 5+:</strong> 70-80% reduction with fully established organic systems and balanced nutrient cycling</p>
+                    
+                    <h2>Policy Recommendations for 2026</h2>
+                    <p>To accelerate the transition and address the nitrate crisis, we recommend:</p>
+                    
+                    <ol>
+                        <li>Implementing targeted subsidies for farmers transitioning to organic practices in high-risk regions</li>
+                        <li>Establishing groundwater protection zones with mandatory organic management</li>
+                        <li>Creating a national nitrate monitoring network with real-time public data access</li>
+                        <li>Developing financial incentives for water utilities that partner with organic farmers</li>
+                    </ol>
+                    
+                    <p><strong>Conclusion:</strong> The 2026 nitrate crisis represents both an environmental challenge and an opportunity for systemic change. Our data clearly shows that organic transition is not just an agricultural choice but a public health imperative. The projected remediation timelines are achievable with coordinated effort, appropriate policy support, and investment in sustainable farming practices.</p>
+                </article>
             </div>
-
-            <h2>Methodology: 3-Year Paired Study</h2>
-            <p>Beginning in 2023, our team established 450 monitoring wells across conventional and organic farming systems in paired watershed studies. Each month, we collected and analyzed water samples for nitrate, phosphate, and pesticide residues. We also tracked farming practices, fertilizer application rates, and weather patterns to establish causal relationships.</p>
-
-            <h2>The Organic Solution: 77% Reduction</h2>
-            <p>The data reveals a stark contrast: organic farming systems showed nitrate levels averaging 3.2 mg/L—77% lower than conventional counterparts. This difference stems from several key factors:</p>
-            <ul>
-                <li><strong>Slower Release:</strong> Organic compost releases nitrogen slowly, matching plant uptake.</li>
-                <li><strong>Cover Crops:</strong> Organic systems require cover crops, which "catch" excess nitrogen in winter.</li>
-                <li><strong>Microbial Action:</strong> Diverse soil bacteria convert nitrates into harmless gas (denitrification) more efficiently.</li>
-            </ul>
-
-            <h2>Projected Remediation Timelines</h2>
-            <p>If conventional farms transition to organic by 2026, nitrate levels should return to safe levels within 3-5 years in sandy soils, and 5-8 years in clay soils. However, delaying action until 2030 will likely push groundwater toxicity past the "tipping point," requiring expensive reverse-osmosis filtration for municipal water supplies.</p>
-        </article>
-
+        </main>
+        
+        <!-- Sidebar -->
         <aside class="blog-sidebar">
-            <div class="sidebar-widget">
-                <h3 class="sidebar-title">Read Next</h3>
-                <a href="blog-post-2.html" class="sidebar-post">
-                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=200&q=80" alt="AI">
-                    <div class="sidebar-post-content">
-                        <h4>AI Yield Predictions</h4>
-                        <span><i class="far fa-clock"></i> Feb 28, 2026</span>
-                    </div>
-                </a>
-                <a href="blog-post-7.html" class="sidebar-post">
-                    <img src="https://images.unsplash.com/photo-1621459535848-12d92119932e?auto=format&fit=crop&w=200&q=80" alt="Soil">
-                    <div class="sidebar-post-content">
-                        <h4>Regeneration Timelines</h4>
-                        <span><i class="far fa-clock"></i> Nov 30, 2025</span>
-                    </div>
-                </a>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Related Blogs</h3>
+                <div class="related-blogs">
+                    <a href="blog-post-7.html" class="related-blog">
+                        <img src="https://images.unsplash.com/photo-1592982537447-7444dc31f8e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Soil regeneration" class="related-blog-image">
+                        <div class="related-blog-content">
+                            <h4 class="related-blog-title">Soil Regeneration Timelines</h4>
+                            <span class="related-blog-date">Nov 30, 2025</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog-post-8.html" class="related-blog">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Carbon farming" class="related-blog-image">
+                        <div class="related-blog-content">
+                            <h4 class="related-blog-title">Carbon Farming Credits</h4>
+                            <span class="related-blog-date">Nov 12, 2025</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog-post-2.html" class="related-blog">
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="AI technology" class="related-blog-image">
+                        <div class="related-blog-content">
+                            <h4 class="related-blog-title">AI and Organic Yield Predictions</h4>
+                            <span class="related-blog-date">Feb 28, 2026</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog-post-12.html" class="related-blog">
+                        <img src="https://images.unsplash.com/photo-1592920607717-3d78b422d855?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Mycorrhizal fungi" class="related-blog-image">
+                        <div class="related-blog-content">
+                            <h4 class="related-blog-title">Mycorrhizal Networks</h4>
+                            <span class="related-blog-date">Sep 5, 2025</span>
+                        </div>
+                    </a>
+                </div>
             </div>
             
-            <div class="sidebar-widget" style="background: #f1f8e9; border: 1px solid #c8e6c9;">
-                <h3 class="sidebar-title" style="border-color: #2E7D32;">Download Data</h3>
-                <p style="font-size: 0.9rem;">Get the full 450-well CSV dataset for your own research.</p>
-                <button style="width:100%; padding:10px; background:#2E7D32; color:white; border:none; border-radius:5px; margin-top:10px; cursor:pointer;">Download PDF</button>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Subscribe for Updates</h3>
+                <div class="newsletter-form">
+                    <p>Get the latest research and insights delivered to your inbox.</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: var(--gray);">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Quick Stats</h3>
+                <div style="background: white; padding: 20px; border-radius: 10px;">
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary-green);">78%</div>
+                        <div style="font-size: 0.9rem; color: var(--gray);">of sampled wells exceed safe nitrate limits</div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary-green);">60-80%</div>
+                        <div style="font-size: 0.9rem; color: var(--gray);">nitrate reduction with organic transition</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary-green);">$4.2B</div>
+                        <div style="font-size: 0.9rem; color: var(--gray);">estimated water treatment costs</div>
+                    </div>
+                </div>
             </div>
         </aside>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom"><p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access.</p></div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <span>🌱</span>
+                        <span>Organiq<span style="color: #a5d6a7;">Farm</span></span>
+                    </a>
+                    <p class="footer-motto">Verified data for the 2026 organic transition.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified by OrganiqFarm Labs 2026</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Insights</a></li>
+                        <li><a href="facts.html">Verified Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                        <li><a href="about.html">About Our Mission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="facts.html#weather">Weather & Climate Data</a></li>
+                        <li><a href="nutrition.html#comparison">Food Comparisons</a></li>
+                        <li><a href="blog-post-6.html">Transition Guides</a></li>
+                        <li><a href="affiliates.html">Organic Product Partners</a></li>
+                        <li><a href="donate.html">Fund a Research Project</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@organiqfarm.com">contact@organiqfarm.com</a></li>
+                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="#">Data Partnerships</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm Labs. All data and insights are open-access for educational purposes.</p>
+                <p class="footer-disclaimer">This site is sustained through affiliate partnerships, community donations, and sponsored research. <a href="about.html">Learn more about our funding model</a>.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our next update.`);
+            this.reset();
+        });
+        
+        // Make related blog cards clickable
+        document.querySelectorAll('.related-blog').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
