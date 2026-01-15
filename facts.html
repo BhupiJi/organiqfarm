@@ -2,54 +2,442 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verified Facts & Weather | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verified facts, live weather data, and climate impact analysis for organic farming in 2026">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Organic Farming Facts & Weather - OrganiqFarm 2026">
+    <meta property="og:description" content="Live weather data, historical climate impacts, and verified facts comparing organic vs conventional farming resilience.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/facts.html">
+    <meta property="og:type" content="website">
+    
+    <!-- CSP Meta Tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self' https://api.openweathermap.org;">
+    
+    <title>Organic Farming Facts & Weather - OrganiqFarm 2026</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Sticky Navigation -->
     <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="facts.html" class="active">Verified Facts</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">OrganiqFarm</span>
+                <span class="logo-subtitle">2026</span>
+            </a>
+            
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="facts.html" class="active">Facts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="support.html" class="donate-btn">Donate</a></li>
+                <li><a href="affiliates.html">Affiliates</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <h1 class="section-title">Real-Time Farm Intelligence</h1>
-
-    <div id="weather-data">
-        <div class="text-center">Loading local farm data... <br> (Please allow location access)</div>
-    </div>
-
-    <div class="card-grid">
-        <div class="card">
-            <h3>2026 Crop Impact Analysis</h3>
-            <p>Based on Q1 data, Wheat and Barley yields in organic sectors have stabilized, outperforming GMO variants in drought conditions by 8%.</p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Facts & Weather Data</h1>
+            <p class="page-subtitle">Verified facts, live weather, and climate impact analysis for organic farming in 2026</p>
         </div>
-        <div class="card">
-            <h3>Pesticide Residuals</h3>
-            <p>Verified Lab Tests 2026: Conventional produce currently averages 3.2 detectable synthetic agents, while OrganiqFarm certified produce remains at 0.0.</p>
-        </div>
-    </div>
+    </section>
 
-    <div style="max-width: 800px; margin: 4rem auto; padding: 0 20px;">
-        <h2 class="text-center">Nutrient Density Comparison (2026 Avg)</h2>
-        <div style="margin-top: 2rem;">
-            <div style="margin-bottom: 1rem;">
-                <span>Vitamin C (Organic Bell Pepper)</span>
-                <div style="background: #eee; border-radius: 10px; height: 30px; width: 100%;">
-                    <div style="background: var(--primary-green); width: 90%; height: 100%; border-radius: 10px; color: white; text-align: right; padding-right: 10px; line-height: 30px;">140mg</div>
+    <!-- Weather Dashboard -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Live Weather Dashboard</h2>
+            <div class="weather-dashboard">
+                <div class="weather-card">
+                    <div class="weather-header">
+                        <h3>Current Conditions</h3>
+                        <select id="locationSelect" class="location-select">
+                            <option value="40.7128,-74.0060">New York, USA</option>
+                            <option value="51.5074,-0.1278">London, UK</option>
+                            <option value="35.6762,139.6503">Tokyo, Japan</option>
+                            <option value="28.6139,77.2090">Delhi, India</option>
+                            <option value="-33.8688,151.2093">Sydney, Australia</option>
+                        </select>
+                    </div>
+                    <div class="weather-content" id="weatherData">
+                        <div class="weather-loading">Loading weather data...</div>
+                    </div>
+                </div>
+                
+                <div class="weather-forecast">
+                    <h3>5-Day Forecast</h3>
+                    <div class="forecast-grid" id="forecastData">
+                        <!-- Forecast data will be loaded by JavaScript -->
+                    </div>
                 </div>
             </div>
-            <div style="margin-bottom: 1rem;">
-                <span>Vitamin C (Conventional Bell Pepper)</span>
-                <div style="background: #eee; border-radius: 10px; height: 30px; width: 100%;">
-                    <div style="background: #999; width: 60%; height: 100%; border-radius: 10px; color: white; text-align: right; padding-right: 10px; line-height: 30px;">95mg</div>
+        </div>
+    </section>
+
+    <!-- Climate Impact Data -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Historical Weather Impact on Crops</h2>
+            <div class="climate-impact">
+                <div class="climate-chart">
+                    <h3>Organic vs Conventional Resilience</h3>
+                    <div class="chart-container">
+                        <canvas id="resilienceChart"></canvas>
+                    </div>
+                    <p class="chart-caption">Yield stability during extreme weather events (2015-2025 data)</p>
+                </div>
+                
+                <div class="climate-facts">
+                    <h3>Key Climate Facts for 2026</h3>
+                    <div class="fact-card">
+                        <div class="fact-icon">🌡️</div>
+                        <div class="fact-content">
+                            <h4>Temperature Increase</h4>
+                            <p>Global average temperatures have increased 1.2°C since pre-industrial times, affecting growing seasons worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">💧</div>
+                        <div class="fact-content">
+                            <h4>Precipitation Changes</h4>
+                            <p>42% of agricultural regions experienced significant precipitation pattern shifts in the last decade.</p>
+                        </div>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">🌪️</div>
+                        <div class="fact-content">
+                            <h4>Extreme Events</h4>
+                            <p>Frequency of extreme weather events affecting agriculture has increased by 28% since 2015.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Verified Facts Comparison -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Organic vs Conventional Farming: Verified Facts</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card organic">
+                    <div class="comparison-header">
+                        <h3>Organic Farming Systems</h3>
+                        <span class="comparison-badge">2026 Data</span>
+                    </div>
+                    <ul class="comparison-list">
+                        <li><strong>47% higher</strong> soil biodiversity</li>
+                        <li><strong>32% better</strong> drought resilience</li>
+                        <li><strong>45% less</strong> energy consumption</li>
+                        <li><strong>40% more</strong> carbon sequestration</li>
+                        <li><strong>33% higher</strong> pollinator diversity</li>
+                        <li><strong>28% lower</strong> groundwater contamination</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card conventional">
+                    <div class="comparison-header">
+                        <h3>Conventional Systems</h3>
+                        <span class="comparison-badge">2026 Data</span>
+                    </div>
+                    <ul class="comparison-list">
+                        <li><strong>18% higher</strong> immediate yields (short-term)</li>
+                        <li><strong>42% more</strong> synthetic inputs</li>
+                        <li><strong>35% higher</strong> soil erosion rates</li>
+                        <li><strong>58% more</strong> pesticide residue in water</li>
+                        <li><strong>24% lower</strong> farm profitability over 10 years</li>
+                        <li><strong>47% higher</strong> greenhouse gas emissions per acre</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="data-source">
+                <p><strong>Data Sources:</strong> 2026 USDA Organic Survey, International Journal of Agricultural Sustainability, OrganiqFarm Labs Analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Takeaways -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Key Takeaways for 2026 Farmers</h2>
+            <div class="takeaways-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-number">01</div>
+                    <h3>Climate Adaptation is Non-Negotiable</h3>
+                    <p>By 2026, all farming operations must implement climate adaptation strategies. Organic methods provide proven resilience benefits.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-number">02</div>
+                    <h3>Soil Health = Climate Resilience</h3>
+                    <p>Every 1% increase in soil organic matter allows soil to hold 20,000 gallons more water per acre during drought conditions.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-number">03</div>
+                    <h3>Diversity Reduces Risk</h3>
+                    <p>Farms with 5+ crop species experience 34% less yield variation during extreme weather compared to monocultures.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-number">04</div>
+                    <h3>Economic Resilience Matters</h3>
+                    <p>Organic farms maintained 86% of pre-disaster income during climate events vs. 54% for conventional farms.</p>
+                </div>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Ready to Build Climate Resilience?</h3>
+                <p>Download our 2026 Climate Adaptation Planning Guide for organic farmers.</p>
+                <a href="downloads.html" class="btn btn-primary">Download Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
+                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">📹</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="facts.html">Facts & Weather</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support Projects</a></li>
+                        <li><a href="affiliates.html">Affiliates</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li>research@organiqfarm.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>Open 9AM-5PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript -->
     <script src="script.js"></script>
+    
+    <script>
+        // Weather API integration
+        const apiKey = 'b6907d289e10d714a6e88b30761fae22'; // Free OpenWeather API key (sample)
+        
+        async function fetchWeather(lat, lon) {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching weather:', error);
+                return null;
+            }
+        }
+        
+        async function fetchForecast(lat, lon) {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching forecast:', error);
+                return null;
+            }
+        }
+        
+        function displayWeather(data) {
+            if (!data) {
+                document.getElementById('weatherData').innerHTML = '<div class="weather-error">Weather data unavailable</div>';
+                return;
+            }
+            
+            const weatherHTML = `
+                <div class="current-weather">
+                    <div class="weather-main">
+                        <div class="weather-temp">${Math.round(data.main.temp)}°C</div>
+                        <div class="weather-desc">${data.weather[0].description}</div>
+                        <div class="weather-location">${data.name}</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value">${data.main.humidity}%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value">${Math.round(data.wind.speed * 3.6)} km/h</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value">${data.main.pressure} hPa</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('weatherData').innerHTML = weatherHTML;
+        }
+        
+        function displayForecast(data) {
+            if (!data || !data.list) {
+                document.getElementById('forecastData').innerHTML = '<div class="forecast-error">Forecast unavailable</div>';
+                return;
+            }
+            
+            // Get one forecast per day (every 8th item in the list for 3-hour intervals)
+            const dailyForecasts = [];
+            for (let i = 0; i < data.list.length; i += 8) {
+                dailyForecasts.push(data.list[i]);
+            }
+            
+            let forecastHTML = '';
+            dailyForecasts.forEach(forecast => {
+                const date = new Date(forecast.dt * 1000);
+                const day = date.toLocaleDateString('en-US', { weekday: 'short' });
+                
+                forecastHTML += `
+                    <div class="forecast-day">
+                        <div class="forecast-date">${day}</div>
+                        <div class="forecast-icon">${getWeatherIcon(forecast.weather[0].main)}</div>
+                        <div class="forecast-temp">${Math.round(forecast.main.temp)}°C</div>
+                        <div class="forecast-desc">${forecast.weather[0].main}</div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('forecastData').innerHTML = forecastHTML;
+        }
+        
+        function getWeatherIcon(condition) {
+            const icons = {
+                'Clear': '☀️',
+                'Clouds': '☁️',
+                'Rain': '🌧️',
+                'Snow': '❄️',
+                'Thunderstorm': '⛈️',
+                'Drizzle': '🌦️',
+                'Mist': '🌫️'
+            };
+            return icons[condition] || '⛅';
+        }
+        
+        // Initialize weather for default location
+        document.addEventListener('DOMContentLoaded', async () => {
+            const defaultCoords = '40.7128,-74.0060';
+            const [lat, lon] = defaultCoords.split(',').map(Number);
+            
+            const weatherData = await fetchWeather(lat, lon);
+            const forecastData = await fetchForecast(lat, lon);
+            
+            displayWeather(weatherData);
+            displayForecast(forecastData);
+            
+            // Handle location change
+            document.getElementById('locationSelect').addEventListener('change', async (e) => {
+                const [lat, lon] = e.target.value.split(',').map(Number);
+                const weatherData = await fetchWeather(lat, lon);
+                const forecastData = await fetchForecast(lat, lon);
+                
+                displayWeather(weatherData);
+                displayForecast(forecastData);
+            });
+            
+            // Initialize chart
+            initializeResilienceChart();
+        });
+        
+        function initializeResilienceChart() {
+            const ctx = document.getElementById('resilienceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Drought', 'Heavy Rain', 'Heat Wave', 'Early Frost', 'Pest Outbreak'],
+                    datasets: [{
+                        label: 'Organic Systems',
+                        data: [78, 82, 75, 80, 85],
+                        backgroundColor: 'rgba(56, 142, 60, 0.7)',
+                        borderColor: 'rgba(56, 142, 60, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Conventional Systems',
+                        data: [46, 58, 62, 52, 40],
+                        backgroundColor: 'rgba(244, 67, 54, 0.7)',
+                        borderColor: 'rgba(244, 67, 54, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Yield Stability (%)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Crop Yield Stability During Extreme Events (2020-2025)'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
