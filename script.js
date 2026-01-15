@@ -1,145 +1,739 @@
-/* Project: OrganiqFarm 2026
-    File: script.js
-    Description: Handles navigation, animations, API calls, and calculator.
-*/
+// OrganiqFarm 2026 - Main JavaScript File
 
-document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    initCounters();
-    initWeather();
-    initBlogPagination();
-    updateCopyrightYear();
-    initCurrencyConverter();
+// DOM Ready Function
+document.addEventListener('DOMContentLoaded', function() {
+    initializeWebsite();
 });
 
-// --- Navigation ---
-function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
+// Main Initialization Function
+function initializeWebsite() {
+    // Initialize all components
+    initializeMobileMenu();
+    initializeAnimatedCounters();
+    initializeBlogPagination();
+    initializeFormValidation();
+    initializeSmoothScrolling();
+    initializeWeatherWidget();
+    initializeChartData();
+    initializeDownloadCalculators();
+    initializeImageLazyLoading();
 }
 
-// --- Animated Counters (Intersection Observer) ---
-function initCounters() {
-    const counters = document.querySelectorAll('.stat-number');
+// Mobile Menu Toggle
+function initializeMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
     
-    if (counters.length === 0) return;
-
-    const options = { threshold: 0.5 };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                animateValue(entry.target, 0, target, 2000);
-                observer.unobserve(entry.target);
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
             }
         });
-    }, options);
+    }
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
+}
 
+// Animated Counters
+function initializeAnimatedCounters() {
+    const counters = document.querySelectorAll('.counter-value');
+    
+    if (counters.length === 0) return;
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                animateCounter(counter, target);
+                observer.unobserve(counter);
+            }
+        });
+    }, observerOptions);
+    
     counters.forEach(counter => observer.observe(counter));
 }
 
-function animateValue(obj, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerHTML = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 100;
+    const duration = 2000; // 2 seconds
+    const stepTime = Math.abs(Math.floor(duration / (target / increment)));
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = formatNumber(target);
+            clearInterval(timer);
         } else {
-            // Add '+' sign if it was in the design
-            obj.innerHTML = end + (obj.getAttribute('data-suffix') || '');
+            element.textContent = formatNumber(Math.floor(current));
         }
-    };
-    window.requestAnimationFrame(step);
+    }, stepTime);
 }
 
-// --- Weather API (Open-Meteo: Free, No Key) ---
-function initWeather() {
-    const weatherContainer = document.getElementById('weather-data');
-    if (!weatherContainer) return;
+function formatNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
-    if ("geolocation" in navigator) {
-        weatherContainer.innerHTML = "<p>Locating your farm...</p>";
-        navigator.geolocation.getCurrentPosition(async (position) => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            
-            try {
-                // Fetching 2026 relevant metrics: temp, rain, soil moisture (simulated via rain)
-                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=precipitation_sum&timezone=auto`);
-                const data = await response.json();
-                
-                renderWeather(data);
-            } catch (error) {
-                weatherContainer.innerHTML = "<p>Weather data currently unavailable. Check connection.</p>";
-                console.error("Weather fetch error:", error);
+// Blog Pagination
+function initializeBlogPagination() {
+    const blogGrid = document.getElementById('blogGrid');
+    if (!blogGrid) return;
+    
+    const blogsPerPage = 4;
+    let currentPage = 1;
+    
+    // Create blog cards from the blogs data (if available)
+    if (typeof blogs !== 'undefined') {
+        displayBlogs(currentPage);
+        setupPagination();
+    }
+    
+    function displayBlogs(page) {
+        blogGrid.innerHTML = '';
+        const startIndex = (page - 1) * blogsPerPage;
+        const endIndex = startIndex + blogsPerPage;
+        const pageBlogs = blogs.slice(startIndex, endIndex);
+        
+        pageBlogs.forEach(blog => {
+            const blogCard = createBlogCard(blog);
+            blogGrid.appendChild(blogCard);
+        });
+    }
+    
+    function createBlogCard(blog) {
+        const card = document.createElement('a');
+        card.href = `blog-post-${blog.id}.html`;
+        card.className = 'blog-card';
+        
+        card.innerHTML = `
+            <div class="blog-card-image">
+                <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+            </div>
+            <div class="blog-card-content">
+                <span class="blog-card-category">${blog.category}</span>
+                <span class="blog-card-date">${blog.date}</span>
+                <h3 class="blog-card-title">${blog.title}</h3>
+                <p class="blog-card-excerpt">${blog.description}</p>
+            </div>
+        `;
+        
+        return card;
+    }
+    
+    function setupPagination() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageNumbers = document.getElementById('pageNumbers');
+        
+        if (!prevBtn || !nextBtn || !pageNumbers) return;
+        
+        const totalPages = Math.ceil(blogs.length / blogsPerPage);
+        
+        // Update page numbers
+        pageNumbers.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const pageNumber = document.createElement('span');
+            pageNumber.className = `page-number ${i === currentPage ? 'active' : ''}`;
+            pageNumber.textContent = i;
+            pageNumber.addEventListener('click', () => {
+                currentPage = i;
+                updatePagination();
+            });
+            pageNumbers.appendChild(pageNumber);
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
             }
-        }, () => {
-            weatherContainer.innerHTML = "<p>Location access denied. Showing global average.</p>";
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+            }
+        });
+        
+        function updatePagination() {
+            displayBlogs(currentPage);
+            
+            // Update active page number
+            document.querySelectorAll('.page-number').forEach((page, index) => {
+                page.classList.toggle('active', index + 1 === currentPage);
+            });
+            
+            // Update button states
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            // Scroll to top of blog grid
+            blogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Initial button states
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+    }
+}
+
+// Form Validation
+function initializeFormValidation() {
+    const forms = document.querySelectorAll('form:not(.newsletter-form)');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    showError(input, 'This field is required');
+                } else if (input.type === 'email' && !isValidEmail(input.value)) {
+                    isValid = false;
+                    showError(input, 'Please enter a valid email address');
+                } else {
+                    clearError(input);
+                }
+            });
+            
+            if (isValid) {
+                // In a real application, you would submit the form here
+                // For now, we'll show a success message
+                showFormSuccess(form);
+            }
+        });
+    });
+    
+    function showError(input, message) {
+        clearError(input);
+        
+        const error = document.createElement('div');
+        error.className = 'form-error';
+        error.textContent = message;
+        error.style.color = '#f44336';
+        error.style.fontSize = '0.8rem';
+        error.style.marginTop = '5px';
+        
+        input.parentNode.appendChild(error);
+        input.style.borderColor = '#f44336';
+    }
+    
+    function clearError(input) {
+        const error = input.parentNode.querySelector('.form-error');
+        if (error) {
+            error.remove();
+        }
+        input.style.borderColor = '';
+    }
+    
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    
+    function showFormSuccess(form) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            const successMsg = document.createElement('div');
+            successMsg.className = 'form-success';
+            successMsg.innerHTML = `
+                <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 5px; margin-top: 20px;">
+                    <strong>✓ Success!</strong> Your message has been sent. We'll get back to you soon.
+                </div>
+            `;
+            
+            form.appendChild(successMsg);
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successMsg.remove();
+            }, 5000);
+        }, 1500);
+    }
+}
+
+// Smooth Scrolling for Anchor Links
+function initializeSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#') return;
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                e.preventDefault();
+                
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Weather Widget
+function initializeWeatherWidget() {
+    // This is a simplified version - in production, you'd use a real API
+    const weatherWidget = document.getElementById('weatherWidget');
+    if (!weatherWidget) return;
+    
+    // Simulate weather data
+    const weatherData = {
+        temperature: 22,
+        condition: 'Sunny',
+        humidity: 65,
+        windSpeed: 12,
+        location: 'Farm Location'
+    };
+    
+    updateWeatherWidget(weatherData);
+    
+    // Update weather every 30 minutes
+    setInterval(() => {
+        // In production, fetch fresh data from API
+        updateWeatherWidget(weatherData);
+    }, 30 * 60 * 1000);
+}
+
+function updateWeatherWidget(data) {
+    const widget = document.getElementById('weatherWidget');
+    if (widget) {
+        widget.innerHTML = `
+            <div class="weather-widget">
+                <div class="weather-temp">${data.temperature}°C</div>
+                <div class="weather-condition">${data.condition}</div>
+                <div class="weather-details">
+                    <span>Humidity: ${data.humidity}%</span>
+                    <span>Wind: ${data.windSpeed} km/h</span>
+                </div>
+                <div class="weather-location">${data.location}</div>
+            </div>
+        `;
+    }
+}
+
+// Chart Data Visualization
+function initializeChartData() {
+    // This would initialize charts if Chart.js is loaded
+    // Check if we're on a page that needs charts
+    if (document.querySelector('.chart-container')) {
+        // Charts are initialized inline in facts.html
+    }
+}
+
+// Download Calculators
+function initializeDownloadCalculators() {
+    const downloadCards = document.querySelectorAll('.download-card');
+    
+    downloadCards.forEach(card => {
+        const priceElement = card.querySelector('.download-price');
+        const conversionElement = card.querySelector('.download-conversion');
+        
+        if (priceElement && conversionElement) {
+            const usdPrice = parseFloat(priceElement.textContent.replace('$', ''));
+            if (!isNaN(usdPrice)) {
+                // Convert USD to INR (approximate rate)
+                const inrPrice = usdPrice * 83; // Current approximate rate
+                conversionElement.textContent = `Approx. ₹${inrPrice.toFixed(0)} INR`;
+            }
+        }
+    });
+}
+
+// Image Lazy Loading
+function initializeImageLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
         });
     } else {
-        weatherContainer.innerHTML = "<p>Geolocation not supported.</p>";
+        // Fallback for older browsers
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+        });
     }
 }
 
-function renderWeather(data) {
-    const container = document.getElementById('weather-data');
-    const temp = data.current_weather.temperature;
-    const wind = data.current_weather.windspeed;
-    const precip = data.daily.precipitation_sum[0];
+// Newsletter Form
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate subscription
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for subscribing to our newsletter!');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                emailInput.value = '';
+            }, 1000);
+        });
+    });
+});
 
-    container.innerHTML = `
-        <div class="weather-card">
-            <h3>Local Farm Conditions</h3>
-            <div style="display: flex; justify-content: space-around; margin-top: 1rem;">
-                <div>
-                    <strong>${temp}°C</strong><br>Temperature
-                </div>
-                <div>
-                    <strong>${wind} km/h</strong><br>Wind Speed
-                </div>
-                <div>
-                    <strong>${precip} mm</strong><br>Exp. Rainfall
+// Back to Top Button
+function initializeBackToTop() {
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-green);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(backToTopBtn);
+    
+    backToTopBtn.addEventListener('mouseenter', () => {
+        backToTopBtn.style.transform = 'translateY(-3px)';
+        backToTopBtn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+    });
+    
+    backToTopBtn.addEventListener('mouseleave', () => {
+        backToTopBtn.style.transform = 'translateY(0)';
+        backToTopBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+}
+
+// Initialize back to top button
+initializeBackToTop();
+
+// Cookie Consent Banner
+function initializeCookieConsent() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+        const consentBanner = document.createElement('div');
+        consentBanner.className = 'cookie-consent';
+        consentBanner.innerHTML = `
+            <div class="cookie-content">
+                <p>We use cookies to enhance your browsing experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.</p>
+                <div class="cookie-buttons">
+                    <button class="cookie-accept">Accept</button>
+                    <button class="cookie-decline">Decline</button>
                 </div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">2026 Advisory: ${temp > 30 ? 'High heat. Ensure soil mulching.' : 'Conditions optimal for organic rotation.'}</p>
-        </div>
-    `;
-}
-
-// --- Blog Pagination (Client Side) ---
-function initBlogPagination() {
-    const blogGrid = document.getElementById('blog-grid');
-    if (!blogGrid) return;
-
-    // Logic: If we were fetching from JSON, we'd render here. 
-    // Since it's static HTML, we assume the HTML contains all items and we toggle visibility.
-    // For this deliverables, we will rely on CSS Grid layout for simplicity as requested by "Static Site".
-    // A simple load more button could be implemented if list is long.
-}
-
-// --- Currency Converter for Downloads ---
-function initCurrencyConverter() {
-    const usdPrice = 25; // Example base price
-    const inrDisplay = document.getElementById('price-inr');
-    
-    if (inrDisplay) {
-        // Static approximate 2026 rate or fetch API
-        const rate = 92.5; // Estimated 2026 rate
-        const inr = (usdPrice * rate).toFixed(2);
-        inrDisplay.innerText = `₹${inr}`;
+        `;
+        
+        consentBanner.style.cssText = `
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        `;
+        
+        document.body.appendChild(consentBanner);
+        
+        // Style the cookie content
+        const cookieContent = consentBanner.querySelector('.cookie-content');
+        cookieContent.style.maxWidth = '1200px';
+        cookieContent.style.display = 'flex';
+        cookieContent.style.justifyContent = 'space-between';
+        cookieContent.style.alignItems = 'center';
+        cookieContent.style.gap = '20px';
+        
+        // Style the buttons
+        const buttons = consentBanner.querySelectorAll('.cookie-accept, .cookie-decline');
+        buttons.forEach(btn => {
+            btn.style.padding = '10px 25px';
+            btn.style.border = 'none';
+            btn.style.borderRadius = '5px';
+            btn.style.cursor = 'pointer';
+            btn.style.fontWeight = '600';
+            btn.style.transition = 'all 0.3s ease';
+        });
+        
+        const acceptBtn = consentBanner.querySelector('.cookie-accept');
+        acceptBtn.style.background = 'var(--primary-green)';
+        acceptBtn.style.color = 'white';
+        
+        const declineBtn = consentBanner.querySelector('.cookie-decline');
+        declineBtn.style.background = 'transparent';
+        declineBtn.style.color = 'white';
+        declineBtn.style.border = '2px solid white';
+        
+        // Add event listeners
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            consentBanner.style.display = 'none';
+        });
+        
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'false');
+            consentBanner.style.display = 'none';
+        });
     }
 }
 
-function updateCopyrightYear() {
-    const yearSpan = document.getElementById('year');
-    if(yearSpan) yearSpan.innerText = new Date().getFullYear();
+// Initialize cookie consent
+initializeCookieConsent();
+
+// Page Load Progress Bar
+function initializeProgressBar() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'page-progress';
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--primary-green);
+        z-index: 1002;
+        transition: width 0.3s ease;
+    `;
+    
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        const scrolled = (window.pageYOffset / documentHeight) * 100;
+        
+        progressBar.style.width = scrolled + '%';
+    });
 }
+
+// Initialize progress bar
+initializeProgressBar();
+
+// Print Functionality for Blog Posts
+function initializePrintFunctionality() {
+    const printBtn = document.createElement('button');
+    printBtn.innerHTML = '🖨️ Print';
+    printBtn.className = 'print-button';
+    printBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: var(--primary-green);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: none;
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(printBtn);
+    
+    // Only show on blog post pages
+    if (document.querySelector('.blog-post')) {
+        printBtn.style.display = 'block';
+        
+        printBtn.addEventListener('click', () => {
+            const printContent = document.querySelector('.blog-post-main').innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 40px; max-width: 800px; margin: 0 auto;">
+                    ${printContent}
+                    <div style="text-align: center; margin-top: 40px; color: #666; font-size: 0.9rem;">
+                        Printed from OrganiqFarm.com - ${new Date().toLocaleDateString()}
+                    </div>
+                </div>
+            `;
+            
+            window.print();
+            
+            // Restore original content
+            document.body.innerHTML = originalContent;
+            initializeWebsite(); // Reinitialize scripts
+        });
+    }
+}
+
+// Initialize print functionality
+initializePrintFunctionality();
+
+// Theme Switcher (Light/Dark Mode)
+function initializeThemeSwitcher() {
+    const themeBtn = document.createElement('button');
+    themeBtn.innerHTML = '🌙';
+    themeBtn.className = 'theme-switcher';
+    themeBtn.title = 'Toggle Dark Mode';
+    themeBtn.style.cssText = `
+        position: fixed;
+        bottom: 90px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-green);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(themeBtn);
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        enableDarkMode();
+        themeBtn.innerHTML = '☀️';
+    }
+    
+    themeBtn.addEventListener('click', () => {
+        if (document.body.classList.contains('dark-mode')) {
+            disableDarkMode();
+            themeBtn.innerHTML = '🌙';
+        } else {
+            enableDarkMode();
+            themeBtn.innerHTML = '☀️';
+        }
+    });
+    
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    }
+    
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// Initialize theme switcher
+initializeThemeSwitcher();
+
+// Add dark mode CSS
+const darkModeCSS = `
+    body.dark-mode {
+        background: #121212;
+        color: #e0e0e0;
+    }
+    
+    body.dark-mode .navbar {
+        background: rgba(30, 30, 30, 0.95);
+    }
+    
+    body.dark-mode .nav-menu a {
+        color: #e0e0e0;
+    }
+    
+    body.dark-mode .feature-card,
+    body.dark-mode .blog-card,
+    body.dark-mode .comparison-card,
+    body.dark-mode .support-card,
+    body.dark-mode .download-card {
+        background: #1e1e1e;
+        color: #e0e0e0;
+    }
+    
+    body.dark-mode .footer {
+        background: #0a0a0a;
+    }
+`;
+
+const style = document.createElement('style');
+style.textContent = darkModeCSS;
+document.head.appendChild(style);
