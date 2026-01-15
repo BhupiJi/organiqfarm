@@ -2,31 +2,396 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact OrganiqFarm - Get in touch with our research team, ask questions about organic farming, or suggest new research topics for 2026">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Contact OrganiqFarm - 2026 Research & Support">
+    <meta property="og:description" content="Connect with our team of organic farming experts, researchers, and community support specialists.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559131397-f94da358b057?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/contact.html">
+    <meta property="og:type" content="website">
+    
+    <!-- CSP Meta Tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'">
+    
+    <title>Contact OrganiqFarm - 2026 Research & Support</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 150px; max-width: 600px;">
-        <div class="section-header">
-            <h1 class="gradient-text">Join the Movement</h1>
-            <p>Have questions about our 2026 research or partnerships?</p>
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">OrganiqFarm</span>
+                <span class="logo-subtitle">2026</span>
+            </a>
+            
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="facts.html">Facts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="support.html" class="donate-btn">Donate</a></li>
+                <li><a href="affiliates.html">Affiliates</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
         </div>
-        <form style="background: var(--glass); padding: 3rem; border-radius: 20px; border: 1px solid var(--glass-border);">
-            <div style="margin-bottom: 1.5rem;">
-                <label>Full Name</label>
-                <input type="text" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;">
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">Get in touch with our research team, ask questions, or suggest new research topics for 2026</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <p>We typically respond within 24-48 hours. For urgent matters, please call our support line.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Select a topic</option>
+                                <option value="research">Research Inquiry</option>
+                                <option value="farming">Farming Questions</option>
+                                <option value="donation">Donation Information</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="media">Media & Press</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-control" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <input type="checkbox" name="newsletter" checked>
+                                Subscribe to our monthly research newsletter
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We're here to help with any questions about organic farming, research collaborations, or community support.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>research@organiqfarm.com</p>
+                            <p>support@organiqfarm.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Phone Numbers</h4>
+                            <p>Research Inquiries: +1 (555) 123-4567</p>
+                            <p>Farmer Support: +1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🏢</div>
+                        <div>
+                            <h4>Office Address</h4>
+                            <p>OrganiqFarm Research Center</p>
+                            <p>123 Sustainable Way</p>
+                            <p>Green Valley, CA 90210</p>
+                            <p>United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM EST</p>
+                            <p>Saturday: 10:00 AM - 2:00 PM EST</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🌐</div>
+                        <div>
+                            <h4>Connect Online</h4>
+                            <div class="social-icons" style="margin-top: 10px;">
+                                <a href="#" class="social-icon">📘</a>
+                                <a href="#" class="social-icon">🐦</a>
+                                <a href="#" class="social-icon">📷</a>
+                                <a href="#" class="social-icon">📹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="margin-bottom: 1.5rem;">
-                <label>Email Address</label>
-                <input type="email" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;">
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How can I access your research data?</h3>
+                    <p>All our published research is available for free in our downloads section. For raw data sets, please contact our research team with your specific requirements.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you provide farming consultations?</h3>
+                    <p>Yes, we offer free initial consultations for farmers transitioning to organic methods. Contact us to schedule a call with one of our agricultural experts.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I volunteer for research projects?</h3>
+                    <p>We welcome volunteers for field research and data collection. Please send your background and interests to our research email address.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I cite your research?</h3>
+                    <p>All our publications include proper citation formats. You can find citation information on each research paper's download page.</p>
+                </div>
             </div>
-            <div style="margin-bottom: 2rem;">
-                <label>Message</label>
-                <textarea rows="5" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); color:white; margin-top:8px;"></textarea>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Contact Teams</h2>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-icon">🔬</div>
+                    <h3>Research Team</h3>
+                    <p>For scientific inquiries, data requests, and research collaborations.</p>
+                    <p><strong>Contact:</strong> research@organiqfarm.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-icon">👨‍🌾</div>
+                    <h3>Farmer Support</h3>
+                    <p>For farming questions, transition guidance, and technical assistance.</p>
+                    <p><strong>Contact:</strong> farmers@organiqfarm.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-icon">🤝</div>
+                    <h3>Partnerships</h3>
+                    <p>For corporate partnerships, affiliate programs, and collaborations.</p>
+                    <p><strong>Contact:</strong> partnerships@organiqfarm.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-icon">💝</div>
+                    <h3>Donor Relations</h3>
+                    <p>For donation inquiries, grant applications, and funding questions.</p>
+                    <p><strong>Contact:</strong> donors@organiqfarm.com</p>
+                </div>
             </div>
-            <button type="button" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Send Message</button>
-        </form>
-    </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="emergency-contact">
+                <div class="emergency-icon">🚨</div>
+                <div class="emergency-content">
+                    <h3>Urgent Farming Crisis?</h3>
+                    <p>If you're experiencing an immediate farming emergency (crop failure, pest outbreak, etc.), call our 24/7 crisis line:</p>
+                    <p class="emergency-phone">+1 (555) 911-FARM (3276)</p>
+                    <p><em>Available 24 hours for registered organic farmers</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
+                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">📹</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="facts.html">Facts & Weather</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support Projects</a></li>
+                        <li><a href="affiliates.html">Affiliates</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li>research@organiqfarm.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>Open 9AM-5PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
+    
+    <style>
+        /* Additional styles for contact page */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            background: var(--pure-white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        .faq-item h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            background: var(--pure-white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px var(--shadow);
+            transition: var(--transition-smooth);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+        
+        .team-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .team-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        
+        .team-card p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .emergency-contact {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .emergency-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+        
+        .emergency-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .emergency-phone {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
 </body>
 </html>
