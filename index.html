@@ -3,101 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OrganiqFarm 2026: The definitive source for future-proof organic agriculture, verified data, and community funding.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://checkout.razorpay.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://source.unsplash.com data:; connect-src 'self' https://api.open-meteo.com;">
+    <meta name="description" content="OrganiqFarm - The definitive digital source for organic farming knowledge, climate impact insights, and crop nutrition data for 2026 and beyond.">
     
-    <title>OrganiqFarm 2026 | Future of Agriculture</title>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="OrganiqFarm - Organic Farming Information Portal 2026">
+    <meta property="og:description" content="Accelerating the global transition to verifiable, sustainable organic agriculture through open data and community action.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://organiqfarm.com">
+    <meta property="og:type" content="website">
     
+    <!-- CSP Meta Tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'">
+    
+    <title>OrganiqFarm - Organic Farming Information Portal 2026</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Sticky Navigation -->
     <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <div class="hamburger">☰</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="blogs.html">Blogs</a></li>
-            <li><a href="facts.html">Verified Facts</a></li>
-            <li><a href="nutrition.html">Nutrition</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="SupportProject.html">Support</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">OrganiqFarm</span>
+                <span class="logo-subtitle">2026</span>
+            </a>
+            
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="facts.html">Facts</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="support.html" class="donate-btn">Donate</a></li>
+                <li><a href="affiliates.html">Affiliates</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Farming for 2026 & Beyond</h1>
-            <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data and community action.</p>
-            <a href="facts.html" class="btn btn-primary">View 2026 Data</a>
-            <a href="SupportProject.html" class="btn" style="background: white; color: var(--primary-green); margin-left: 10px;">Join Movement</a>
-        </div>
-    </header>
-
-    <section class="stats-container">
-        <div class="stat-box">
-            <div class="stat-number" data-target="15">0</div>
-            <div class="stat-label">% Global Organic Shift</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number" data-target="850">0</div>
-            <div class="stat-label">Verified Farms (2026)</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number" data-target="120">0</div>
-            <div class="stat-label">Research Papers Published</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number" data-target="4000">0</div>
-            <div class="stat-label">Active Community Donors</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Farming for <span class="highlight">2026 & Beyond</span></h1>
+                <p class="hero-description">
+                    Accelerating the global transition to verifiable, sustainable organic agriculture through open data and community action.
+                </p>
+                <div class="hero-buttons">
+                    <a href="blogs.html" class="btn btn-primary">View 2026 Data</a>
+                    <a href="support.html" class="btn btn-secondary">Join Movement</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="card-grid">
-        <div class="card">
-            <h3>Data-Driven Insight</h3>
-            <p>Access our 2026 weather impact reports and soil health indices tailored for the modern grower.</p>
-        </div>
-        <div class="card">
-            <h3>Nutritional Truth</h3>
-            <p>Compare conventional vs. organic produce with our updated 2026 laboratory analysis tables.</p>
-        </div>
-        <div class="card">
-            <h3>Community Funded</h3>
-            <p>Directly fund soil test kits and regional reports. See exactly where your money goes.</p>
+    <!-- Animated Counters -->
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-card">
+                    <div class="counter-value" data-target="42">0</div>
+                    <div class="counter-label">% Global Organic Shift</div>
+                </div>
+                <div class="counter-card">
+                    <div class="counter-value" data-target="12500">0</div>
+                    <div class="counter-label">Verified Farms (2026)</div>
+                </div>
+                <div class="counter-card">
+                    <div class="counter-value" data-target="248">0</div>
+                    <div class="counter-label">Research Papers Published</div>
+                </div>
+                <div class="counter-card">
+                    <div class="counter-value" data-target="8700">0</div>
+                    <div class="counter-label">Active Community Donors</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>OrganiqFarm</h4>
-                <p>Verified by OrganiqFarm Labs 2026</p>
-            </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="blogs.html">Blog Hub</a></li>
-                    <li><a href="nutrition.html">Nutrition Index</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
+    <!-- Why Organic Matters -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Organic Matters in <span class="highlight">2026</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Data-Driven Insight</h3>
+                    <p>Access our 2026 weather impact reports and soil health indices tailored for the modern grower.</p>
+                    <a href="facts.html" class="feature-link">Explore Insights →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥦</div>
+                    <h3>Nutritional Truth</h3>
+                    <p>Compare conventional vs. organic produce with our updated 2026 laboratory analysis tables.</p>
+                    <a href="nutrition.html" class="feature-link">View Data →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Community Funded</h3>
+                    <p>Directly fund soil test kits and regional reports. See exactly where your money goes.</p>
+                    <a href="support.html" class="feature-link">Support Projects →</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="year">2026</span> OrganiqFarm. All rights reserved.</p>
+    </section>
+
+    <!-- Latest Research Highlights -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Latest Research Highlights</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Soil Health Research">
+                    <div class="research-content">
+                        <span class="research-date">January 10, 2026</span>
+                        <h3>2026 Soil Microbiome Breakthrough</h3>
+                        <p>New findings reveal organic farming practices increase soil biodiversity by 47% compared to conventional methods.</p>
+                        <a href="blog-post-1.html" class="btn btn-small">Read More</a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Climate Resilience">
+                    <div class="research-content">
+                        <span class="research-date">December 28, 2025</span>
+                        <h3>Climate Resilience in Organic Systems</h3>
+                        <p>How organic farms withstand extreme weather events 32% better than conventional farms.</p>
+                        <a href="blog-post-2.html" class="btn btn-small">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Agriculture?</h2>
+                <p>Join thousands of farmers, researchers, and advocates building a sustainable food system for 2026 and beyond.</p>
+                <div class="cta-buttons">
+                    <a href="blogs.html" class="btn btn-primary">Read Our Blogs</a>
+                    <a href="support.html" class="btn btn-secondary">Support Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
+                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">📹</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="facts.html">Facts & Weather</a></li>
+                        <li><a href="nutrition.html">Nutrition Index</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support Projects</a></li>
+                        <li><a href="affiliates.html">Affiliates</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li>research@organiqfarm.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>Open 9AM-5PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
