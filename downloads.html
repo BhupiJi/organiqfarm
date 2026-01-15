@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Downloads | OrganiqFarm</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Organiq<span>Farm</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="downloads.html" class="active">Downloads</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="section-title">Research Library</h1>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>2026 Summary (Lite)</h3>
+            <p>Executive summary of global organic trends.</p>
+            <br>
+            <a href="assets/pdfs/summary-lite.pdf" download class="btn" style="border: 2px solid var(--primary-green);">Download Free PDF</a>
+        </div>
+
+        <div class="card" style="border: 2px solid var(--accent-lime);">
+            <h3>Full Technical Report 2026</h3>
+            <p>150+ pages of raw data, soil maps, and yield projections.</p>
+            <ul style="text-align: left; margin: 1rem 0; font-size: 0.9rem;">
+                <li>✓ Full Weather Datasets</li>
+                <li>✓ Regional Breakdown</li>
+                <li>✓ Excel Raw Data Included</li>
+            </ul>
+            
+            <div style="background: #e8f5e9; padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem; font-weight: bold;">$25.00 USD</span>
+                <div style="font-size: 0.9rem; color: #666;">Approx. <span id="price-inr">₹2300</span></div>
+            </div>
+
+            <form>
+               <script src="https://checkout.razorpay.com/v1/payment-button.js" 
+                       data-payment_button_id="pl_RvMwWBPpRu05Wq" 
+                       async> 
+               </script> 
+            </form>
+            
+            <p style="font-size: 0.8rem; margin-top: 1rem;">Secure payment via RazorPay. Instant download link sent to email.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
