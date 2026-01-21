@@ -3,318 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore our comprehensive blog library covering organic farming techniques, climate impact, soil health, and 2026 agricultural trends.">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Organic Farming Blogs - OrganiqFarm 2026">
-    <meta property="og:description" content="In-depth articles, research summaries, and practical guides for organic farmers and enthusiasts.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Explore comprehensive blogs and research articles on organic farming practices, sustainability, and agricultural innovations.">
+    <meta property="og:title" content="Blogs & Research - OrganiqFarm">
+    <meta property="og:description" content="In-depth articles and research on organic farming, sustainability, and agricultural best practices.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://organiqfarm.com/blogs.html">
-    <meta property="og:type" content="website">
     
-    <!-- CSP Meta Tag -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'">
+    <title>Blogs & Research - OrganiqFarm</title>
     
-    <title>Organic Farming Blogs - OrganiqFarm 2026</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">OrganiqFarm</span>
-                <span class="logo-subtitle">2026</span>
-            </a>
-            
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html" class="active">Blogs</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="support.html" class="donate-btn">Donate</a></li>
-                <li><a href="affiliates.html">Affiliates</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html" class="active">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="SupportProject.html" class="btn btn-small btn-primary">Support</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Blog Header -->
-    <section class="page-header">
+    <section class="hero" style="padding: 120px 0 60px;">
         <div class="container">
-            <h1 class="page-title">Organic Farming Blogs</h1>
-            <p class="page-subtitle">In-depth articles, research summaries, and practical guides for 2026 and beyond</p>
+            <div class="hero-content">
+                <h1>Research & Insights</h1>
+                <p>Comprehensive articles, research findings, and practical guides on organic farming and sustainable agriculture.</p>
+            </div>
         </div>
     </section>
 
     <!-- Blog Grid -->
-    <section class="section">
+    <section class="section-padding">
         <div class="container">
-            <div class="blog-grid" id="blogGrid">
-                <!-- Blog cards will be generated by JavaScript -->
-            </div>
-            
-            <!-- Pagination -->
-            <div class="pagination">
-                <button id="prevBtn" class="pagination-btn" disabled>← Previous</button>
-                <div class="page-numbers" id="pageNumbers">
-                    <span class="page-number active">1</span>
-                    <span class="page-number">2</span>
-                    <span class="page-number">3</span>
-                    <span class="page-number">4</span>
-                    <span class="page-number">5</span>
+            <div class="blog-grid" id="blogContainer">
+                <!-- Blog 1 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1591288980063-7c76a1f2c4a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soil Health" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Soil Science</span>
+                        <span class="blog-date">March 15, 2024</span>
+                    </div>
+                    <h3>Advanced Soil Regeneration Techniques for Higher Yields</h3>
+                    <p>Discover innovative methods to improve soil health naturally. This comprehensive guide covers cover cropping, no-till farming, and microbial enhancement techniques that can increase yields by up to 40%.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                        <a href="blog-post-1.html" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
                 </div>
-                <button id="nextBtn" class="pagination-btn">Next →</button>
-            </div>
-        </div>
-    </section>
 
-    <!-- Newsletter -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="newsletter">
-                <h2>Stay Updated for 2026</h2>
-                <p>Subscribe to receive our latest research and farming insights directly in your inbox.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
+                <!-- Blog 2 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Climate Farming" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Climate Adaptation</span>
+                        <span class="blog-date">March 12, 2024</span>
+                    </div>
+                    <h3>Adapting Farming Practices to Changing Climate Patterns</h3>
+                    <p>How organic farmers can prepare for and adapt to climate variability. Learn about drought-resistant crops, water management strategies, and weather prediction tools for better planning.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
+                        <a href="blog-post-2.html" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Composting" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Composting</span>
+                        <span class="blog-date">March 10, 2024</span>
+                    </div>
+                    <h3>The Complete Guide to Vermicomposting at Scale</h3>
+                    <p>Learn how to implement large-scale vermicomposting systems that can process farm waste into premium organic fertilizer. Includes cost analysis and ROI calculations.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 10 min read</span>
+                        <a href="blog-post-3.html" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 4 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pest Control" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Pest Management</span>
+                        <span class="blog-date">March 8, 2024</span>
+                    </div>
+                    <h3>Natural Pest Control Methods That Actually Work</h3>
+                    <p>Evidence-based approaches to pest management without chemicals. Companion planting, beneficial insects, and biological controls that reduce pest damage by 70-90%.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 7 min read</span>
+                        <a href="#" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 5 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Water Management" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Water Conservation</span>
+                        <span class="blog-date">March 5, 2024</span>
+                    </div>
+                    <h3>Smart Irrigation Systems for Water-Efficient Farming</h3>
+                    <p>Implementing IoT-based irrigation systems that can reduce water usage by 30-50% while maintaining optimal crop growth. Complete setup guide and cost-benefit analysis.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 9 min read</span>
+                        <a href="#" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 6 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Market Analysis" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Market Trends</span>
+                        <span class="blog-date">March 3, 2024</span>
+                    </div>
+                    <h3>Organic Food Market Growth: 2024 Analysis & Predictions</h3>
+                    <p>Comprehensive analysis of global organic food markets, consumer trends, and profitability projections for different crop types and regions.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 11 min read</span>
+                        <a href="#" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 7 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Biodiversity" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Biodiversity</span>
+                        <span class="blog-date">March 1, 2024</span>
+                    </div>
+                    <h3>Increasing Farm Biodiversity: A Practical Guide</h3>
+                    <p>How to design and implement biodiversity corridors, polyculture systems, and habitat restoration on your farm to improve ecosystem health and resilience.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                        <a href="#" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Blog 8 -->
+                <div class="card blog-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Certification" class="card-img">
+                    <div class="blog-meta">
+                        <span class="blog-category">Certification</span>
+                        <span class="blog-date">February 28, 2024</span>
+                    </div>
+                    <h3>Organic Certification Process Simplified</h3>
+                    <p>Step-by-step guide through the organic certification process, including documentation requirements, inspection preparation, and maintaining compliance.</p>
+                    <div class="blog-footer">
+                        <span class="read-time"><i class="far fa-clock"></i> 12 min read</span>
+                        <a href="#" class="btn btn-secondary btn-small">Read Article</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Pagination -->
+            <div class="pagination"></div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
-                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📷</a>
-                        <a href="#" class="social-icon">📹</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blogs</a></li>
-                        <li><a href="facts.html">Facts & Weather</a></li>
-                        <li><a href="nutrition.html">Nutrition Index</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
+                        <li><a href="blogs.html" class="active">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="support.html">Support Projects</a></li>
-                        <li><a href="affiliates.html">Affiliates</a></li>
-                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="contact.html">Contact Form</a></li>
-                        <li>research@organiqfarm.com</li>
-                        <li>+1 (555) 123-4567</li>
-                        <li>Open 9AM-5PM EST</li>
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest research and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
-    <script>
-        // Blog data - 20 blogs
-        const blogs = [
-            {
-                id: 1,
-                title: "2026 Soil Microbiome Breakthrough: Organic vs Conventional",
-                description: "New research reveals how organic farming practices increase soil biodiversity by 47% and what this means for 2026 farming standards.",
-                date: "January 10, 2026",
-                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Soil Health"
-            },
-            {
-                id: 2,
-                title: "Climate Resilience in Organic Farming Systems",
-                description: "How organic farms withstand extreme weather events 32% better than conventional farms and practical implementation strategies.",
-                date: "December 28, 2025",
-                image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Climate"
-            },
-            {
-                id: 3,
-                title: "The 2026 Guide to Natural Pest Control",
-                description: "Comprehensive strategies for managing pests without chemicals, featuring the latest research on biological controls.",
-                date: "December 15, 2025",
-                image: "https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Techniques"
-            },
-            {
-                id: 4,
-                title: "Water Conservation in Organic Agriculture: 2026 Standards",
-                description: "How organic farms are leading in water efficiency with 40% less irrigation needs and smart water management systems.",
-                date: "December 5, 2025",
-                image: "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Sustainability"
-            },
-            {
-                id: 5,
-                title: "Nutritional Density: Organic vs Conventional Produce",
-                description: "2026 laboratory analysis reveals significant differences in vitamin, mineral, and antioxidant content across 50 crop varieties.",
-                date: "November 22, 2025",
-                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Nutrition"
-            },
-            {
-                id: 6,
-                title: "Carbon Sequestration Potential of Organic Farming",
-                description: "How properly managed organic soils can capture up to 3.5 tons of carbon per hectare annually and climate implications.",
-                date: "November 10, 2025",
-                image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Climate"
-            },
-            {
-                id: 7,
-                title: "The Economic Case for Organic Transition in 2026",
-                description: "Market analysis showing 28% higher profitability for established organic farms despite common misconceptions.",
-                date: "October 30, 2025",
-                image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Economics"
-            },
-            {
-                id: 8,
-                title: "Regenerative Agriculture: Beyond Organic Certification",
-                description: "Exploring practices that go beyond organic standards to actively regenerate soil and ecosystem health.",
-                date: "October 18, 2025",
-                image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Techniques"
-            },
-            {
-                id: 9,
-                title: "Pollinator Health and Organic Farming Practices",
-                description: "How organic farms support 50% more pollinator diversity and practical steps to enhance pollinator habitats.",
-                date: "October 5, 2025",
-                image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Biodiversity"
-            },
-            {
-                id: 10,
-                title: "2026 Organic Seed Selection and Preservation",
-                description: "Comprehensive guide to selecting, saving, and preserving heirloom and organic seeds for climate resilience.",
-                date: "September 22, 2025",
-                image: "https://images.unsplash.com/photo-1592924739098-0d35e09c72e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Seeds"
-            },
-            {
-                id: 11,
-                title: "Compost Science: Advanced Techniques for 2026",
-                description: "Latest research on optimizing compost processes for maximum nutrient availability and pathogen control.",
-                date: "September 10, 2025",
-                image: "https://images.unsplash.com/photo-1597848212624-e6f1f4d43e7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Soil Health"
-            },
-            {
-                id: 12,
-                title: "Organic Livestock Integration for Soil Health",
-                description: "How properly managed grazing and livestock integration can improve soil organic matter by 1.5% annually.",
-                date: "August 28, 2025",
-                image: "https://images.unsplash.com/photo-1549313861-33587f3d2956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Livestock"
-            },
-            {
-                id: 13,
-                title: "Digital Tools for Organic Farm Management",
-                description: "Review of 2026's best software, sensors, and digital tools designed specifically for organic operations.",
-                date: "August 15, 2025",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Technology"
-            },
-            {
-                id: 14,
-                title: "Urban Organic Farming: Scaling Production",
-                description: "Case studies of successful urban organic farms producing over 10kg of food per square meter annually.",
-                date: "August 1, 2025",
-                image: "https://images.unsplash.com/photo-1417733403748-83bbc7c05140?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Urban Farming"
-            },
-            {
-                id: 15,
-                title: "Organic Certification Updates for 2026",
-                description: "Important changes to organic certification standards and what farmers need to know for compliance.",
-                date: "July 20, 2025",
-                image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Regulations"
-            },
-            {
-                id: 16,
-                title: "Nutritional Impact of Organic Farming Methods",
-                description: "Longitudinal study showing 25% higher micronutrient content in organically grown vegetables over 5 years.",
-                date: "July 8, 2025",
-                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Nutrition"
-            },
-            {
-                id: 17,
-                title: "Soil Testing Interpretation for Organic Farmers",
-                description: "How to read and act on soil test results to optimize organic amendments and improve yields.",
-                date: "June 25, 2025",
-                image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Soil Health"
-            },
-            {
-                id: 18,
-                title: "Cover Crop Strategies for Different Climates",
-                description: "Best cover crop selections and management techniques for various climate zones and soil types.",
-                date: "June 12, 2025",
-                image: "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Techniques"
-            },
-            {
-                id: 19,
-                title: "Organic Farming and Community Health Outcomes",
-                description: "Research linking organic farming practices to improved community health metrics and reduced healthcare costs.",
-                date: "May 30, 2025",
-                image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Community"
-            },
-            {
-                id: 20,
-                title: "Future of Organic: Predictions for 2027-2030",
-                description: "Expert analysis of emerging trends, technologies, and market shifts in the organic agriculture sector.",
-                date: "May 15, 2025",
-                image: "https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                category: "Future Trends"
-            }
-        ];
-    </script>
 </body>
 </html>
