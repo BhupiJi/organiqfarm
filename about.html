@@ -2,33 +2,239 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Us | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Learn about OrganiqFarm's mission to advance organic farming through research, education, and community support.">
+    <meta property="og:title" content="About Us - OrganiqFarm">
+    <meta property="og:description" content="Our mission to accelerate the global transition to sustainable organic agriculture.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/about.html">
+    
+    <title>About Us - OrganiqFarm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-        </ul>
-    </nav>
-
-    <div style="max-width: 800px; margin: 4rem auto; padding: 0 20px; text-align: center;">
-        <h1 class="section-title">Our Mission</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">"To accelerate the global transition to verifiable, sustainable organic agriculture by 2026 through open data, public education, and community funding."</p>
-        
-        <div style="text-align: left; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <h3>Who We Are</h3>
-            <p style="margin-bottom: 1rem;">OrganiqFarm started as a small blog and has grown into a data-hub for the 2026 agricultural revolution. We bridge the gap between academic research and the dirt-under-fingernails reality of farming.</p>
-            
-            <h3>Our Model</h3>
-            <ul style="list-style: disc; padding-left: 20px;">
-                <li><strong>Affiliate Partnerships:</strong> We recommend only tools we test.</li>
-                <li><strong>Community Donations:</strong> Funding specific equipment for farmers.</li>
-                <li><strong>Open Data:</strong> All our weather and soil findings are public.</li>
-            </ul>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="SupportProject.html" class="btn btn-small btn-primary">Support</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Mission</h1>
+                <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto;">To accelerate the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+                <div>
+                    <h2>Our Story</h2>
+                    <p>Founded by a team of agricultural scientists, environmentalists, and data analysts, OrganiqFarm emerged from a shared concern about the growing disconnect between food production and environmental sustainability.</p>
+                    <p>We witnessed firsthand how conventional farming practices were degrading soil health, reducing biodiversity, and compromising food quality. Yet, we also saw the transformative potential of organic methods when combined with modern scientific understanding.</p>
+                    <p>What started as a small research project has grown into a comprehensive platform that brings together farmers, researchers, consumers, and policymakers around a common goal: creating a food system that nourishes both people and the planet.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Farm Team" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Model -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
+        <div class="container">
+            <h2 style="text-align: center;">Our Sustainability Model</h2>
+            <p class="section-subtitle" style="text-align: center;">Transparent funding that supports independent research</p>
+            
+            <div class="grid grid-3" style="margin-top: 3rem;">
+                <div class="card model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-handshake" style="font-size: 2.5rem; color: var(--primary-green);"></i>
+                    </div>
+                    <h3>Affiliate Partnerships</h3>
+                    <p>We partner with ethical companies producing organic seeds, sustainable tools, and educational materials. These partnerships allow us to recommend quality products while generating revenue to fund our research.</p>
+                    <a href="affiliates.html" class="btn btn-secondary btn-small">View Partners</a>
+                </div>
+                
+                <div class="card model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary-green);"></i>
+                    </div>
+                    <h3>Community Donations</h3>
+                    <p>Direct support from our community funds specific research projects, including soil testing programs, regional studies, and farmer education initiatives. Every contribution makes a measurable impact.</p>
+                    <a href="SupportProject.html" class="btn btn-secondary btn-small">Support Projects</a>
+                </div>
+                
+                <div class="card model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-university" style="font-size: 2.5rem; color: var(--primary-green);"></i>
+                    </div>
+                    <h3>Sponsored Research</h3>
+                    <p>We collaborate with academic institutions and research organizations on sponsored studies. These partnerships ensure our work remains scientifically rigorous while addressing real-world challenges.</p>
+                    <a href="downloads.html" class="btn btn-secondary btn-small">Research Papers</a>
+                </div>
+            </div>
+            
+            <!-- Transparency Note -->
+            <div class="card" style="margin-top: 3rem; text-align: center;">
+                <h3><i class="fas fa-chart-pie"></i> Complete Transparency</h3>
+                <p>We publish annual reports detailing exactly how funds are allocated. Typically, 70% goes directly to research, 20% to platform maintenance, and 10% to community outreach.</p>
+                <a href="#" class="btn btn-secondary btn-small">View Financial Reports</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="text-align: center;">Our Team</h2>
+            <p class="section-subtitle" style="text-align: center;">Dedicated experts driving organic agriculture forward</p>
+            
+            <div class="grid grid-4" style="margin-top: 3rem;">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Chen" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem;">
+                    <h4>Dr. Sarah Chen</h4>
+                    <p style="color: var(--primary-green); font-weight: 500;">Lead Agricultural Scientist</p>
+                    <p style="font-size: 0.9rem;">PhD in Sustainable Agriculture, 15 years of soil research experience</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Michael Rodriguez" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem;">
+                    <h4>Michael Rodriguez</h4>
+                    <p style="color: var(--primary-green); font-weight: 500;">Data Analysis Director</p>
+                    <p style="font-size: 0.9rem;">Former climate data analyst, specializes in agricultural modeling</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Priya Sharma" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem;">
+                    <h4>Priya Sharma</h4>
+                    <p style="color: var(--primary-green); font-weight: 500;">Community Outreach Lead</p>
+                    <p style="font-size: 0.9rem;">10+ years in farmer education and sustainable development</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="James Wilson" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem;">
+                    <h4>James Wilson</h4>
+                    <p style="color: var(--primary-green); font-weight: 500;">Research Coordinator</p>
+                    <p style="font-size: 0.9rem;">Manages field studies and research partnerships globally</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding" style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%); color: white;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="color: white;">Join Our Movement</h2>
+                <p style="font-size: 1.2rem; margin: 1rem 0 2rem;">Whether you're a farmer, researcher, consumer, or advocate, there's a place for you in our community. Together, we can build a more sustainable food system.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="SupportProject.html" class="btn" style="background: white; color: var(--primary-green);">Support Research</a>
+                    <a href="contact.html" class="btn btn-secondary" style="border-color: white; color: white;">Get Involved</a>
+                    <a href="downloads.html" class="btn btn-secondary" style="border-color: white; color: white;">Access Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest research and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
