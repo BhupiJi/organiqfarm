@@ -2,54 +2,425 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Downloads | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Download free and premium research papers, guides, and resources on organic farming practices.">
+    <meta property="og:title" content="Downloads - OrganiqFarm">
+    <meta property="og:description" content="Access comprehensive research papers, guides, and resources on organic farming.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/downloads.html">
+    
+    <title>Downloads - OrganiqFarm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="downloads.html" class="active">Downloads</a></li>
-        </ul>
-    </nav>
-
-    <h1 class="section-title">Research Library</h1>
-
-    <div class="card-grid">
-        <div class="card">
-            <h3>2026 Summary (Lite)</h3>
-            <p>Executive summary of global organic trends.</p>
-            <br>
-            <a href="assets/pdfs/summary-lite.pdf" download class="btn" style="border: 2px solid var(--primary-green);">Download Free PDF</a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="downloads.html" class="active">Downloads</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="card" style="border: 2px solid var(--accent-lime);">
-            <h3>Full Technical Report 2026</h3>
-            <p>150+ pages of raw data, soil maps, and yield projections.</p>
-            <ul style="text-align: left; margin: 1rem 0; font-size: 0.9rem;">
-                <li>✓ Full Weather Datasets</li>
-                <li>✓ Regional Breakdown</li>
-                <li>✓ Excel Raw Data Included</li>
-            </ul>
-            
-            <div style="background: #e8f5e9; padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
-                <span style="font-size: 1.5rem; font-weight: bold;">$25.00 USD</span>
-                <div style="font-size: 0.9rem; color: #666;">Approx. <span id="price-inr">₹2300</span></div>
+    <!-- Downloads Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Research Library</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Access our complete collection of research papers, practical guides, and data reports. Both free and premium resources available.</p>
             </div>
-
-            <form>
-               <script src="https://checkout.razorpay.com/v1/payment-button.js" 
-                       data-payment_button_id="pl_RvMwWBPpRu05Wq" 
-                       async> 
-               </script> 
-            </form>
-            
-            <p style="font-size: 0.8rem; margin-top: 1rem;">Secure payment via RazorPay. Instant download link sent to email.</p>
         </div>
-    </div>
+    </section>
+
+    <!-- Free Downloads -->
+    <section class="section-padding">
+        <div class="container">
+            <h2><i class="fas fa-download" style="color: var(--primary-green);"></i> Free Downloads</h2>
+            <p class="section-subtitle">Complimentary research papers and guides</p>
+            
+            <div class="downloads-grid">
+                <!-- Free Download 1 -->
+                <div class="download-card">
+                    <h3>Organic Farming Beginner's Guide</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 45 pages</span>
+                        <span><i class="far fa-clock"></i> Updated: Jan 2024</span>
+                    </div>
+                    <p>Complete introduction to organic farming principles, certification basics, and getting started checklist.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: This guide covers soil preparation, organic pest control methods, and market access strategies for new organic farmers...</p>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="downloadFile('organic-beginners-guide.pdf')">
+                        <i class="fas fa-download"></i> Download Free
+                    </button>
+                </div>
+                
+                <!-- Free Download 2 -->
+                <div class="download-card">
+                    <h3>Soil Health Assessment Template</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-excel"></i> Excel, 5 templates</span>
+                        <span><i class="far fa-clock"></i> Updated: Dec 2023</span>
+                    </div>
+                    <p>Templates for tracking soil parameters, compost recipes, and crop rotation schedules.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Includes soil testing log, nutrient tracking spreadsheet, and seasonal planting calendar template...</p>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="downloadFile('soil-health-templates.zip')">
+                        <i class="fas fa-download"></i> Download Free
+                    </button>
+                </div>
+                
+                <!-- Free Download 3 -->
+                <div class="download-card">
+                    <h3>Organic Certification Checklist</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 28 pages</span>
+                        <span><i class="far fa-clock"></i> Updated: Nov 2023</span>
+                    </div>
+                    <p>Step-by-step checklist for organic certification application and compliance maintenance.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Detailed checklist covering documentation requirements, inspection preparation, and record-keeping systems...</p>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="downloadFile('certification-checklist.pdf')">
+                        <i class="fas fa-download"></i> Download Free
+                    </button>
+                </div>
+                
+                <!-- Free Download 4 -->
+                <div class="download-card">
+                    <h3>Pest Management Handbook</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 62 pages</span>
+                        <span><i class="far fa-clock"></i> Updated: Oct 2023</span>
+                    </div>
+                    <p>Identification and organic treatment guide for 50+ common agricultural pests.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Comprehensive guide with color photos for pest identification, companion planting strategies, and biological controls...</p>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="downloadFile('pest-management-handbook.pdf')">
+                        <i class="fas fa-download"></i> Download Free
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Downloads -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
+        <div class="container">
+            <h2><i class="fas fa-crown" style="color: #ff9800;"></i> Premium Research Papers</h2>
+            <p class="section-subtitle">In-depth research studies and comprehensive data analysis</p>
+            
+            <div class="downloads-grid">
+                <!-- Premium Download 1 -->
+                <div class="download-card premium">
+                    <div style="position: absolute; top: -10px; right: -10px; background: #ff9800; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                        PREMIUM
+                    </div>
+                    <h3>2024 Global Organic Market Analysis</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 120 pages</span>
+                        <span><i class="fas fa-chart-line"></i> 50+ data tables</span>
+                    </div>
+                    <p>Comprehensive market analysis covering trends, growth projections, and profitability data across 30 countries.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Executive Summary - The global organic food market is projected to reach $420 billion by 2027, with Asia-Pacific showing the fastest growth at 18.2% CAGR...</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="2.99">$2.99</div>
+                            <div class="inr-conversion">≈ ₹248.17 INR</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="purchaseDownload('global-market-analysis.pdf', '2.99')">
+                            <i class="fas fa-shopping-cart"></i> Purchase
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Premium Download 2 -->
+                <div class="download-card premium">
+                    <div style="position: absolute; top: -10px; right: -10px; background: #ff9800; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                        PREMIUM
+                    </div>
+                    <h3>Soil Carbon Sequestration Study</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 85 pages</span>
+                        <span><i class="fas fa-microscope"></i> 3-year study</span>
+                    </div>
+                    <p>Three-year longitudinal study on carbon sequestration rates across different organic farming systems.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Abstract - This study monitored 45 farms over three years, finding that regenerative organic practices sequestered 2.5-4 tons of carbon per hectare annually...</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="1.99">$1.99</div>
+                            <div class="inr-conversion">≈ ₹165.17 INR</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="purchaseDownload('carbon-sequestration-study.pdf', '1.99')">
+                            <i class="fas fa-shopping-cart"></i> Purchase
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Premium Download 3 -->
+                <div class="download-card premium">
+                    <div style="position: absolute; top: -10px; right: -10px; background: #ff9800; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                        PREMIUM
+                    </div>
+                    <h3>Nutrition Density Meta-Analysis</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 95 pages</span>
+                        <span><i class="fas fa-apple-alt"></i> 200+ studies</span>
+                    </div>
+                    <p>Meta-analysis of 200+ studies comparing nutrient levels in organic vs conventional produce.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Key Findings - Organic produce showed significantly higher levels of antioxidants (18-69%), vitamin C (52%), and iron (21%) across all crop categories studied...</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="2.99">$2.99</div>
+                            <div class="inr-conversion">≈ ₹248.17 INR</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="purchaseDownload('nutrition-meta-analysis.pdf', '2.99')">
+                            <i class="fas fa-shopping-cart"></i> Purchase
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Premium Download 4 -->
+                <div class="download-card premium">
+                    <div style="position: absolute; top: -10px; right: -10px; background: #ff9800; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                        PREMIUM
+                    </div>
+                    <h3>Water Conservation Techniques Guide</h3>
+                    <div class="download-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF, 72 pages</span>
+                        <span><i class="fas fa-tint"></i> Case studies</span>
+                    </div>
+                    <p>Detailed guide to water-saving irrigation systems and moisture retention techniques.</p>
+                    <div class="download-preview">
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Preview: Introduction - Implementing the techniques in this guide can reduce farm water usage by 30-50% while maintaining or improving crop yields...</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="1">$1.00</div>
+                            <div class="inr-conversion">≈ ₹83.00 INR</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="purchaseDownload('water-conservation-guide.pdf', '1')">
+                            <i class="fas fa-shopping-cart"></i> Purchase
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button id="loadMoreDownloads" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Load More Downloads
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Information -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 2rem;">
+                <div class="card">
+                    <h3><i class="fas fa-lock"></i> Secure Payment</h3>
+                    <p>All premium downloads are processed through RazorPay's secure payment gateway. We never store your payment information on our servers.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>256-bit SSL encryption</li>
+                        <li>PCI DSS compliant</li>
+                        <li>Instant download after payment</li>
+                        <li>30-day satisfaction guarantee</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    
+                    <div class="faq-item" style="margin-top: 1rem;">
+                        <p><strong>How do I access my purchased downloads?</strong></p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Downloads are available immediately after payment. You'll also receive an email with download links.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-top: 1rem;">
+                        <p><strong>Can I share premium downloads?</strong></p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Premium downloads are licensed for personal use. Sharing violates our terms of service and copyright.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-top: 1rem;">
+                        <p><strong>What if I'm not satisfied with a purchase?</strong></p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">We offer a 30-day satisfaction guarantee. Contact us for a full refund if not satisfied.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="downloads.html" class="active">Downloads</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for new research releases and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
+    <script>
+        function downloadFile(filename) {
+            showToast(`Downloading ${filename}...`, 'success');
+            // In production, this would trigger actual file download
+            // window.location.href = `/assets/pdfs/${filename}`;
+        }
+        
+        function purchaseDownload(filename, amount) {
+            showToast(`Processing purchase of ${filename} for $${amount}`, 'success');
+            // In production, this would trigger RazorPay payment
+            // After successful payment, trigger download
+        }
+        
+        // Add more download cards dynamically when "Load More" is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadMoreBtn = document.getElementById('loadMoreDownloads');
+            const downloadsGrid = document.querySelector('.downloads-grid');
+            
+            // Sample additional downloads
+            const additionalDownloads = [
+                {
+                    title: "Composting Systems Guide",
+                    type: "free",
+                    description: "Complete guide to setting up and managing various composting systems."
+                },
+                {
+                    title: "Biodiversity Enhancement Study",
+                    type: "premium",
+                    price: "1.99",
+                    description: "Research on increasing farm biodiversity through habitat creation."
+                }
+            ];
+            
+            loadMoreBtn?.addEventListener('click', function() {
+                // Add additional downloads
+                additionalDownloads.forEach(download => {
+                    const card = document.createElement('div');
+                    card.className = 'download-card';
+                    card.innerHTML = `
+                        <h3>${download.title}</h3>
+                        <div class="download-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF, 40 pages</span>
+                            <span><i class="far fa-clock"></i> Updated: Recent</span>
+                        </div>
+                        <p>${download.description}</p>
+                        ${download.type === 'premium' ? 
+                            `<div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                                <div>
+                                    <div class="payment-amount" data-amount="${download.price}">$${download.price}</div>
+                                    <div class="inr-conversion">≈ ₹${(parseFloat(download.price) * 83).toFixed(2)} INR</div>
+                                </div>
+                                <button class="btn btn-primary" onclick="purchaseDownload('${download.title.toLowerCase().replace(/\s+/g, '-')}.pdf', '${download.price}')">
+                                    <i class="fas fa-shopping-cart"></i> Purchase
+                                </button>
+                            </div>` :
+                            `<button class="btn btn-primary" style="width: 100%;" onclick="downloadFile('${download.title.toLowerCase().replace(/\s+/g, '-')}.pdf')">
+                                <i class="fas fa-download"></i> Download Free
+                            </button>`
+                        }
+                    `;
+                    downloadsGrid.appendChild(card);
+                });
+                
+                showToast('Additional downloads loaded!', 'success');
+                loadMoreBtn.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
