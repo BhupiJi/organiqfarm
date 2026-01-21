@@ -1,128 +1,22 @@
-# OrganiqFarm 2026 - Robots.txt
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /blogs.html
-Allow: /facts.html
-Allow: /nutrition.html
-Allow: /about.html
-Allow: /support.html
-Allow: /affiliates.html
-Allow: /downloads.html
-Allow: /contact.html
-
-# Blog Posts
-Allow: /blog-post-1.html
-Allow: /blog-post-2.html
-Allow: /blog-post-3.html
-Allow: /blog-post-4.html
-Allow: /blog-post-5.html
-Allow: /blog-post-6.html
-Allow: /blog-post-7.html
-Allow: /blog-post-8.html
-Allow: /blog-post-9.html
-Allow: /blog-post-10.html
-Allow: /blog-post-11.html
-Allow: /blog-post-12.html
-Allow: /blog-post-13.html
-Allow: /blog-post-14.html
-Allow: /blog-post-15.html
-Allow: /blog-post-16.html
-Allow: /blog-post-17.html
-Allow: /blog-post-18.html
-Allow: /blog-post-19.html
-Allow: /blog-post-20.html
-
-# Static Resources
-Allow: /style.css
-Allow: /script.js
-Allow: /favicon.ico
-
-# Disallow
 Disallow: /admin/
 Disallow: /private/
-Disallow: /tmp/
-Disallow: /*.php$
-Disallow: /*.json$
 
-# Sitemap
 Sitemap: https://organiqfarm.com/sitemap.xml
 
-# Crawl Delay (be respectful to our server)
-Crawl-delay: 1
-
-# Preferred Host
-Host: https://organiqfarm.com
-
-# Social Media Bots
-User-agent: Twitterbot
-Allow: /
+# Crawl delay to be respectful to the server
 Crawl-delay: 2
 
-User-agent: FacebookExternalHit
-Allow: /
-Crawl-delay: 2
-
-User-agent: LinkedInBot
-Allow: /
-Crawl-delay: 2
-
-User-agent: Pinterest
-Allow: /
-Crawl-delay: 2
-
-# Search Engine Bots
+# Specific instructions for major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+Disallow: /admin/
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 1
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 2
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 2
-
-# Image Bots
-User-agent: Googlebot-Image
-Allow: /
-Disallow: /*.gif$
-
-User-agent: msnbot-media
-Allow: /
-
-# Bad Bots (block known bad actors)
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-# Rules for GitHub Pages
-User-agent: *
-Disallow: /.git/
-Disallow: /node_modules/
-
-# Comments
-# This robots.txt file is updated for 2026
-# Last Updated: January 15, 2026
-# Contact: webmaster@organiqfarm.com
+Disallow: /admin/
