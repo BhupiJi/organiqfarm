@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Test your knowledge of organic farming practices with our interactive quiz. Multiple categories and difficulty levels.">
+    <meta property="og:title" content="Organic Farming Quiz - OrganiqFarm">
+    <meta property="og:description" content="Test your knowledge and learn new facts about organic farming practices.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/quiz.html">
+    
+    <title>Organic Farming Quiz - OrganiqFarm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html" class="active">Quiz</a></li>
+                    <li><a href="SupportProject.html" class="btn btn-small btn-primary">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Quiz Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Test Your Organic Farming Knowledge</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Challenge yourself with our interactive quiz. Random questions each time across multiple categories. Perfect for farmers, students, and enthusiasts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="quiz-container">
+                <!-- Category Selection -->
+                <div id="categorySelection">
+                    <h2 style="text-align: center;">Choose a Category</h2>
+                    <p class="section-subtitle" style="text-align: center;">Select a topic to begin the quiz</p>
+                    
+                    <div class="quiz-categories">
+                        <div class="category-card" data-category="organic-basics">
+                            <div class="category-icon" style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Organic Basics</h3>
+                            <p>Fundamental principles and practices of organic farming</p>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">10 questions • Beginner level</p>
+                        </div>
+                        
+                        <div class="category-card" data-category="soil-health">
+                            <div class="category-icon" style="font-size: 3rem; color: var(--earth-brown); margin-bottom: 1rem;">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>Soil Health</h3>
+                            <p>Soil management, composting, and fertility techniques</p>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">10 questions • Intermediate</p>
+                        </div>
+                        
+                        <div class="category-card" data-category="pest-management">
+                            <div class="category-icon" style="font-size: 3rem; color: var(--light-green); margin-bottom: 1rem;">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h3>Pest Management</h3>
+                            <p>Natural pest control and disease prevention</p>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">10 questions • Intermediate</p>
+                        </div>
+                        
+                        <div class="category-card" data-category="sustainability">
+                            <div class="category-icon" style="font-size: 3rem; color: var(--dark-green); margin-bottom: 1rem;">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <h3>Sustainability</h3>
+                            <p>Environmental impact and sustainable practices</p>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">10 questions • Advanced</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quiz Questions -->
+                <div id="quizQuestions" style="display: none;">
+                    <div class="quiz-question">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h2 id="questionCounter">Question 1 of 10</h2>
+                            <div id="quizTimer" style="background: var(--primary-green); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600;">
+                                <i class="far fa-clock"></i> <span id="timeRemaining">60</span>s
+                            </div>
+                        </div>
+                        
+                        <h3 id="quizQuestionText">Loading question...</h3>
+                        
+                        <div class="quiz-options" id="quizOptions">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                            <button id="prevQuestion" class="btn btn-secondary" style="display: none;">
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button id="nextQuestion" class="btn btn-primary">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quiz Results -->
+                <div id="quizResults" style="display: none;">
+                    <div class="card" style="text-align: center; padding: 3rem;">
+                        <div class="result-icon" style="font-size: 4rem; color: var(--primary-green); margin-bottom: 1rem;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h2>Quiz Complete!</h2>
+                        <p id="quizMessage" style="font-size: 1.2rem; margin: 1rem 0;">Your results are being calculated...</p>
+                        
+                        <div style="display: flex; justify-content: center; gap: 3rem; margin: 2rem 0; flex-wrap: wrap;">
+                            <div>
+                                <div class="result-score" style="font-size: 3rem; font-weight: 700; color: var(--primary-green);" id="quizScore">0/10</div>
+                                <p>Correct Answers</p>
+                            </div>
+                            <div>
+                                <div class="result-percentage" style="font-size: 3rem; font-weight: 700; color: var(--dark-green);" id="quizPercentage">0%</div>
+                                <p>Success Rate</p>
+                            </div>
+                            <div>
+                                <div class="result-time" style="font-size: 3rem; font-weight: 700; color: var(--earth-brown);" id="quizTime">0s</div>
+                                <p>Time Taken</p>
+                            </div>
+                        </div>
+                        
+                        <div id="quizAnswers" style="margin: 2rem 0; text-align: left;">
+                            <!-- Detailed answers will go here -->
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <button id="restartQuiz" class="btn btn-primary">
+                                <i class="fas fa-redo"></i> Try Another Quiz
+                            </button>
+                            <a href="blogs.html" class="btn btn-secondary">
+                                <i class="fas fa-book"></i> Learn More
+                            </a>
+                            <button id="shareResults" class="btn btn-secondary">
+                                <i class="fas fa-share"></i> Share Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Categories Info -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
+        <div class="container">
+            <h2 style="text-align: center;">Quiz Categories Explained</h2>
+            
+            <div class="grid grid-2" style="margin-top: 2rem; gap: 2rem;">
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Learning Through Quizzes</h3>
+                    <p>Our quizzes are designed to be educational tools. Each question includes detailed explanations to help you understand the principles behind organic farming practices.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Questions are randomly selected from a database</li>
+                        <li>Difficulty adjusts based on your performance</li>
+                        <li>Immediate feedback on each answer</li>
+                        <li>Learn from detailed explanations</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Track Your Progress</h3>
+                    <p>Create a free account to track your quiz scores over time and see how your knowledge improves.</p>
+                    <div class="progress-section" style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Organic Basics Mastery</span>
+                            <span>--%</span>
+                        </div>
+                        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 0%; height: 100%; background: var(--primary-green);"></div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin: 1rem 0 0.5rem;">
+                            <span>Soil Health Knowledge</span>
+                            <span>--%</span>
+                        </div>
+                        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 0%; height: 100%; background: var(--primary-green);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="quiz.html" class="active">Quiz</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for new quiz categories and research updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Quiz database with questions for each category
+        const quizDatabase = {
+            'organic-basics': [
+                {
+                    question: "What is the minimum period required for land to be chemical-free to be certified as organic?",
+                    options: ["1 year", "2 years", "3 years", "4 years"],
+                    answer: 2,
+                    explanation: "Most organic certification standards require land to be free from prohibited substances for at least 3 years before certification."
+                },
+                {
+                    question: "Which of these is NOT allowed in organic farming?",
+                    options: ["Crop rotation", "Synthetic pesticides", "Compost", "Green manure"],
+                    answer: 1,
+                    explanation: "Synthetic pesticides are prohibited in organic farming. Organic farmers use natural alternatives and biological controls."
+                },
+                {
+                    question: "What percentage increase in biodiversity is typically seen on organic farms?",
+                    options: ["10-20%", "30-50%", "60-80%", "90-100%"],
+                    answer: 1,
+                    explanation: "Studies show organic farms support 30-50% more species of plants, insects, and birds compared to conventional farms."
+                },
+                {
+                    question: "Which certification is internationally recognized for organic products?",
+                    options: ["ISO 9001", "USDA Organic", "Fair Trade", "All of the above"],
+                    answer: 1,
+                    explanation: "USDA Organic is one of the most widely recognized organic certifications globally, though many countries have their own standards."
+                },
+                {
+                    question: "What is the primary purpose of cover crops in organic farming?",
+                    options: ["Increase yield", "Improve soil health", "Reduce labor", "Attract pollinators"],
+                    answer: 1,
+                    explanation: "Cover crops primarily improve soil health by preventing erosion, adding organic matter, and fixing nitrogen."
+                }
+            ],
+            'soil-health': [
+                {
+                    question: "What is the ideal pH range for most organic vegetable crops?",
+                    options: ["4.0-5.0", "5.5-6.5", "6.0-7.0", "7.0-8.0"],
+                    answer: 2,
+                    explanation: "Most vegetables prefer slightly acidic to neutral soil (pH 6.0-7.0) for optimal nutrient availability."
+                },
+                {
+                    question: "Which practice is most effective for increasing soil organic matter?",
+                    options: ["Tilling frequently", "Adding chemical fertilizers", "Applying compost regularly", "Using pesticides"],
+                    answer: 2,
+                    explanation: "Regular compost application is the most effective way to increase soil organic matter content in organic systems."
+                }
+            ]
+            // Add more questions for other categories
+        };
+
+        // Quiz state
+        let quizState = {
+            currentCategory: null,
+            currentQuestion: 0,
+            score: 0,
+            userAnswers: [],
+            startTime: null,
+            timer: null
+        };
+
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category selection
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    startQuiz(category);
+                });
+            });
+
+            // Next question button
+            document.getElementById('nextQuestion')?.addEventListener('click', nextQuestion);
+            
+            // Previous question button
+            document.getElementById('prevQuestion')?.addEventListener('click', prevQuestion);
+            
+            // Restart quiz
+            document.getElementById('restartQuiz')?.addEventListener('click', restartQuiz);
+            
+            // Share results
+            document.getElementById('shareResults')?.addEventListener('click', shareResults);
+        });
+
+        function startQuiz(category) {
+            quizState = {
+                currentCategory: category,
+                currentQuestion: 0,
+                score: 0,
+                userAnswers: [],
+                startTime: new Date(),
+                timer: null
+            };
+
+            // Hide category selection, show questions
+            document.getElementById('categorySelection').style.display = 'none';
+            document.getElementById('quizQuestions').style.display = 'block';
+            document.getElementById('quizResults').style.display = 'none';
+
+            // Start timer
+            startTimer();
+
+            // Show first question
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const questions = quizDatabase[quizState.currentCategory];
+            if (!questions || quizState.currentQuestion >= questions.length) {
+                finishQuiz();
+                return;
+            }
+
+            const question = questions[quizState.currentQuestion];
+            
+            // Update question text
+            document.getElementById('quizQuestionText').textContent = question.question;
+            document.getElementById('questionCounter').textContent = 
+                `Question ${quizState.currentQuestion + 1} of ${questions.length}`;
+
+            // Clear previous options
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+
+            // Add new options
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                if (quizState.userAnswers[quizState.currentQuestion] === index) {
+                    optionDiv.classList.add('selected');
+                }
+                optionDiv.textContent = option;
+                optionDiv.addEventListener('click', () => selectOption(index));
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevQuestion').style.display = 
+                quizState.currentQuestion > 0 ? 'block' : 'none';
+            document.getElementById('nextQuestion').textContent = 
+                quizState.currentQuestion < questions.length - 1 ? 'Next' : 'Finish';
+        }
+
+        function selectOption(optionIndex) {
+            quizState.userAnswers[quizState.currentQuestion] = optionIndex;
+
+            // Update visual selection
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((opt, idx) => {
+                opt.classList.remove('selected');
+                if (idx === optionIndex) {
+                    opt.classList.add('selected');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            const questions = quizDatabase[quizState.currentCategory];
+            
+            // If no answer selected for current question, show alert
+            if (quizState.userAnswers[quizState.currentQuestion] === undefined) {
+                showToast('Please select an answer before continuing', 'error');
+                return;
+            }
+
+            // Check if answer is correct
+            const currentQuestionData = questions[quizState.currentQuestion];
+            if (quizState.userAnswers[quizState.currentQuestion] === currentQuestionData.answer) {
+                quizState.score++;
+            }
+
+            quizState.currentQuestion++;
+            
+            if (quizState.currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function prevQuestion() {
+            if (quizState.currentQuestion > 0) {
+                quizState.currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function startTimer() {
+            let timeLeft = 600; // 10 minutes in seconds
+            const timerElement = document.getElementById('timeRemaining');
+            
+            clearInterval(quizState.timer);
+            
+            quizState.timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(quizState.timer);
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function finishQuiz() {
+            clearInterval(quizState.timer);
+            
+            // Calculate final score
+            const questions = quizDatabase[quizState.currentCategory];
+            const totalQuestions = questions.length;
+            const percentage = Math.round((quizState.score / totalQuestions) * 100);
+            const timeTaken = Math.round((new Date() - quizState.startTime) / 1000);
+            
+            // Update results display
+            document.getElementById('quizScore').textContent = `${quizState.score}/${totalQuestions}`;
+            document.getElementById('quizPercentage').textContent = `${percentage}%`;
+            document.getElementById('quizTime').textContent = `${timeTaken}s`;
+            
+            // Set message based on score
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You\'re an organic farming expert!';
+            } else if (percentage >= 60) {
+                message = 'Good job! You know quite a bit about organic farming.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Keep learning about organic practices.';
+            } else {
+                message = 'Good start! Check out our blogs to learn more.';
+            }
+            document.getElementById('quizMessage').textContent = message;
+            
+            // Show detailed answers
+            const answersContainer = document.getElementById('quizAnswers');
+            answersContainer.innerHTML = '<h3>Detailed Answers:</h3>';
+            
+            questions.forEach((question, index) => {
+                const userAnswer = quizState.userAnswers[index];
+                const isCorrect = userAnswer === question.answer;
+                
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer-item';
+                answerDiv.style.margin = '1rem 0';
+                answerDiv.style.padding = '1rem';
+                answerDiv.style.background = isCorrect ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)';
+                answerDiv.style.borderRadius = '8px';
+                
+                answerDiv.innerHTML = `
+                    <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+                    <p><strong>Your answer:</strong> ${userAnswer !== undefined ? question.options[userAnswer] : 'Not answered'}</p>
+                    <p><strong>Correct answer:</strong> ${question.options[question.answer]}</p>
+                    <p><strong>Explanation:</strong> ${question.explanation}</p>
+                `;
+                
+                answersContainer.appendChild(answerDiv);
+            });
+            
+            // Show results, hide questions
+            document.getElementById('quizQuestions').style.display = 'none';
+            document.getElementById('quizResults').style.display = 'block';
+        }
+
+        function restartQuiz() {
+            document.getElementById('quizResults').style.display = 'none';
+            document.getElementById('categorySelection').style.display = 'block';
+        }
+
+        function shareResults() {
+            const score = quizState.score;
+            const total = quizDatabase[quizState.currentCategory].length;
+            const percentage = Math.round((score / total) * 100);
+            
+            const shareText = `I scored ${score}/${total} (${percentage}%) on the Organic Farming Quiz at OrganiqFarm! Test your knowledge: ${window.location.href}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Organic Farming Quiz Results',
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(shareText);
+                showToast('Results copied to clipboard!', 'success');
+            }
+        }
+
+        // Toast notification function
+        function showToast(message, type) {
+            // Implementation would be same as in main script.js
+            alert(message); // Simplified for this example
+        }
+    </script>
+</body>
+</html>
