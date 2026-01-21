@@ -3,395 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact OrganiqFarm - Get in touch with our research team, ask questions about organic farming, or suggest new research topics for 2026">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Contact OrganiqFarm - 2026 Research & Support">
-    <meta property="og:description" content="Connect with our team of organic farming experts, researchers, and community support specialists.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1559131397-f94da358b057?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Contact OrganiqFarm with questions, research requests, or partnership inquiries. We value your feedback and questions.">
+    <meta property="og:title" content="Contact Us - OrganiqFarm">
+    <meta property="og:description" content="Get in touch with our team for research inquiries, questions, or partnership opportunities.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559131397-f94da358a2d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://organiqfarm.com/contact.html">
-    <meta property="og:type" content="website">
     
-    <!-- CSP Meta Tag -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'">
+    <title>Contact Us - OrganiqFarm</title>
     
-    <title>Contact OrganiqFarm - 2026 Research & Support</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">OrganiqFarm</span>
-                <span class="logo-subtitle">2026</span>
-            </a>
-            
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="support.html" class="donate-btn">Donate</a></li>
-                <li><a href="affiliates.html">Affiliates</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <h1 class="page-title">Contact Us</h1>
-            <p class="page-subtitle">Get in touch with our research team, ask questions, or suggest new research topics for 2026</p>
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Get In Touch</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Have questions about organic farming? Need specific research information? Want to collaborate? We're here to help.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Contact Form & Info -->
+    <section class="section-padding">
         <div class="container">
-            <div class="contact-grid">
+            <div class="grid grid-2" style="gap: 4rem;">
                 <!-- Contact Form -->
-                <div class="contact-form">
-                    <h2>Send us a Message</h2>
-                    <p>We typically respond within 24-48 hours. For urgent matters, please call our support line.</p>
+                <div>
+                    <h2>Send Us a Message</h2>
+                    <p class="section-subtitle">We typically respond within 1-2 business days</p>
                     
-                    <form id="contactForm">
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <label for="name" class="form-label">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                         </div>
                         
                         <div class="form-group">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="">Select a topic</option>
-                                <option value="research">Research Inquiry</option>
-                                <option value="farming">Farming Questions</option>
-                                <option value="donation">Donation Information</option>
-                                <option value="partnership">Partnership Opportunities</option>
-                                <option value="media">Media & Press</option>
+                            <label for="category">Inquiry Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="research">Research Information Request</option>
+                                <option value="farming">Farming Practice Questions</option>
+                                <option value="partnership">Partnership Inquiry</option>
                                 <option value="technical">Technical Support</option>
+                                <option value="general">General Question</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="6" required></textarea>
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Brief description of your inquiry">
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">
-                                <input type="checkbox" name="newsletter" checked>
-                                Subscribe to our monthly research newsletter
-                            </label>
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please provide as much detail as possible about your inquiry..."></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div class="form-group">
+                            <label for="urgency">Urgency Level</label>
+                            <select id="urgency" name="urgency">
+                                <option value="normal">Normal (1-2 day response)</option>
+                                <option value="urgent">Urgent (same day if possible)</option>
+                                <option value="research">Research project (detailed response)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                <label for="newsletter" style="margin: 0;">Subscribe to our newsletter for updates</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
                 
                 <!-- Contact Information -->
-                <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p>We're here to help with any questions about organic farming, research collaborations, or community support.</p>
+                <div>
+                    <h2>Other Ways to Reach Us</h2>
                     
-                    <div class="info-item">
-                        <div class="info-icon">📧</div>
-                        <div>
-                            <h4>Email Address</h4>
-                            <p>research@organiqfarm.com</p>
-                            <p>support@organiqfarm.com</p>
+                    <div class="contact-methods" style="margin-top: 2rem;">
+                        <div class="contact-method" style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
+                            <div class="contact-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-envelope" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>For general inquiries and questions:</p>
+                                <p style="color: var(--primary-green); font-weight: 600;">contact@organiqfarm.com</p>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Response time: 1-2 business days</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div>
-                            <h4>Phone Numbers</h4>
-                            <p>Research Inquiries: +1 (555) 123-4567</p>
-                            <p>Farmer Support: +1 (555) 987-6543</p>
+                        
+                        <div class="contact-method" style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
+                            <div class="contact-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-file-alt" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Research Requests</h3>
+                                <p>For specific research data or studies:</p>
+                                <p style="color: var(--primary-green); font-weight: 600;">research@organiqfarm.com</p>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Please include study references if available</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">🏢</div>
-                        <div>
-                            <h4>Office Address</h4>
-                            <p>OrganiqFarm Research Center</p>
-                            <p>123 Sustainable Way</p>
-                            <p>Green Valley, CA 90210</p>
-                            <p>United States</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">⏰</div>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 5:00 PM EST</p>
-                            <p>Saturday: 10:00 AM - 2:00 PM EST</p>
-                            <p>Sunday: Closed</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">🌐</div>
-                        <div>
-                            <h4>Connect Online</h4>
-                            <div class="social-icons" style="margin-top: 10px;">
-                                <a href="#" class="social-icon">📘</a>
-                                <a href="#" class="social-icon">🐦</a>
-                                <a href="#" class="social-icon">📷</a>
-                                <a href="#" class="social-icon">📹</a>
+                        
+                        <div class="contact-method" style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
+                            <div class="contact-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-hands-helping" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Partnerships</h3>
+                                <p>For collaboration and partnership inquiries:</p>
+                                <p style="color: var(--primary-green); font-weight: 600;">partners@organiqfarm.com</p>
+                                <p style="font-size: 0.9rem; color: var(--text-light);">Include organization details and proposal</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- FAQ Preview -->
+                    <div class="card" style="margin-top: 2rem;">
+                        <h3><i class="fas fa-question-circle"></i> Common Questions</h3>
+                        
+                        <div class="faq-preview" style="margin-top: 1rem;">
+                            <details style="margin-bottom: 1rem;">
+                                <summary style="font-weight: 500; cursor: pointer;">Can you help with specific farming problems?</summary>
+                                <p style="margin-top: 0.5rem; color: var(--text-light);">Yes, our team can provide guidance on specific organic farming challenges. Please provide details about your soil type, crops, and issues.</p>
+                            </details>
+                            
+                            <details style="margin-bottom: 1rem;">
+                                <summary style="font-weight: 500; cursor: pointer;">Do you provide consulting services?</summary>
+                                <p style="margin-top: 0.5rem; color: var(--text-light);">We offer limited consulting for research projects and partnerships. Contact us with your specific needs.</p>
+                            </details>
+                            
+                            <details style="margin-bottom: 1rem;">
+                                <summary style="font-weight: 500; cursor: pointer;">Can students use your research for academic work?</summary>
+                                <p style="margin-top: 0.5rem; color: var(--text-light);">Absolutely! We encourage students to use our research. Cite OrganiqFarm Labs as the source.</p>
+                            </details>
+                        </div>
+                        
+                        <a href="about.html" class="btn btn-secondary btn-small" style="margin-top: 1rem;">
+                            <i class="fas fa-info-circle"></i> More About Us
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="section section-alt">
+    <!-- Response Time Info -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How can I access your research data?</h3>
-                    <p>All our published research is available for free in our downloads section. For raw data sets, please contact our research team with your specific requirements.</p>
+            <div class="grid grid-3">
+                <div class="card" style="text-align: center;">
+                    <div class="response-icon" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Response</h3>
+                    <p>General inquiries typically receive a response within 24-48 hours during business days.</p>
                 </div>
                 
-                <div class="faq-item">
-                    <h3>Do you provide farming consultations?</h3>
-                    <p>Yes, we offer free initial consultations for farmers transitioning to organic methods. Contact us to schedule a call with one of our agricultural experts.</p>
+                <div class="card" style="text-align: center;">
+                    <div class="response-icon" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Detailed Research</h3>
+                    <p>Research requests may take 3-5 business days as we compile relevant data and studies.</p>
                 </div>
                 
-                <div class="faq-item">
-                    <h3>Can I volunteer for research projects?</h3>
-                    <p>We welcome volunteers for field research and data collection. Please send your background and interests to our research email address.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I cite your research?</h3>
-                    <p>All our publications include proper citation formats. You can find citation information on each research paper's download page.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Our Contact Teams</h2>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-icon">🔬</div>
-                    <h3>Research Team</h3>
-                    <p>For scientific inquiries, data requests, and research collaborations.</p>
-                    <p><strong>Contact:</strong> research@organiqfarm.com</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-icon">👨‍🌾</div>
-                    <h3>Farmer Support</h3>
-                    <p>For farming questions, transition guidance, and technical assistance.</p>
-                    <p><strong>Contact:</strong> farmers@organiqfarm.com</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-icon">🤝</div>
-                    <h3>Partnerships</h3>
-                    <p>For corporate partnerships, affiliate programs, and collaborations.</p>
-                    <p><strong>Contact:</strong> partnerships@organiqfarm.com</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-icon">💝</div>
-                    <h3>Donor Relations</h3>
-                    <p>For donation inquiries, grant applications, and funding questions.</p>
-                    <p><strong>Contact:</strong> donors@organiqfarm.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emergency Contact -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="emergency-contact">
-                <div class="emergency-icon">🚨</div>
-                <div class="emergency-content">
-                    <h3>Urgent Farming Crisis?</h3>
-                    <p>If you're experiencing an immediate farming emergency (crop failure, pest outbreak, etc.), call our 24/7 crisis line:</p>
-                    <p class="emergency-phone">+1 (555) 911-FARM (3276)</p>
-                    <p><em>Available 24 hours for registered organic farmers</em></p>
+                <div class="card" style="text-align: center;">
+                    <div class="response-icon" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership Process</h3>
+                    <p>Partnership inquiries undergo review with initial response within 3 business days.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
-                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📷</a>
-                        <a href="#" class="social-icon">📹</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blogs</a></li>
-                        <li><a href="facts.html">Facts & Weather</a></li>
-                        <li><a href="nutrition.html">Nutrition Index</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="support.html">Support Projects</a></li>
-                        <li><a href="affiliates.html">Affiliates</a></li>
-                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="contact.html">Contact Form</a></li>
-                        <li>research@organiqfarm.com</li>
-                        <li>+1 (555) 123-4567</li>
-                        <li>Open 9AM-5PM EST</li>
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for research updates and new content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
-    
-    <style>
-        /* Additional styles for contact page */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .faq-item {
-            background: var(--pure-white);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
-        }
-        
-        .faq-item h3 {
-            color: var(--primary-green);
-            margin-bottom: 15px;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .team-card {
-            background: var(--pure-white);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 25px var(--shadow);
-            transition: var(--transition-smooth);
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px var(--shadow);
-        }
-        
-        .team-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .team-card h3 {
-            color: var(--primary-green);
-            margin-bottom: 15px;
-        }
-        
-        .team-card p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        .emergency-contact {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            background: linear-gradient(135deg, #ff6b6b, #ff5252);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-top: 40px;
-        }
-        
-        .emergency-icon {
-            font-size: 4rem;
-            flex-shrink: 0;
-        }
-        
-        .emergency-content h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .emergency-phone {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 15px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-    </style>
 </body>
 </html>
