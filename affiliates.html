@@ -2,34 +2,387 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Affiliates | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Ethical affiliate partnerships that support our research. Recommended organic seeds, tools, and educational resources.">
+    <meta property="og:title" content="Affiliate Partners - OrganiqFarm">
+    <meta property="og:description" content="Ethical products and services that support organic farming research through affiliate partnerships.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/affiliates.html">
+    
+    <title>Affiliate Partners - OrganiqFarm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="affiliates.html" class="active">Affiliates</a></li>
-        </ul>
-    </nav>
-
-    <h1 class="section-title">Verified Tools & Seeds</h1>
-    <p class="text-center">We only partner with ethical providers verified for 2026 standards.</p>
-
-    <div class="card-grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" style="height: 150px; width: 100%; object-fit: cover; border-radius: 10px;">
-            <h3>Heirloom Seed Bank</h3>
-            <p>Non-GMO, drought-resistant varieties.</p>
-            <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Visit Partner</a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="affiliates.html" class="active">Partners</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" style="height: 150px; width: 100%; object-fit: cover; border-radius: 10px;">
-            <h3>Eco-Testing Kits</h3>
-            <p>Home soil pH and microbial testing.</p>
-            <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Visit Partner</a>
+    </header>
+
+    <!-- Affiliates Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ethical Partnerships</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">We carefully select affiliate partners whose products and services align with our mission. Purchases through these links help fund our research.</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Partnership Model -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="card" style="text-align: center; padding: 3rem; margin-bottom: 3rem;">
+                <h2><i class="fas fa-handshake"></i> How Our Partnership Model Works</h2>
+                <p style="max-width: 800px; margin: 1rem auto 2rem;">We only partner with companies that meet our strict ethical and sustainability criteria. A portion of each purchase made through our links goes directly to funding organic farming research.</p>
+                
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div>
+                        <div class="step-number" style="background: var(--primary-green); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 600;">1</div>
+                        <p style="font-weight: 500;">Vetting Process</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">We thoroughly vet all partners for sustainability practices</p>
+                    </div>
+                    
+                    <div>
+                        <div class="step-number" style="background: var(--primary-green); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 600;">2</div>
+                        <p style="font-weight: 500;">Transparent Funding</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Typically 5-15% of purchases go to research funding</p>
+                    </div>
+                    
+                    <div>
+                        <div class="step-number" style="background: var(--primary-green); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 600;">3</div>
+                        <p style="font-weight: 500;">No Cost to You</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Prices are the same, but part supports our mission</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
+        <div class="container">
+            <h2>Recommended Products</h2>
+            <p class="section-subtitle">Products we've personally vetted and recommend</p>
+            
+            <!-- Organic Seeds -->
+            <div class="category-section" style="margin-top: 3rem;">
+                <h3><i class="fas fa-seedling"></i> Organic Seeds & Plants</h3>
+                <p>Certified organic, non-GMO seeds from reputable suppliers</p>
+                
+                <div class="grid grid-3" style="margin-top: 1.5rem;">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Heirloom Tomatoes" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Heirloom Tomato Seeds</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">15+ varieties, certified organic, non-GMO</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$4.99 - $12.99</span>
+                                <a href="https://example-affiliate.com/tomato-seeds" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('tomato-seeds')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 12% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Leafy Greens" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Leafy Greens Collection</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">Kale, spinach, lettuce, chard - 8 varieties</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$7.99</span>
+                                <a href="https://example-affiliate.com/greens-seeds" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('greens-seeds')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 10% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Herb Seeds" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Organic Herb Garden Kit</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">12 culinary herbs, complete starter kit</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$24.99</span>
+                                <a href="https://example-affiliate.com/herb-kit" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('herb-kit')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 15% supports research</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Farming Tools -->
+            <div class="category-section" style="margin-top: 4rem;">
+                <h3><i class="fas fa-tools"></i> Sustainable Farming Tools</h3>
+                <p>Durable, environmentally-friendly tools for organic farming</p>
+                
+                <div class="grid grid-3" style="margin-top: 1.5rem;">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Compost Bin" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Tumbling Compost Bin</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">80-gallon, dual chamber, easy turn design</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$129.99</span>
+                                <a href="https://example-affiliate.com/compost-bin" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('compost-bin')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 8% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Watering System" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Drip Irrigation Kit</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">200 sq ft coverage, timer included, water-saving</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$89.99</span>
+                                <a href="https://example-affiliate.com/irrigation-kit" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('irrigation-kit')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 7% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Garden Tools" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Professional Tool Set</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">12-piece stainless steel, ergonomic handles</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$149.99</span>
+                                <a href="https://example-affiliate.com/tool-set" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('tool-set')">
+                                    View Options
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 9% supports research</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Books & Education -->
+            <div class="category-section" style="margin-top: 4rem;">
+                <h3><i class="fas fa-book"></i> Educational Resources</h3>
+                <p>Books and courses to expand your organic farming knowledge</p>
+                
+                <div class="grid grid-3" style="margin-top: 1.5rem;">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Organic Farming Book" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Complete Organic Farming Guide</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">450-page comprehensive reference, updated 2023</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$34.99</span>
+                                <a href="https://example-affiliate.com/farming-guide" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('farming-guide')">
+                                    View Book
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 5% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soil Science Book" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Soil Science for Farmers</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">Practical soil management techniques, 300 pages</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$29.99</span>
+                                <a href="https://example-affiliate.com/soil-science" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('soil-science')">
+                                    View Book
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 5% supports research</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Online Course" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <div style="padding: 1rem;">
+                            <h4>Organic Certification Course</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin: 0.5rem 0;">Online course with certification, 20+ hours</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                                <span style="font-weight: 600; color: var(--primary-green);">$199.99</span>
+                                <a href="https://example-affiliate.com/organic-course" target="_blank" class="btn btn-primary btn-small" onclick="trackAffiliateClick('organic-course')">
+                                    View Course
+                                </a>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;"><i class="fas fa-leaf"></i> 12% supports research</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical Standards -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="card" style="padding: 3rem;">
+                <h2 style="text-align: center;"><i class="fas fa-star"></i> Our Partnership Standards</h2>
+                <p style="text-align: center; max-width: 800px; margin: 1rem auto 2rem;">Every partner must meet these rigorous standards before we recommend their products</p>
+                
+                <div class="grid grid-4" style="text-align: center;">
+                    <div>
+                        <div class="standard-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="font-weight: 500;">Certified Organic</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Valid organic certification required</p>
+                    </div>
+                    
+                    <div>
+                        <div class="standard-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i class="fas fa-recycle" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="font-weight: 500;">Sustainable Practices</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Eco-friendly manufacturing</p>
+                    </div>
+                    
+                    <div>
+                        <div class="standard-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i class="fas fa-users" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="font-weight: 500;">Fair Labor</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Ethical treatment of workers</p>
+                    </div>
+                    
+                    <div>
+                        <div class="standard-icon" style="background: rgba(46,125,50,0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i class="fas fa-shield-alt" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="font-weight: 500;">Quality Guarantee</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Satisfaction guarantees offered</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="about.html" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> Learn About Our Mission
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="affiliates.html" class="active">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for new product recommendations and research updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><strong>Affiliate Disclosure:</strong> We earn commissions from qualifying purchases through our affiliate links, which help fund our research.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function trackAffiliateClick(product) {
+            // In production, this would send analytics data
+            console.log(`Affiliate click tracked: ${product}`);
+            
+            // Show toast notification
+            showToast('Opening partner site... Thank you for supporting our research!', 'success');
+        }
+        
+        function showToast(message, type) {
+            // Simplified toast implementation
+            alert(message);
+        }
+    </script>
 </body>
 </html>
