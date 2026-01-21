@@ -239,7 +239,18 @@
     <!-- JavaScript Logic -->
     <script>
         // --- DATA STORE ---
-        // Generating more content to enable pagination
+        
+        // CROP DATABASE FOR ADVISOR
+        const cropDatabase = {
+            "tomato": { water: "High (1-2 inch/week)", soil: "Loamy, pH 6.0-6.8", nutrient: "Heavy Feeder (Require compost)", weather: "Warm, >15°C nights" },
+            "wheat": { water: "Moderate (Critical at flowering)", soil: "Clay Loam, pH 6.0-7.0", nutrient: "Moderate Nitrogen", weather: "Cool growing, warm harvest" },
+            "rice": { water: "Very High (Flooding)", soil: "Clay (Water holding)", nutrient: "Nitrogen & Zinc", weather: "Hot & Humid (>20°C)" },
+            "spinach": { water: "Consistent moisture", soil: "Sandy Loam, pH 6.5-7", nutrient: "Nitrogen rich", weather: "Cool (<25°C)" },
+            "corn": { water: "High (Critical at silking)", soil: "Well drained, pH 5.8-7", nutrient: "Very Heavy Nitrogen", weather: "Hot (>10°C soil)" },
+            "potato": { water: "Steady", soil: "Loose, acidic pH 4.8-5.5", nutrient: "Potassium heavy", weather: "Cool seasons" },
+            "default": { water: "Check local extension", soil: "Test for pH", nutrient: "Apply organic compost", weather: "Monitor local forecasts" }
+        };
+
         const generateBlogs = () => {
             const baseBlogs = [
                 {
@@ -253,12 +264,6 @@
                         <p class="mb-4">Recent studies conducted across 500 transitioned farms in Southeast Asia and South America have provided the most conclusive evidence yet: regenerative agriculture is not just viable; it is outperforming conventional methods in both yield stability and soil health metrics.</p>
                         <h3 class="text-xl font-bold mb-2">Key Findings of the 2026 Report</h3>
                         <p class="mb-4">The N-P-K (Nitrogen, Phosphorus, Potassium) ratios in organically managed soil showed a natural stabilization without synthetic inputs within 24 months. This contradicts earlier models that suggested a 5-year recovery period.</p>
-                        <ul class="list-disc pl-5 mb-4 space-y-2">
-                            <li><strong>Microbial Biomass:</strong> Increased by 40% on average.</li>
-                            <li><strong>Water Retention:</strong> Improved by 25%, reducing irrigation needs significantly.</li>
-                            <li><strong>Carbon Capture:</strong> These soils are sequestering 1.2 tons of carbon per hectare annually.</li>
-                        </ul>
-                        <p>For farmers, this means lower input costs and higher resilience against the climate anomalies predicted for late 2026.</p>
                     `
                 },
                 {
@@ -268,11 +273,7 @@
                     category: "Technology",
                     image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&q=80&w=800",
                     excerpt: "As cities become denser, vertical organic solutions have officially surpassed traditional yield-per-acre metrics in Mumbai and Tokyo.",
-                    content: `
-                        <p class="mb-4">The vertical farming sector has matured. What was once a novelty for high-end herbs is now a caloric backbone for megacities. In Mumbai's newest 'Green Tower' complex, rice and wheat equivalents are being tested, but leafy greens and caloric tubers are already at full production.</p>
-                        <h3 class="text-xl font-bold mb-2">Efficiency Metrics</h3>
-                        <p class="mb-4">By utilizing closed-loop water systems, these farms use 95% less water than traditional agriculture. The '2026 Urban Protocol' ensures that all nutrients used are organically sourced from composted city waste.</p>
-                    `
+                    content: `<p class="mb-4">The vertical farming sector has matured. What was once a novelty for high-end herbs is now a caloric backbone for megacities.</p>`
                 },
                 {
                     id: 3,
@@ -281,7 +282,7 @@
                     category: "Nutrition",
                     image: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800",
                     excerpt: "A comprehensive analysis of 50 tomato varieties reveals the startling mineral deficiency in commercially modified crops.",
-                    content: `<p class="mb-4">Our labs compared 50 varieties of Heirloom tomatoes against the standard commercial 'Traveler' tomato. The results were stark. Heirloom varieties contained, on average, 400% more lycopene and 200% more magnesium.</p>`
+                    content: `<p class="mb-4">Our labs compared 50 varieties of Heirloom tomatoes against the standard commercial 'Traveler' tomato.</p>`
                 },
                 {
                     id: 4,
@@ -290,7 +291,7 @@
                     category: "Practical",
                     image: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&q=80&w=800",
                     excerpt: "Implementing ancient clay pot irrigation (Olla) combined with modern sensors creates a 70% water reduction.",
-                    content: `<p class="mb-4">Returning to ancient wisdom, farmers in Rajasthan and Arizona are deploying the 'Olla' system—unglazed clay pots buried near roots. When combined with IoT moisture sensors, water wastage drops to near zero.</p>`
+                    content: `<p class="mb-4">Returning to ancient wisdom, farmers in Rajasthan and Arizona are deploying the 'Olla' system.</p>`
                 },
                 {
                     id: 5,
@@ -299,7 +300,7 @@
                     category: "Economics",
                     image: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?auto=format&fit=crop&q=80&w=800",
                     excerpt: "Profit margins for direct-to-consumer organic farms have stabilized at 3x that of wholesale conventional farming.",
-                    content: `<p class="mb-4">The 'Middleman-Free' movement has reached maturity. Apps connecting farmers directly to neighborhood collectives have allowed farmers to retain 90% of the retail price, compared to 15% in the traditional model.</p>`
+                    content: `<p class="mb-4">The 'Middleman-Free' movement has reached maturity.</p>`
                 },
                 {
                     id: 6,
@@ -308,34 +309,7 @@
                     category: "Biology",
                     image: "https://images.unsplash.com/photo-1629827367375-9b2440f66671?auto=format&fit=crop&q=80&w=800",
                     excerpt: "How fungi transport nutrients between trees and vegetables, creating a symbiotic immune system for the farm.",
-                    content: `<p class="mb-4">Fungal networks are the unsung heroes of the organic farm. They actively transport phosphorus to plant roots in exchange for sugars. Disturbing the soil via tilling destroys this network, which is why 'No-Till' is the gold standard for 2026.</p>`
-                },
-                {
-                    id: 7,
-                    title: "Carbon Credits for Small Farmers",
-                    date: "September 30, 2025",
-                    category: "Economics",
-                    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800",
-                    excerpt: "New global platforms finally allow smallholders to sell verified carbon credits to international buyers.",
-                    content: `<p class="mb-4">Previously, verification costs were too high for small farms. New satellite-based biomass verification allows farmers with as little as 2 acres to participate in the carbon market.</p>`
-                },
-                {
-                    id: 8,
-                    title: "The Return of the Pollinators",
-                    date: "August 18, 2025",
-                    category: "Biology",
-                    image: "https://images.unsplash.com/photo-1473643387843-05b6302e1c31?auto=format&fit=crop&q=80&w=800",
-                    excerpt: "Bee populations in organic zones have bounced back to 1990 levels, securing the future of fruit crops.",
-                    content: `<p class="mb-4">The ban on neonicotinoids in 2024 is paying dividends. Wild bee diversity has exploded, resulting in better fruit set rates for apples, almonds, and berries.</p>`
-                },
-                {
-                    id: 9,
-                    title: "Solar-Agro Integration",
-                    date: "July 22, 2025",
-                    category: "Technology",
-                    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800",
-                    excerpt: "Growing crops under elevated solar panels reduces water evaporation and generates passive income.",
-                    content: `<p class="mb-4">Agrivoltaics is the dual-use of land for solar energy production and agriculture. Shade-loving crops like lettuce and spinach thrive under the panels, requiring less water while the panels generate clean energy.</p>`
+                    content: `<p class="mb-4">Fungal networks are the unsung heroes of the organic farm.</p>`
                 }
             ];
             return baseBlogs;
@@ -343,23 +317,27 @@
 
         const blogs = generateBlogs();
 
+        // AFFILIATES DATA - INSTRUCTIONS FOR CUSTOM LINKS INCLUDED
         const affiliates = [
             {
                 category: "Organic Seeds",
                 image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=400",
                 desc: "Heirloom, non-GMO seeds for your home garden.",
                 items: [
-                    { name: "Tomato Seeds Pack", link: "https://www.amazon.in/s?k=heirloom+tomato+seeds" },
-                    { name: "Organic Spinach Seeds", link: "https://www.amazon.in/s?k=organic+spinach+seeds" }
+                    // PASTE YOUR AMAZON AFFILIATE LINK IN THE 'link' FIELD BELOW
+                    { name: "Tomato Seeds Pack", link: "https://www.amazon.in/s?k=heirloom+tomato+seeds&tag=YOUR_TAG_HERE" },
+                    { name: "Organic Spinach Seeds", link: "https://www.amazon.in/s?k=organic+spinach+seeds&tag=YOUR_TAG_HERE" }
                 ]
             },
             {
                 category: "Garden Tools",
-                image: "https://images.unsplash.com/photo-1416872927374-4c614f564970?auto=format&fit=crop&q=80&w=400",
+                // UPDATED IMAGE URL FOR GARDEN TOOLS
+                image: "https://images.unsplash.com/photo-1589923188900-85dae5233271?auto=format&fit=crop&q=80&w=400",
                 desc: "Durable, sustainable tools for everyday farming.",
                 items: [
-                    { name: "Heavy Duty Trowel", link: "https://www.amazon.in/s?k=garden+trowel" },
-                    { name: "Pruning Shears", link: "https://www.amazon.in/s?k=pruning+shears" }
+                    // PASTE YOUR AMAZON AFFILIATE LINK IN THE 'link' FIELD BELOW
+                    { name: "Heavy Duty Trowel", link: "https://www.amazon.in/s?k=garden+trowel&tag=YOUR_TAG_HERE" },
+                    { name: "Pruning Shears", link: "https://www.amazon.in/s?k=pruning+shears&tag=YOUR_TAG_HERE" }
                 ]
             },
             {
@@ -367,8 +345,9 @@
                 image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=400",
                 desc: "Compost starters and natural fertilizers.",
                 items: [
-                    { name: "Vermicompost 5kg", link: "https://www.amazon.in/s?k=vermicompost" },
-                    { name: "Neem Cake Fertilizer", link: "https://www.amazon.in/s?k=neem+cake+fertilizer" }
+                    // PASTE YOUR AMAZON AFFILIATE LINK IN THE 'link' FIELD BELOW
+                    { name: "Vermicompost 5kg", link: "https://www.amazon.in/s?k=vermicompost&tag=YOUR_TAG_HERE" },
+                    { name: "Neem Cake Fertilizer", link: "https://www.amazon.in/s?k=neem+cake+fertilizer&tag=YOUR_TAG_HERE" }
                 ]
             },
             {
@@ -376,19 +355,23 @@
                 image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400",
                 desc: "Knowledge is the best tool a farmer has.",
                 items: [
-                    { name: "The Organic Manual", link: "https://www.amazon.in/s?k=organic+farming+books" },
-                    { name: "Permaculture Design", link: "https://www.amazon.in/s?k=permaculture" }
+                    // PASTE YOUR AMAZON AFFILIATE LINK IN THE 'link' FIELD BELOW
+                    { name: "The Organic Manual", link: "https://www.amazon.in/s?k=organic+farming+books&tag=YOUR_TAG_HERE" },
+                    { name: "Permaculture Design", link: "https://www.amazon.in/s?k=permaculture&tag=YOUR_TAG_HERE" }
                 ]
             }
         ];
 
-        const pdfs = Array.from({ length: 25 }, (_, i) => ({
-            id: i + 1,
-            title: `Organic Protocol Vol. ${i + 1}: ${['Soil Health', 'Pest Control', 'Water Mgmt', 'Marketing', 'Seed Saving'][i % 5]}`,
-            price: i % 3 === 0 ? "Free" : (i % 2 === 0 ? "$1.99" : "$2.99"),
-            type: "PDF",
-            size: "2.4 MB"
-        }));
+        // DOWNLOADS - ONLY SHOWING FILES "PRESENT" FOR DOWNLOAD
+        // INSTRUCTIONS: Place your PDF files in 'assets/pdfs/' folder.
+        // Naming convention: sample_1.pdf, full_1.pdf, etc.
+        const pdfs = [
+            { id: 1, title: "Soil Health Protocol 2026", price: "$2.99", size: "2.4 MB", sampleUrl: "assets/pdfs/sample_1.pdf", fullUrl: "assets/pdfs/full_1.pdf" },
+            { id: 2, title: "Pest Control Almanac", price: "$1.99", size: "1.8 MB", sampleUrl: "assets/pdfs/sample_2.pdf", fullUrl: "assets/pdfs/full_2.pdf" },
+            { id: 3, title: "Water Management Guide", price: "$2.99", size: "3.1 MB", sampleUrl: "assets/pdfs/sample_3.pdf", fullUrl: "assets/pdfs/full_3.pdf" },
+            { id: 4, title: "Market Analysis 2025", price: "$1.99", size: "1.5 MB", sampleUrl: "assets/pdfs/sample_4.pdf", fullUrl: "assets/pdfs/full_4.pdf" },
+            { id: 5, title: "Seed Saving Handbook", price: "$2.99", size: "4.2 MB", sampleUrl: "assets/pdfs/sample_5.pdf", fullUrl: "assets/pdfs/full_5.pdf" }
+        ];
 
         const quizQuestions = {
             general: [
@@ -407,12 +390,9 @@
         };
 
         // --- APP STATE ---
-        let currentPdfCount = 10;
         let currentQuizCategory = null;
         let quizScore = 0;
         let quizIndex = 0;
-        
-        // Blog Pagination State
         let currentBlogPage = 1;
         const blogsPerPage = 3;
 
@@ -696,6 +676,16 @@
         function renderFacts(container) {
             container.innerHTML = `
                 <div class="max-w-7xl mx-auto px-4 py-16">
+                    <!-- Realtime Facts Ticker -->
+                    <div class="bg-gray-900 text-white rounded-xl p-4 mb-8 flex items-center shadow-lg">
+                        <span class="text-brand-light font-bold text-xs uppercase tracking-widest mr-4 whitespace-nowrap"><i class="fas fa-circle text-red-500 animate-pulse mr-1"></i> Live Lab Data</span>
+                        <div class="overflow-hidden relative w-full h-6">
+                            <div class="absolute whitespace-nowrap animate-[marquee_20s_linear_infinite]" id="facts-ticker">
+                                • Soil Carbon +12% in Sector 7 • Nitrogen runoff detected in Conventional Block A • New Rainfall Data: +20mm exp. next week • Market Price: Organic Wheat +5% vs Index • 
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Weather Widget -->
                     <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl p-8 text-white shadow-2xl mb-12 overflow-hidden relative">
                         <div class="absolute right-0 top-0 opacity-10 text-9xl transform translate-x-10 -translate-y-10">
@@ -729,44 +719,106 @@
                         </div>
                     </div>
 
-                    <!-- Impact Facts -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6">The 2026 Shift: Why It Matters</h2>
-                            <div class="space-y-6">
-                                <div class="flex">
-                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">1</div>
-                                    <div class="ml-4">
-                                        <h4 class="text-lg font-bold text-gray-900">Carbon Sequestration</h4>
-                                        <p class="text-gray-600 mt-1">Organic soils trap 34% more atmospheric carbon than conventionally tilled soil.</p>
-                                    </div>
-                                </div>
-                                <div class="flex">
-                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">2</div>
-                                    <div class="ml-4">
-                                        <h4 class="text-lg font-bold text-gray-900">Biodiversity Collapse Reversed</h4>
-                                        <p class="text-gray-600 mt-1">Fields without synthetic pesticides see a 50x increase in pollinator populations within 2 seasons.</p>
-                                    </div>
-                                </div>
-                                <div class="flex">
-                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">3</div>
-                                    <div class="ml-4">
-                                        <h4 class="text-lg font-bold text-gray-900">Economic Resilience</h4>
-                                        <p class="text-gray-600 mt-1">Farmers relying on internal inputs (compost/seeds) are immune to global fertilizer price spikes.</p>
-                                    </div>
-                                </div>
+                    <!-- Crop Advisor Tool -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 mb-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                            <i class="fas fa-robot text-brand mr-3"></i> 2026 Crop Advisor AI
+                        </h3>
+                        <div class="flex flex-col md:flex-row gap-4 mb-6">
+                            <input type="text" id="crop-input" placeholder="Enter Crop Name (e.g. Tomato, Wheat)" class="flex-grow p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand text-lg">
+                            <button onclick="getAdvisorData()" class="bg-brand text-white px-8 py-4 rounded-lg font-bold hover:bg-brand-dark transition">Analyze Crop</button>
+                        </div>
+                        <div id="advisor-result" class="hidden bg-brand-accent p-6 rounded-xl border border-brand-light/30">
+                            <!-- Results injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Comparison Section (Impact) -->
+                     <div class="mb-16">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Impact Analysis: Chemical vs. Organic</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Chemical Side -->
+                            <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
+                                <h3 class="text-xl font-bold text-red-700 mb-4 flex items-center"><i class="fas fa-flask mr-2"></i> Conventional (Spray/Urea)</h3>
+                                <ul class="space-y-3 text-red-900">
+                                    <li class="flex items-start"><i class="fas fa-times-circle mt-1 mr-2 opacity-50"></i> Soil pH acidity increases by 0.5 per decade</li>
+                                    <li class="flex items-start"><i class="fas fa-times-circle mt-1 mr-2 opacity-50"></i> Groundwater nitrate contamination risk: High</li>
+                                    <li class="flex items-start"><i class="fas fa-times-circle mt-1 mr-2 opacity-50"></i> Pollinator presence: < 10%</li>
+                                </ul>
+                            </div>
+                            <!-- Organic Side -->
+                            <div class="bg-green-50 p-8 rounded-2xl border border-green-100">
+                                <h3 class="text-xl font-bold text-brand mb-4 flex items-center"><i class="fas fa-leaf mr-2"></i> Organic 2026 Standard</h3>
+                                <ul class="space-y-3 text-green-900">
+                                    <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 opacity-50"></i> Soil structure improves (Aggregates +40%)</li>
+                                    <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 opacity-50"></i> Water retention increases by 25,000 gallons/acre</li>
+                                    <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 opacity-50"></i> Beneficial insect population: Restored</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="glass-panel p-2 rounded-xl bg-white shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1625246333195-00305256a836?auto=format&fit=crop&q=80" alt="Data chart" class="rounded-lg w-full">
-                            <div class="p-4">
-                                <p class="text-center text-sm text-gray-500 italic">Figure 1.2: Soil organic matter accumulation over 5 years.</p>
-                            </div>
+                    </div>
+
+                    <!-- Data Chart -->
+                    <div class="glass-panel p-8 rounded-xl bg-white shadow-xl">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Long-term Soil Organic Matter Accumulation</h3>
+                        <div class="h-64 w-full">
+                            <canvas id="chart-soil-data"></canvas>
                         </div>
+                        <p class="text-center text-sm text-gray-500 italic mt-4">Figure 1.2: Real-time accumulation data from Sector 4 trials.</p>
                     </div>
                 </div>
             `;
             fetchWeather();
+            setTimeout(initFactsCharts, 100);
+            startTicker();
+        }
+
+        // Facts Page Specific Scripts
+        function getAdvisorData() {
+            const input = document.getElementById('crop-input').value.toLowerCase().trim();
+            const resultDiv = document.getElementById('advisor-result');
+            
+            if(!input) return;
+
+            const data = cropDatabase[input] || cropDatabase['default'];
+            const title = cropDatabase[input] ? input.charAt(0).toUpperCase() + input.slice(1) : "General Advice";
+
+            resultDiv.innerHTML = `
+                <h4 class="font-bold text-xl text-brand-dark mb-4">Advisory for: ${title}</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-3 rounded shadow-sm"><span class="font-bold text-gray-600 block text-xs uppercase">Water Needs</span> ${data.water}</div>
+                    <div class="bg-white p-3 rounded shadow-sm"><span class="font-bold text-gray-600 block text-xs uppercase">Ideal Soil</span> ${data.soil}</div>
+                    <div class="bg-white p-3 rounded shadow-sm"><span class="font-bold text-gray-600 block text-xs uppercase">Nutrient Profile</span> ${data.nutrient}</div>
+                    <div class="bg-white p-3 rounded shadow-sm"><span class="font-bold text-gray-600 block text-xs uppercase">Weather Opt.</span> ${data.weather}</div>
+                </div>
+            `;
+            resultDiv.classList.remove('hidden');
+        }
+
+        function initFactsCharts() {
+            if (typeof Chart === 'undefined') return;
+            const ctx = document.getElementById('chart-soil-data');
+            if(!ctx) return;
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2022', '2023', '2024', '2025', '2026 (Proj)'],
+                    datasets: [{
+                        label: 'Organic Matter %',
+                        data: [2.1, 2.4, 3.8, 4.5, 5.2],
+                        borderColor: '#2f855a',
+                        backgroundColor: 'rgba(47, 133, 90, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+
+        function startTicker() {
+            // Ticker animation handles itself via CSS
+            // This function could fetch real data in future
         }
 
         function renderNutrition(container) {
@@ -873,6 +925,7 @@
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-bold text-gray-900">Resource Library</h2>
                         <p class="mt-4 text-gray-600">Download verified PDF guides, almanacs, and protocols.</p>
+                        <p class="text-sm text-gray-500 italic mt-2">Note: To set up downloads, place PDF files in your 'assets/pdfs' folder.</p>
                     </div>
 
                     <!-- PDF List -->
@@ -880,23 +933,24 @@
                         <!-- Injected via JS -->
                     </div>
 
-                    <div class="text-center">
-                        <button onclick="loadMorePDFs()" class="bg-white border border-gray-300 text-gray-700 font-semibold px-8 py-3 rounded-full hover:bg-gray-50 transition shadow-sm">
-                            Load More Resources
-                        </button>
-                    </div>
-
                     <div class="mt-20 p-8 bg-brand-accent rounded-2xl border border-brand-light/30">
-                        <div class="flex flex-col md:flex-row items-center justify-between">
-                            <div class="mb-6 md:mb-0">
-                                <h3 class="text-xl font-bold text-brand-dark">Need Custom Data?</h3>
-                                <p class="text-brand-dark/70">Request specific datasets or regional reports from our team.</p>
-                            </div>
-                            <form onsubmit="handleRequestInfo(event)" class="flex w-full md:w-auto gap-2">
-                                <input type="text" placeholder="Describe what you need..." class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full md:w-64">
-                                <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition">Ask</button>
-                            </form>
+                        <div class="mb-6">
+                             <h3 class="text-xl font-bold text-brand-dark mb-2">Need Custom Data?</h3>
+                             <p class="text-brand-dark/70">Request specific regional reports from our research team.</p>
                         </div>
+                        <form onsubmit="handleRequestInfo(event)" class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Organization Name" class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full">
+                            <input type="text" placeholder="Region / Zone" class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full">
+                            <select class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full">
+                                <option>Select Data Type</option>
+                                <option>Soil Analysis</option>
+                                <option>Water Quality Report</option>
+                                <option>Market Trends</option>
+                            </select>
+                            <input type="email" placeholder="Email Address" required class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full">
+                            <textarea placeholder="Describe your specific requirements..." class="md:col-span-2 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full h-24"></textarea>
+                            <button type="submit" class="md:col-span-2 bg-brand text-white px-6 py-3 rounded-lg hover:bg-brand-dark transition font-bold">Submit Request</button>
+                        </form>
                     </div>
                 </div>
             `;
@@ -1171,16 +1225,14 @@
             const grid = document.getElementById('pdf-grid');
             if(!grid) return;
             
-            // Clear existing if it's a re-render
             grid.innerHTML = '';
             
-            const visiblePdfs = pdfs.slice(0, currentPdfCount);
-            
-            visiblePdfs.forEach(pdf => {
+            // Using manually defined pdfs array for accuracy
+            pdfs.forEach(pdf => {
                 const el = document.createElement('div');
-                el.className = 'bg-white p-4 rounded-lg border border-gray-200 flex items-center justify-between hover:shadow-md transition';
+                el.className = 'bg-white p-4 rounded-lg border border-gray-200 flex flex-col hover:shadow-md transition';
                 el.innerHTML = `
-                    <div class="flex items-center">
+                    <div class="flex items-center mb-3">
                         <div class="w-10 h-10 bg-red-100 rounded flex items-center justify-center text-red-500 mr-4">
                             <i class="fas fa-file-pdf"></i>
                         </div>
@@ -1189,21 +1241,40 @@
                             <span class="text-xs text-gray-500">${pdf.size}</span>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <span class="font-bold text-brand-dark">${pdf.price}</span>
-                        <button onclick="alert('Proceeding to Checkout for ${pdf.price} (Placeholder)')" class="bg-gray-100 hover:bg-brand hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <i class="fas fa-download text-sm"></i>
-                        </button>
+                    <div class="flex justify-between items-center mt-auto border-t border-gray-100 pt-3">
+                        <a href="${pdf.sampleUrl}" target="_blank" class="text-xs font-semibold text-gray-500 hover:text-brand flex items-center">
+                            <i class="fas fa-eye mr-1"></i> Sample
+                        </a>
+                        <div class="flex items-center gap-2">
+                             <span class="font-bold text-brand-dark">${pdf.price}</span>
+                             <button onclick="buyPdf('${pdf.title}', '${pdf.fullUrl}')" class="bg-brand text-white text-xs px-3 py-1 rounded hover:bg-brand-dark transition">
+                                Buy
+                             </button>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(el);
             });
         }
+        
+        function buyPdf(title, url) {
+            // Simulated Payment Process
+            if(confirm(`Proceed to payment for ${title}?`)) {
+                setTimeout(() => {
+                    alert("Payment Successful! Downloading file...");
+                    // In a real app, this URL would be signed/secured
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = title;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, 1000);
+            }
+        }
 
         function loadMorePDFs() {
-            currentPdfCount += 5;
-            if(currentPdfCount > pdfs.length) currentPdfCount = pdfs.length;
-            renderPDFList();
+            alert("No additional verified files are currently available in the public archive.");
         }
 
         // Global Interactions
