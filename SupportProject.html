@@ -2,41 +2,321 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Support The Mission | OrganiqFarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com;">
+    <meta name="description" content="Support organic farming research projects. Fund soil testing, regional studies, and educational programs.">
+    <meta property="og:title" content="Support Research - OrganiqFarm">
+    <meta property="og:description" content="Directly fund specific organic farming research projects and community initiatives.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559131397-f94da358a2d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://organiqfarm.com/SupportProject.html">
+    
+    <title>Support Research - OrganiqFarm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Organiq<span>Farm</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="SupportProject.html" class="active">Support</a></li>
-        </ul>
-    </nav>
-
-    <h1 class="section-title">Fund the Future</h1>
-    
-    <div class="card-grid">
-        <div class="card text-center">
-            <img src="https://images.unsplash.com/photo-1589923188900-85dae5233271?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" style="margin: 0 auto 1rem; border-radius: 50%; width: 100px; height: 100px; object-fit: cover;">
-            <h3>Fund a Soil Kit</h3>
-            <p>Send a digital testing kit to a transitioning farmer.</p>
-            <h2 style="color: var(--primary-green); margin: 1rem 0;">$50</h2>
-            <button class="btn btn-primary">Contribute</button>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="SupportProject.html" class="active">Support</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="card text-center">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" style="margin: 0 auto 1rem; border-radius: 50%; width: 100px; height: 100px; object-fit: cover;">
-            <h3>Regional Report</h3>
-            <p>Support data collection in developing agricultural zones.</p>
-            <h2 style="color: var(--primary-green); margin: 1rem 0;">$150</h2>
-            <button class="btn btn-primary">Contribute</button>
+    <!-- Support Hero -->
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fund Research, Grow Change</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Your direct support funds specific research projects that advance organic farming knowledge and practice. See exactly where your contribution goes.</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="text-center" style="max-width: 600px; margin: 2rem auto; font-size: 0.9rem; color: #666;">
-        <p><em>Disclaimer: OrganiqFarm is a research initiative. Contributions are used strictly for equipment and data processing costs. Not tax-deductible as a charity.</em></p>
-    </div>
+    <!-- Progress Trackers -->
+    <section class="section-padding">
+        <div class="container">
+            <h2>Active Research Projects</h2>
+            <p class="section-subtitle">Currently seeking funding for these critical initiatives</p>
+            
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="card project-card">
+                    <div class="project-header">
+                        <h3><i class="fas fa-vial"></i> Soil Testing Program</h3>
+                        <span class="project-status" style="background: #4caf50; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Active</span>
+                    </div>
+                    <p>Provide free soil testing kits to small-scale organic farmers in developing regions. Each kit analyzes 15+ soil health parameters.</p>
+                    
+                    <div class="progress-tracker" style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Funding Progress</span>
+                            <span>65%</span>
+                        </div>
+                        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 65%; height: 100%; background: linear-gradient(90deg, var(--primary-green), var(--light-green));"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="1.99">$1.99</div>
+                            <div class="inr-conversion">≈ ₹165.17 INR</div>
+                        </div>
+                        <div>
+                            <form>
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" 
+                                        data-payment_button_id="pl_RvMwWBPpRu05Wq" 
+                                        async>
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="project-impact">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Funds one complete soil test kit</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Helps one farmer optimize crop yields</p>
+                    </div>
+                </div>
+                
+                <div class="card project-card">
+                    <div class="project-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> Regional Impact Study</h3>
+                        <span class="project-status" style="background: #ff9800; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Planning</span>
+                    </div>
+                    <p>Study the economic and environmental impact of organic conversion in Southeast Asia. Includes 50+ farm case studies over 2 years.</p>
+                    
+                    <div class="progress-tracker" style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Funding Progress</span>
+                            <span>28%</span>
+                        </div>
+                        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 28%; height: 100%; background: linear-gradient(90deg, var(--primary-green), var(--light-green));"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="2.99">$2.99</div>
+                            <div class="inr-conversion">≈ ₹248.17 INR</div>
+                        </div>
+                        <div>
+                            <form>
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" 
+                                        data-payment_button_id="pl_RvMwWBPpRu05Wq" 
+                                        async>
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="project-impact">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Funds data collection for one farm</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Contributes to regional policy recommendations</p>
+                    </div>
+                </div>
+                
+                <div class="card project-card">
+                    <div class="project-header">
+                        <h3><i class="fas fa-graduation-cap"></i> Farmer Education Series</h3>
+                        <span class="project-status" style="background: #4caf50; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Active</span>
+                    </div>
+                    <p>Develop and distribute free educational materials in 5 languages. Workshops cover organic certification, pest management, and market access.</p>
+                    
+                    <div class="progress-tracker" style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Funding Progress</span>
+                            <span>42%</span>
+                        </div>
+                        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 42%; height: 100%; background: linear-gradient(90deg, var(--primary-green), var(--light-green));"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <div>
+                            <div class="payment-amount" data-amount="1">$1.00</div>
+                            <div class="inr-conversion">≈ ₹83.00 INR</div>
+                        </div>
+                        <div>
+                            <form>
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" 
+                                        data-payment_button_id="pl_RvMwWBPpRu05Wq" 
+                                        async>
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="project-impact">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Funds educational materials for 5 farmers</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Supports translation to local languages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Completed Projects -->
+    <section class="section-padding" style="background: rgba(46,125,50,0.05);">
+        <div class="container">
+            <h2>Recently Completed Projects</h2>
+            <p class="section-subtitle">See the impact of community-funded research</p>
+            
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="card completed-project">
+                    <h3><i class="fas fa-tint"></i> Water Conservation Study</h3>
+                    <p><strong>Completed:</strong> January 2024</p>
+                    <p><strong>Funding:</strong> $15,000 (community-funded)</p>
+                    <p><strong>Impact:</strong> Documented 40% water savings through organic methods across 30 farms.</p>
+                    <a href="downloads.html" class="btn btn-secondary btn-small">Download Report</a>
+                </div>
+                
+                <div class="card completed-project">
+                    <h3><i class="fas fa-seedling"></i> Seed Diversity Catalog</h3>
+                    <p><strong>Completed:</strong> December 2023</p>
+                    <p><strong>Funding:</strong> $8,500 (community-funded)</p>
+                    <p><strong>Impact:</strong> Cataloged 150+ heirloom seed varieties with cultivation guides.</p>
+                    <a href="downloads.html" class="btn btn-secondary btn-small">Access Catalog</a>
+                </div>
+                
+                <div class="card completed-project">
+                    <h3><i class="fas fa-chart-line"></i> Market Analysis Report</h3>
+                    <p><strong>Completed:</strong> November 2023</p>
+                    <p><strong>Funding:</strong> $12,000 (community-funded)</p>
+                    <p><strong>Impact:</strong> Identified 35% growth opportunities for organic producers.</p>
+                    <a href="downloads.html" class="btn btn-secondary btn-small">View Analysis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Funds Are Used -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="card" style="text-align: center; padding: 3rem;">
+                <h2><i class="fas fa-chart-pie"></i> Fund Allocation Transparency</h2>
+                <p>We believe in complete transparency about how your contributions are used.</p>
+                
+                <div class="grid grid-4" style="margin-top: 2rem; text-align: center;">
+                    <div>
+                        <div class="allocation-percentage" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green);">70%</div>
+                        <p style="font-weight: 500;">Direct Research Costs</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Field studies, lab testing, data analysis</p>
+                    </div>
+                    
+                    <div>
+                        <div class="allocation-percentage" style="font-size: 2.5rem; font-weight: 700; color: var(--earth-brown);">20%</div>
+                        <p style="font-weight: 500;">Platform Maintenance</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Hosting, development, content creation</p>
+                    </div>
+                    
+                    <div>
+                        <div class="allocation-percentage" style="font-size: 2.5rem; font-weight: 700; color: var(--light-green);">8%</div>
+                        <p style="font-weight: 500;">Community Outreach</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Workshops, translations, partnerships</p>
+                    </div>
+                    
+                    <div>
+                        <div class="allocation-percentage" style="font-size: 2.5rem; font-weight: 700; color: #ff9800;">2%</div>
+                        <p style="font-weight: 500;">Payment Processing</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Transaction fees and security</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem; font-style: italic;">Note: OrganiqFarm is a research initiative, not a charity. Contributions support specific research projects and are not tax-deductible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="SupportProject.html" class="active">Support Research</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for project updates and research findings.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
