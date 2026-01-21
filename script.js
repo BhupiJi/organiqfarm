@@ -1,739 +1,573 @@
-// OrganiqFarm 2026 - Main JavaScript File
+// ============================================
+// ORGANIQFARM - COMPLETE JAVASCRIPT FILE
+// All interactivity and functionality
+// ============================================
 
-// DOM Ready Function
 document.addEventListener('DOMContentLoaded', function() {
-    initializeWebsite();
+    // Initialize all components
+    initNavigation();
+    initScrollTop();
+    initCounters();
+    initWeather();
+    initBlogPagination();
+    initQuiz();
+    initContactForm();
+    initPaymentButtons();
+    initDownloads();
+    initCharts();
+    initToast();
+    
+    // Set active navigation menu
+    setActiveMenu();
 });
 
-// Main Initialization Function
-function initializeWebsite() {
-    // Initialize all components
-    initializeMobileMenu();
-    initializeAnimatedCounters();
-    initializeBlogPagination();
-    initializeFormValidation();
-    initializeSmoothScrolling();
-    initializeWeatherWidget();
-    initializeChartData();
-    initializeDownloadCalculators();
-    initializeImageLazyLoading();
-}
+// ============================================
+// NAVIGATION & MOBILE MENU
+// ============================================
 
-// Mobile Menu Toggle
-function initializeMobileMenu() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+function initNavigation() {
+    const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
         });
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            }
+            });
         });
     }
-    
-    // Close menu when clicking a link
+}
+
+function setActiveMenu() {
+    const currentPage = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('.nav-menu a');
+    
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-        });
-    });
-}
-
-// Animated Counters
-function initializeAnimatedCounters() {
-    const counters = document.querySelectorAll('.counter-value');
-    
-    if (counters.length === 0) return;
-    
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                animateCounter(counter, target);
-                observer.unobserve(counter);
-            }
-        });
-    }, observerOptions);
-    
-    counters.forEach(counter => observer.observe(counter));
-}
-
-function animateCounter(element, target) {
-    let current = 0;
-    const increment = target / 100;
-    const duration = 2000; // 2 seconds
-    const stepTime = Math.abs(Math.floor(duration / (target / increment)));
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = formatNumber(target);
-            clearInterval(timer);
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === '' && linkPage === 'index.html') ||
+            (linkPage.includes(currentPage) && currentPage !== '')) {
+            link.classList.add('active');
         } else {
-            element.textContent = formatNumber(Math.floor(current));
-        }
-    }, stepTime);
-}
-
-function formatNumber(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-// Blog Pagination
-function initializeBlogPagination() {
-    const blogGrid = document.getElementById('blogGrid');
-    if (!blogGrid) return;
-    
-    const blogsPerPage = 4;
-    let currentPage = 1;
-    
-    // Create blog cards from the blogs data (if available)
-    if (typeof blogs !== 'undefined') {
-        displayBlogs(currentPage);
-        setupPagination();
-    }
-    
-    function displayBlogs(page) {
-        blogGrid.innerHTML = '';
-        const startIndex = (page - 1) * blogsPerPage;
-        const endIndex = startIndex + blogsPerPage;
-        const pageBlogs = blogs.slice(startIndex, endIndex);
-        
-        pageBlogs.forEach(blog => {
-            const blogCard = createBlogCard(blog);
-            blogGrid.appendChild(blogCard);
-        });
-    }
-    
-    function createBlogCard(blog) {
-        const card = document.createElement('a');
-        card.href = `blog-post-${blog.id}.html`;
-        card.className = 'blog-card';
-        
-        card.innerHTML = `
-            <div class="blog-card-image">
-                <img src="${blog.image}" alt="${blog.title}" loading="lazy">
-            </div>
-            <div class="blog-card-content">
-                <span class="blog-card-category">${blog.category}</span>
-                <span class="blog-card-date">${blog.date}</span>
-                <h3 class="blog-card-title">${blog.title}</h3>
-                <p class="blog-card-excerpt">${blog.description}</p>
-            </div>
-        `;
-        
-        return card;
-    }
-    
-    function setupPagination() {
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageNumbers = document.getElementById('pageNumbers');
-        
-        if (!prevBtn || !nextBtn || !pageNumbers) return;
-        
-        const totalPages = Math.ceil(blogs.length / blogsPerPage);
-        
-        // Update page numbers
-        pageNumbers.innerHTML = '';
-        for (let i = 1; i <= totalPages; i++) {
-            const pageNumber = document.createElement('span');
-            pageNumber.className = `page-number ${i === currentPage ? 'active' : ''}`;
-            pageNumber.textContent = i;
-            pageNumber.addEventListener('click', () => {
-                currentPage = i;
-                updatePagination();
-            });
-            pageNumbers.appendChild(pageNumber);
-        }
-        
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                updatePagination();
-            }
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                updatePagination();
-            }
-        });
-        
-        function updatePagination() {
-            displayBlogs(currentPage);
-            
-            // Update active page number
-            document.querySelectorAll('.page-number').forEach((page, index) => {
-                page.classList.toggle('active', index + 1 === currentPage);
-            });
-            
-            // Update button states
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
-            
-            // Scroll to top of blog grid
-            blogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        
-        // Initial button states
-        prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage === totalPages;
-    }
-}
-
-// Form Validation
-function initializeFormValidation() {
-    const forms = document.querySelectorAll('form:not(.newsletter-form)');
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            const inputs = form.querySelectorAll('input[required], textarea[required]');
-            
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    showError(input, 'This field is required');
-                } else if (input.type === 'email' && !isValidEmail(input.value)) {
-                    isValid = false;
-                    showError(input, 'Please enter a valid email address');
-                } else {
-                    clearError(input);
-                }
-            });
-            
-            if (isValid) {
-                // In a real application, you would submit the form here
-                // For now, we'll show a success message
-                showFormSuccess(form);
-            }
-        });
-    });
-    
-    function showError(input, message) {
-        clearError(input);
-        
-        const error = document.createElement('div');
-        error.className = 'form-error';
-        error.textContent = message;
-        error.style.color = '#f44336';
-        error.style.fontSize = '0.8rem';
-        error.style.marginTop = '5px';
-        
-        input.parentNode.appendChild(error);
-        input.style.borderColor = '#f44336';
-    }
-    
-    function clearError(input) {
-        const error = input.parentNode.querySelector('.form-error');
-        if (error) {
-            error.remove();
-        }
-        input.style.borderColor = '';
-    }
-    
-    function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-    
-    function showFormSuccess(form) {
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // Simulate API call
-        setTimeout(() => {
-            const successMsg = document.createElement('div');
-            successMsg.className = 'form-success';
-            successMsg.innerHTML = `
-                <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 5px; margin-top: 20px;">
-                    <strong>✓ Success!</strong> Your message has been sent. We'll get back to you soon.
-                </div>
-            `;
-            
-            form.appendChild(successMsg);
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            form.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successMsg.remove();
-            }, 5000);
-        }, 1500);
-    }
-}
-
-// Smooth Scrolling for Anchor Links
-function initializeSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href === '#') return;
-            
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                e.preventDefault();
-                
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Weather Widget
-function initializeWeatherWidget() {
-    // This is a simplified version - in production, you'd use a real API
-    const weatherWidget = document.getElementById('weatherWidget');
-    if (!weatherWidget) return;
-    
-    // Simulate weather data
-    const weatherData = {
-        temperature: 22,
-        condition: 'Sunny',
-        humidity: 65,
-        windSpeed: 12,
-        location: 'Farm Location'
-    };
-    
-    updateWeatherWidget(weatherData);
-    
-    // Update weather every 30 minutes
-    setInterval(() => {
-        // In production, fetch fresh data from API
-        updateWeatherWidget(weatherData);
-    }, 30 * 60 * 1000);
-}
-
-function updateWeatherWidget(data) {
-    const widget = document.getElementById('weatherWidget');
-    if (widget) {
-        widget.innerHTML = `
-            <div class="weather-widget">
-                <div class="weather-temp">${data.temperature}°C</div>
-                <div class="weather-condition">${data.condition}</div>
-                <div class="weather-details">
-                    <span>Humidity: ${data.humidity}%</span>
-                    <span>Wind: ${data.windSpeed} km/h</span>
-                </div>
-                <div class="weather-location">${data.location}</div>
-            </div>
-        `;
-    }
-}
-
-// Chart Data Visualization
-function initializeChartData() {
-    // This would initialize charts if Chart.js is loaded
-    // Check if we're on a page that needs charts
-    if (document.querySelector('.chart-container')) {
-        // Charts are initialized inline in facts.html
-    }
-}
-
-// Download Calculators
-function initializeDownloadCalculators() {
-    const downloadCards = document.querySelectorAll('.download-card');
-    
-    downloadCards.forEach(card => {
-        const priceElement = card.querySelector('.download-price');
-        const conversionElement = card.querySelector('.download-conversion');
-        
-        if (priceElement && conversionElement) {
-            const usdPrice = parseFloat(priceElement.textContent.replace('$', ''));
-            if (!isNaN(usdPrice)) {
-                // Convert USD to INR (approximate rate)
-                const inrPrice = usdPrice * 83; // Current approximate rate
-                conversionElement.textContent = `Approx. ₹${inrPrice.toFixed(0)} INR`;
-            }
+            link.classList.remove('active');
         }
     });
 }
 
-// Image Lazy Loading
-function initializeImageLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    } else {
-        // Fallback for older browsers
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            img.src = img.dataset.src;
-        });
-    }
-}
+// ============================================
+// SCROLL TO TOP BUTTON
+// ============================================
 
-// Newsletter Form
-document.addEventListener('DOMContentLoaded', function() {
-    const newsletterForms = document.querySelectorAll('.newsletter-form');
+function initScrollTop() {
+    const scrollButton = document.createElement('div');
+    scrollButton.className = 'scroll-top';
+    scrollButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(scrollButton);
     
-    newsletterForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = form.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-            
-            if (!isValidEmail(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Simulate subscription
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Subscribing...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for subscribing to our newsletter!');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                emailInput.value = '';
-            }, 1000);
-        });
-    });
-});
-
-// Back to Top Button
-function initializeBackToTop() {
-    const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '↑';
-    backToTopBtn.className = 'back-to-top';
-    backToTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-green);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 20px;
-        display: none;
-        z-index: 1000;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(backToTopBtn);
-    
-    backToTopBtn.addEventListener('mouseenter', () => {
-        backToTopBtn.style.transform = 'translateY(-3px)';
-        backToTopBtn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollButton.classList.add('visible');
+        } else {
+            scrollButton.classList.remove('visible');
+        }
     });
     
-    backToTopBtn.addEventListener('mouseleave', () => {
-        backToTopBtn.style.transform = 'translateY(0)';
-        backToTopBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-    });
-    
-    backToTopBtn.addEventListener('click', () => {
+    scrollButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
+}
+
+// ============================================
+// ANIMATED COUNTERS
+// ============================================
+
+function initCounters() {
+    const counters = document.querySelectorAll('.stat-number');
     
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
-        } else {
-            backToTopBtn.style.display = 'none';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current) + '+';
+                        setTimeout(updateCounter, 16);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+                
+                updateCounter();
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+// ============================================
+// WEATHER WIDGET
+// ============================================
+
+async function initWeather() {
+    const weatherWidget = document.getElementById('weatherWidget');
+    if (!weatherWidget) return;
+    
+    try {
+        // Get user location
+        if (!navigator.geolocation) {
+            showToast('Geolocation is not supported by your browser', 'error');
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            
+            // Using OpenWeatherMap API (You need to replace with your API key)
+            const apiKey = 'YOUR_OPENWEATHER_API_KEY'; // Replace with actual API key
+            const response = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+            );
+            
+            if (!response.ok) throw new Error('Weather data not available');
+            
+            const data = await response.json();
+            
+            // Update weather widget
+            document.getElementById('weatherLocation').textContent = data.name;
+            document.getElementById('weatherTemp').textContent = Math.round(data.main.temp) + '°C';
+            document.getElementById('weatherDesc').textContent = data.weather[0].description;
+            document.getElementById('weatherHumidity').textContent = data.main.humidity + '%';
+            document.getElementById('weatherWind').textContent = data.wind.speed + ' m/s';
+            
+            // Get weather icon
+            const iconCode = data.weather[0].icon;
+            document.getElementById('weatherIcon').innerHTML = 
+                `<img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="Weather icon">`;
+                
+        }, (error) => {
+            console.error('Geolocation error:', error);
+            showToast('Unable to retrieve location for weather data', 'error');
+        });
+        
+    } catch (error) {
+        console.error('Weather fetch error:', error);
+        showToast('Weather service temporarily unavailable', 'error');
+    }
+}
+
+// ============================================
+// BLOG PAGINATION
+// ============================================
+
+function initBlogPagination() {
+    const blogContainer = document.getElementById('blogContainer');
+    if (!blogContainer) return;
+    
+    const blogs = Array.from(blogContainer.children);
+    const blogsPerPage = 4;
+    let currentPage = 1;
+    
+    function showPage(page) {
+        const start = (page - 1) * blogsPerPage;
+        const end = start + blogsPerPage;
+        
+        blogs.forEach((blog, index) => {
+            blog.style.display = (index >= start && index < end) ? 'block' : 'none';
+        });
+        
+        // Update pagination buttons
+        updatePaginationButtons(page);
+    }
+    
+    function updatePaginationButtons(page) {
+        const totalPages = Math.ceil(blogs.length / blogsPerPage);
+        const pagination = document.querySelector('.pagination');
+        
+        if (pagination) {
+            pagination.innerHTML = '';
+            
+            if (page > 1) {
+                const prevBtn = document.createElement('button');
+                prevBtn.textContent = 'Previous';
+                prevBtn.addEventListener('click', () => {
+                    currentPage--;
+                    showPage(currentPage);
+                });
+                pagination.appendChild(prevBtn);
+            }
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                if (i === page) pageBtn.classList.add('active');
+                pageBtn.addEventListener('click', () => {
+                    currentPage = i;
+                    showPage(currentPage);
+                });
+                pagination.appendChild(pageBtn);
+            }
+            
+            if (page < totalPages) {
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = 'Next';
+                nextBtn.addEventListener('click', () => {
+                    currentPage++;
+                    showPage(currentPage);
+                });
+                pagination.appendChild(nextBtn);
+            }
+        }
+    }
+    
+    showPage(1);
+}
+
+// ============================================
+// QUIZ SYSTEM
+// ============================================
+
+function initQuiz() {
+    const quizContainer = document.getElementById('quizContainer');
+    if (!quizContainer) return;
+    
+    // Quiz questions database
+    const quizData = {
+        'organic-basics': [
+            {
+                question: "What is the minimum period required for land to be chemical-free to be certified as organic?",
+                options: ["1 year", "2 years", "3 years", "4 years"],
+                answer: 2
+            },
+            {
+                question: "Which of these is NOT allowed in organic farming?",
+                options: ["Crop rotation", "Synthetic pesticides", "Compost", "Green manure"],
+                answer: 1
+            }
+        ],
+        'sustainability': [
+            {
+                question: "What percentage increase in biodiversity is typically seen on organic farms?",
+                options: ["10-20%", "30-50%", "60-80%", "90-100%"],
+                answer: 1
+            }
+        ]
+    };
+    
+    let currentCategory = null;
+    let currentQuestion = 0;
+    let score = 0;
+    let userAnswers = [];
+    
+    // Category selection
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', () => {
+            currentCategory = card.dataset.category;
+            startQuiz(currentCategory);
+        });
+    });
+    
+    function startQuiz(category) {
+        document.getElementById('categorySelection').style.display = 'none';
+        document.getElementById('quizQuestions').style.display = 'block';
+        currentQuestion = 0;
+        score = 0;
+        userAnswers = [];
+        showQuestion();
+    }
+    
+    function showQuestion() {
+        const questions = quizData[currentCategory];
+        if (!questions || currentQuestion >= questions.length) {
+            showResults();
+            return;
+        }
+        
+        const q = questions[currentQuestion];
+        document.getElementById('quizQuestionText').textContent = q.question;
+        
+        const optionsContainer = document.getElementById('quizOptions');
+        optionsContainer.innerHTML = '';
+        
+        q.options.forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'quiz-option';
+            optionDiv.textContent = option;
+            optionDiv.addEventListener('click', () => selectOption(index));
+            optionsContainer.appendChild(optionDiv);
+        });
+        
+        document.getElementById('questionCounter').textContent = 
+            `Question ${currentQuestion + 1} of ${questions.length}`;
+    }
+    
+    function selectOption(optionIndex) {
+        userAnswers[currentQuestion] = optionIndex;
+        
+        // Visual feedback
+        const options = document.querySelectorAll('.quiz-option');
+        options.forEach((opt, idx) => {
+            opt.classList.remove('selected');
+            if (idx === optionIndex) {
+                opt.classList.add('selected');
+            }
+        });
+        
+        // Auto advance after delay
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < quizData[currentCategory].length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }, 1000);
+    }
+    
+    function showResults() {
+        const questions = quizData[currentCategory];
+        let score = 0;
+        
+        userAnswers.forEach((answer, index) => {
+            if (answer === questions[index].answer) {
+                score++;
+            }
+        });
+        
+        const percentage = Math.round((score / questions.length) * 100);
+        
+        document.getElementById('quizQuestions').style.display = 'none';
+        document.getElementById('quizResults').style.display = 'block';
+        
+        document.getElementById('quizScore').textContent = `${score}/${questions.length}`;
+        document.getElementById('quizPercentage').textContent = `${percentage}%`;
+        
+        // Determine message based on score
+        let message = '';
+        if (percentage >= 80) message = 'Excellent! You\'re an organic farming expert!';
+        else if (percentage >= 60) message = 'Good job! You know quite a bit about organic farming.';
+        else message = 'Keep learning! Organic farming has many benefits to discover.';
+        
+        document.getElementById('quizMessage').textContent = message;
+    }
+    
+    // Restart quiz
+    document.getElementById('restartQuiz')?.addEventListener('click', () => {
+        document.getElementById('quizResults').style.display = 'none';
+        document.getElementById('categorySelection').style.display = 'block';
+    });
+}
+
+// ============================================
+// CONTACT FORM
+// ============================================
+
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Show success message
+        showToast('Your message has been sent successfully! We\'ll get back to you soon.', 'success');
+        
+        // Reset form
+        contactForm.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+}
+
+// ============================================
+// PAYMENT BUTTONS
+// ============================================
+
+function initPaymentButtons() {
+    // Update payment amounts
+    document.querySelectorAll('.payment-amount').forEach(element => {
+        const amount = element.dataset.amount || '1.99';
+        element.textContent = '$' + amount;
+        
+        // Convert to INR
+        const usdToInr = 83; // Current approximate rate
+        const inrAmount = (parseFloat(amount) * usdToInr).toFixed(2);
+        element.nextElementSibling?.textContent = `≈ ₹${inrAmount} INR`;
+    });
+    
+    // Initialize RazorPay buttons
+    const razorpayScript = document.createElement('script');
+    razorpayScript.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+    razorpayScript.async = true;
+    document.body.appendChild(razorpayScript);
+}
+
+// ============================================
+// DOWNLOADS MANAGEMENT
+// ============================================
+
+function initDownloads() {
+    const loadMoreBtn = document.getElementById('loadMoreDownloads');
+    if (!loadMoreBtn) return;
+    
+    let visibleCount = 10;
+    const allDownloads = document.querySelectorAll('.download-card');
+    
+    // Initially show only 10
+    allDownloads.forEach((card, index) => {
+        card.style.display = index < visibleCount ? 'block' : 'none';
+    });
+    
+    loadMoreBtn.addEventListener('click', () => {
+        visibleCount += 10;
+        
+        allDownloads.forEach((card, index) => {
+            card.style.display = index < visibleCount ? 'block' : 'none';
+        });
+        
+        // Hide button if all are shown
+        if (visibleCount >= allDownloads.length) {
+            loadMoreBtn.style.display = 'none';
         }
     });
 }
 
-// Initialize back to top button
-initializeBackToTop();
+// ============================================
+// CHARTS FOR NUTRITION PAGE
+// ============================================
 
-// Cookie Consent Banner
-function initializeCookieConsent() {
-    if (!localStorage.getItem('cookiesAccepted')) {
-        const consentBanner = document.createElement('div');
-        consentBanner.className = 'cookie-consent';
-        consentBanner.innerHTML = `
-            <div class="cookie-content">
-                <p>We use cookies to enhance your browsing experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.</p>
-                <div class="cookie-buttons">
-                    <button class="cookie-accept">Accept</button>
-                    <button class="cookie-decline">Decline</button>
-                </div>
-            </div>
-        `;
-        
-        consentBanner.style.cssText = `
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 20px;
-            z-index: 1001;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        `;
-        
-        document.body.appendChild(consentBanner);
-        
-        // Style the cookie content
-        const cookieContent = consentBanner.querySelector('.cookie-content');
-        cookieContent.style.maxWidth = '1200px';
-        cookieContent.style.display = 'flex';
-        cookieContent.style.justifyContent = 'space-between';
-        cookieContent.style.alignItems = 'center';
-        cookieContent.style.gap = '20px';
-        
-        // Style the buttons
-        const buttons = consentBanner.querySelectorAll('.cookie-accept, .cookie-decline');
-        buttons.forEach(btn => {
-            btn.style.padding = '10px 25px';
-            btn.style.border = 'none';
-            btn.style.borderRadius = '5px';
-            btn.style.cursor = 'pointer';
-            btn.style.fontWeight = '600';
-            btn.style.transition = 'all 0.3s ease';
-        });
-        
-        const acceptBtn = consentBanner.querySelector('.cookie-accept');
-        acceptBtn.style.background = 'var(--primary-green)';
-        acceptBtn.style.color = 'white';
-        
-        const declineBtn = consentBanner.querySelector('.cookie-decline');
-        declineBtn.style.background = 'transparent';
-        declineBtn.style.color = 'white';
-        declineBtn.style.border = '2px solid white';
-        
-        // Add event listeners
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            consentBanner.style.display = 'none';
-        });
-        
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'false');
-            consentBanner.style.display = 'none';
-        });
-    }
-}
-
-// Initialize cookie consent
-initializeCookieConsent();
-
-// Page Load Progress Bar
-function initializeProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'page-progress';
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: var(--primary-green);
-        z-index: 1002;
-        transition: width 0.3s ease;
-    `;
+function initCharts() {
+    const nutritionChart = document.getElementById('nutritionChart');
+    if (!nutritionChart) return;
     
-    document.body.appendChild(progressBar);
+    // Sample data for nutrition comparison
+    const ctx = nutritionChart.getContext('2d');
     
-    window.addEventListener('scroll', () => {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrolled = (window.pageYOffset / documentHeight) * 100;
-        
-        progressBar.style.width = scrolled + '%';
-    });
-}
-
-// Initialize progress bar
-initializeProgressBar();
-
-// Print Functionality for Blog Posts
-function initializePrintFunctionality() {
-    const printBtn = document.createElement('button');
-    printBtn.innerHTML = '🖨️ Print';
-    printBtn.className = 'print-button';
-    printBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        background: var(--primary-green);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        z-index: 1000;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        display: none;
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(printBtn);
-    
-    // Only show on blog post pages
-    if (document.querySelector('.blog-post')) {
-        printBtn.style.display = 'block';
-        
-        printBtn.addEventListener('click', () => {
-            const printContent = document.querySelector('.blog-post-main').innerHTML;
-            const originalContent = document.body.innerHTML;
-            
-            document.body.innerHTML = `
-                <div style="padding: 40px; max-width: 800px; margin: 0 auto;">
-                    ${printContent}
-                    <div style="text-align: center; margin-top: 40px; color: #666; font-size: 0.9rem;">
-                        Printed from OrganiqFarm.com - ${new Date().toLocaleDateString()}
-                    </div>
-                </div>
-            `;
-            
-            window.print();
-            
-            // Restore original content
-            document.body.innerHTML = originalContent;
-            initializeWebsite(); // Reinitialize scripts
-        });
-    }
-}
-
-// Initialize print functionality
-initializePrintFunctionality();
-
-// Theme Switcher (Light/Dark Mode)
-function initializeThemeSwitcher() {
-    const themeBtn = document.createElement('button');
-    themeBtn.innerHTML = '🌙';
-    themeBtn.className = 'theme-switcher';
-    themeBtn.title = 'Toggle Dark Mode';
-    themeBtn.style.cssText = `
-        position: fixed;
-        bottom: 90px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-green);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 20px;
-        z-index: 1000;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(themeBtn);
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    if (savedTheme === 'dark') {
-        enableDarkMode();
-        themeBtn.innerHTML = '☀️';
-    }
-    
-    themeBtn.addEventListener('click', () => {
-        if (document.body.classList.contains('dark-mode')) {
-            disableDarkMode();
-            themeBtn.innerHTML = '🌙';
-        } else {
-            enableDarkMode();
-            themeBtn.innerHTML = '☀️';
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tomatoes', 'Spinach', 'Carrots', 'Apples', 'Berries'],
+            datasets: [{
+                label: 'Organic',
+                data: [45, 60, 35, 50, 70],
+                backgroundColor: 'rgba(46, 125, 50, 0.7)',
+                borderColor: 'rgba(46, 125, 50, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Conventional',
+                data: [20, 30, 15, 25, 35],
+                backgroundColor: 'rgba(141, 110, 99, 0.7)',
+                borderColor: 'rgba(141, 110, 99, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Antioxidant Level (%)'
+                    }
+                }
+            }
         }
     });
+}
+
+// ============================================
+// TOAST NOTIFICATIONS
+// ============================================
+
+function initToast() {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+}
+
+function showToast(message, type = 'info') {
+    const toast = document.querySelector('.toast');
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    toast.classList.add('show');
     
-    function enableDarkMode() {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-    }
-    
-    function disableDarkMode() {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+// Format date
+function formatDate(date) {
+    return new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
+// Debounce function for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Smooth scroll to element
+function smoothScrollTo(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
 }
 
-// Initialize theme switcher
-initializeThemeSwitcher();
+// ============================================
+// EXPORT FUNCTIONS FOR GLOBAL USE
+// ============================================
 
-// Add dark mode CSS
-const darkModeCSS = `
-    body.dark-mode {
-        background: #121212;
-        color: #e0e0e0;
-    }
-    
-    body.dark-mode .navbar {
-        background: rgba(30, 30, 30, 0.95);
-    }
-    
-    body.dark-mode .nav-menu a {
-        color: #e0e0e0;
-    }
-    
-    body.dark-mode .feature-card,
-    body.dark-mode .blog-card,
-    body.dark-mode .comparison-card,
-    body.dark-mode .support-card,
-    body.dark-mode .download-card {
-        background: #1e1e1e;
-        color: #e0e0e0;
-    }
-    
-    body.dark-mode .footer {
-        background: #0a0a0a;
-    }
-`;
-
-const style = document.createElement('style');
-style.textContent = darkModeCSS;
-document.head.appendChild(style);
+window.OrganiqFarm = {
+    showToast,
+    smoothScrollTo,
+    formatDate
+};
