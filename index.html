@@ -3,218 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OrganiqFarm - The definitive digital source for organic farming knowledge, climate impact insights, and crop nutrition data for 2026 and beyond.">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="OrganiqFarm - Organic Farming Information Portal 2026">
-    <meta property="og:description" content="Accelerating the global transition to verifiable, sustainable organic agriculture through open data and community action.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com https://openweathermap.org;">
+    <meta name="description" content="OrganiqFarm - The definitive digital source for organic farming information, research, and community support. Join the movement towards sustainable agriculture.">
+    <meta property="og:title" content="OrganiqFarm - Organic Farming Authority">
+    <meta property="og:description" content="Your comprehensive guide to organic farming practices, research, and sustainable agriculture.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://organiqfarm.com">
-    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     
-    <!-- CSP Meta Tag -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src https://images.unsplash.com https://images.pexels.com https://*.unsplash.com https://*.pexels.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'">
-    
-    <title>OrganiqFarm - Organic Farming Information Portal 2026</title>
+    <title>OrganiqFarm - Organic Farming Authority</title>
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- CSS -->
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">OrganiqFarm</span>
-                <span class="logo-subtitle">2026</span>
-            </a>
-            
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="facts.html">Facts</a></li>
-                <li><a href="nutrition.html">Nutrition</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="support.html" class="donate-btn">Donate</a></li>
-                <li><a href="affiliates.html">Affiliates</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
+                    <h1>Organiq<span>Farm</span></h1>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="facts.html">Facts & Weather</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="SupportProject.html" class="btn btn-small btn-primary">Support</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Farming for <span class="highlight">2026 & Beyond</span></h1>
-                <p class="hero-description">
-                    Accelerating the global transition to verifiable, sustainable organic agriculture through open data and community action.
-                </p>
+            <div class="hero-content fade-in">
+                <h1>Grow Organic, Live Healthy</h1>
+                <p>Join the global movement towards sustainable, verifiable organic agriculture. Access verified data, research, and community-driven insights.</p>
+                
+                <div class="stats-counter">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Research Papers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Verified Farms</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="75">0</span>
+                        <span class="stat-label">Nutrient Studies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10000">0</span>
+                        <span class="stat-label">Community Members</span>
+                    </div>
+                </div>
+                
                 <div class="hero-buttons">
-                    <a href="blogs.html" class="btn btn-primary">View 2026 Data</a>
-                    <a href="support.html" class="btn btn-secondary">Join Movement</a>
+                    <a href="blogs.html" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> Explore Blogs
+                    </a>
+                    <a href="facts.html" class="btn btn-secondary">
+                        <i class="fas fa-cloud-sun"></i> Check Weather
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Animated Counters -->
-    <section class="counter-section">
+    <!-- Featured Content -->
+    <section class="section-padding">
         <div class="container">
-            <div class="counter-grid">
-                <div class="counter-card">
-                    <div class="counter-value" data-target="42">0</div>
-                    <div class="counter-label">% Global Organic Shift</div>
+            <h2>Featured Insights</h2>
+            <p class="section-subtitle">Latest research and practical guides for organic farming</p>
+            
+            <div class="grid grid-3">
+                <!-- Feature 1 -->
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1591288980063-7c76a1f2c4a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soil Health" class="card-img">
+                    <h3>Soil Regeneration Techniques</h3>
+                    <p>Discover methods to improve soil health and increase crop yields naturally. Learn about cover crops, composting, and no-till farming.</p>
+                    <a href="blog-post-1.html" class="btn btn-secondary btn-small">Read More</a>
                 </div>
-                <div class="counter-card">
-                    <div class="counter-value" data-target="12500">0</div>
-                    <div class="counter-label">Verified Farms (2026)</div>
+                
+                <!-- Feature 2 -->
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Weather Impact" class="card-img">
+                    <h3>Climate & Crop Planning</h3>
+                    <p>How changing weather patterns affect organic farming. Get insights on adapting your farming practices to climate variability.</p>
+                    <a href="blog-post-2.html" class="btn btn-secondary btn-small">Read More</a>
                 </div>
-                <div class="counter-card">
-                    <div class="counter-value" data-target="248">0</div>
-                    <div class="counter-label">Research Papers Published</div>
-                </div>
-                <div class="counter-card">
-                    <div class="counter-value" data-target="8700">0</div>
-                    <div class="counter-label">Active Community Donors</div>
+                
+                <!-- Feature 3 -->
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nutrition" class="card-img">
+                    <h3>Nutrition Density Study</h3>
+                    <p>Our latest research shows organic produce contains up to 60% more antioxidants. Explore the complete nutrition comparison.</p>
+                    <a href="nutrition.html" class="btn btn-secondary btn-small">Explore Data</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Organic Matters -->
-    <section class="section">
+    <!-- CTA Section -->
+    <section class="section-padding" style="background: linear-gradient(135deg, rgba(46,125,50,0.1) 0%, rgba(139,195,74,0.1) 100%);">
         <div class="container">
-            <h2 class="section-title">Why Organic Matters in <span class="highlight">2026</span></h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Data-Driven Insight</h3>
-                    <p>Access our 2026 weather impact reports and soil health indices tailored for the modern grower.</p>
-                    <a href="facts.html" class="feature-link">Explore Insights →</a>
+            <div class="grid grid-2">
+                <div>
+                    <h2>Join Our Research Community</h2>
+                    <p>Support independent research in organic agriculture. Your contribution helps fund soil testing, regional studies, and farmer education programs.</p>
+                    <a href="SupportProject.html" class="btn btn-primary">
+                        <i class="fas fa-hand-holding-heart"></i> Support Projects
+                    </a>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🥦</div>
-                    <h3>Nutritional Truth</h3>
-                    <p>Compare conventional vs. organic produce with our updated 2026 laboratory analysis tables.</p>
-                    <a href="nutrition.html" class="feature-link">View Data →</a>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Community Funded</h3>
-                    <p>Directly fund soil test kits and regional reports. See exactly where your money goes.</p>
-                    <a href="support.html" class="feature-link">Support Projects →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest Research Highlights -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Latest Research Highlights</h2>
-            <div class="research-grid">
-                <div class="research-card">
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Soil Health Research">
-                    <div class="research-content">
-                        <span class="research-date">January 10, 2026</span>
-                        <h3>2026 Soil Microbiome Breakthrough</h3>
-                        <p>New findings reveal organic farming practices increase soil biodiversity by 47% compared to conventional methods.</p>
-                        <a href="blog-post-1.html" class="btn btn-small">Read More</a>
+                <div>
+                    <div class="card">
+                        <h3>Test Your Knowledge</h3>
+                        <p>Take our organic farming quiz to test your knowledge and learn new facts about sustainable agriculture practices.</p>
+                        <a href="quiz.html" class="btn btn-secondary">
+                            <i class="fas fa-question-circle"></i> Start Quiz
+                        </a>
                     </div>
-                </div>
-                <div class="research-card">
-                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Climate Resilience">
-                    <div class="research-content">
-                        <span class="research-date">December 28, 2025</span>
-                        <h3>Climate Resilience in Organic Systems</h3>
-                        <p>How organic farms withstand extreme weather events 32% better than conventional farms.</p>
-                        <a href="blog-post-2.html" class="btn btn-small">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Agriculture?</h2>
-                <p>Join thousands of farmers, researchers, and advocates building a sustainable food system for 2026 and beyond.</p>
-                <div class="cta-buttons">
-                    <a href="blogs.html" class="btn btn-primary">Read Our Blogs</a>
-                    <a href="support.html" class="btn btn-secondary">Support Projects</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">OrganiqFarm</a>
-                    <p class="footer-motto">Verified by OrganiqFarm Labs 2026</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📷</a>
-                        <a href="#" class="social-icon">📹</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
+                        <h3>Organiq<span>Farm</span></h3>
+                    </div>
+                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified by OrganiqFarm Labs</span>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blogs</a></li>
-                        <li><a href="facts.html">Facts & Weather</a></li>
-                        <li><a href="nutrition.html">Nutrition Index</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
+                        <li><a href="blogs.html">Blogs & Research</a></li>
+                        <li><a href="facts.html">Weather & Facts</a></li>
+                        <li><a href="nutrition.html">Nutrition Data</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="support.html">Support Projects</a></li>
-                        <li><a href="affiliates.html">Affiliates</a></li>
-                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="contact.html">Contact Form</a></li>
-                        <li>research@organiqfarm.com</li>
-                        <li>+1 (555) 123-4567</li>
-                        <li>Open 9AM-5PM EST</li>
+                        <li><a href="downloads.html">Free Downloads</a></li>
+                        <li><a href="affiliates.html">Recommended Products</a></li>
+                        <li><a href="SupportProject.html">Support Research</a></li>
+                        <li><a href="quiz.html">Knowledge Quiz</a></li>
+                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
+                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest research and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 OrganiqFarm.com. All content is open-source and available for educational use.</p>
+                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
