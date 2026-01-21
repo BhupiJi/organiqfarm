@@ -3,221 +3,1247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://images.pexels.com https://openweathermap.org;">
-    <meta name="description" content="OrganiqFarm - The definitive digital source for organic farming information, research, and community support. Join the movement towards sustainable agriculture.">
-    <meta property="og:title" content="OrganiqFarm - Organic Farming Authority">
-    <meta property="og:description" content="Your comprehensive guide to organic farming practices, research, and sustainable agriculture.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://organiqfarm.com">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>OrganiqFarm | The Future of Agriculture</title>
     
-    <title>OrganiqFarm - Organic Farming Authority</title>
+    <!-- SEO & Metadata -->
+    <meta name="description" content="The definitive guide to the 2026 shift in global organic agriculture. Verified data, nutrition facts, and community resources.">
+    <meta property="og:title" content="OrganiqFarm - Future Farming Data">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     
-    <!-- Chart.js -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js for Nutrition Data -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script>
+        // Tailwind Configuration
+        if (typeof tailwind !== 'undefined') {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Poppins', 'sans-serif'],
+                        },
+                        colors: {
+                            brand: {
+                                dark: '#1a4a1a',
+                                DEFAULT: '#2f855a',
+                                light: '#48bb78',
+                                accent: '#f0fff4',
+                                earth: '#8c6b48'
+                            }
+                        },
+                        animation: {
+                            'fade-in': 'fadeIn 0.5s ease-out',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0)' },
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Glassmorphism */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1a202c;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2f855a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #2f855a;
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2f855a; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #276749; 
+        }
+    </style>
 </head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav class="nav-container">
-                <div class="logo">
-                    <i class="fas fa-leaf" style="color: #2e7d32; font-size: 2rem;"></i>
-                    <h1>Organiq<span>Farm</span></h1>
-                </div>
-                
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="facts.html">Facts & Weather</a></li>
-                    <li><a href="nutrition.html">Nutrition</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                    <li><a href="SupportProject.html" class="btn btn-small btn-primary">Support</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="flex flex-col min-h-screen">
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Grow Organic, Live Healthy</h1>
-                <p>Join the global movement towards sustainable, verifiable organic agriculture. Access verified data, research, and community-driven insights.</p>
-                
-                <div class="stats-counter">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="150">0</span>
-                        <span class="stat-label">Research Papers</span>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="router('home')">
+                    <div class="w-10 h-10 bg-brand rounded-lg flex items-center justify-center mr-3 shadow-lg">
+                        <i class="fas fa-leaf text-white text-xl"></i>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="500">0</span>
-                        <span class="stat-label">Verified Farms</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="75">0</span>
-                        <span class="stat-label">Nutrient Studies</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="10000">0</span>
-                        <span class="stat-label">Community Members</span>
+                    <div>
+                        <h1 class="font-bold text-2xl text-gray-800 tracking-tight">Organiq<span class="text-brand">Farm</span></h1>
+                        <p class="text-xs text-gray-500 font-medium tracking-wider">EST. 2026</p>
                     </div>
                 </div>
-                
-                <div class="hero-buttons">
-                    <a href="blogs.html" class="btn btn-primary">
-                        <i class="fas fa-book-open"></i> Explore Blogs
-                    </a>
-                    <a href="facts.html" class="btn btn-secondary">
-                        <i class="fas fa-cloud-sun"></i> Check Weather
-                    </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#" onclick="router('home')" class="nav-link active text-gray-600 hover:text-brand" id="nav-home">Home</a>
+                    <a href="#" onclick="router('blogs')" class="nav-link text-gray-600 hover:text-brand" id="nav-blogs">Blogs</a>
+                    <a href="#" onclick="router('facts')" class="nav-link text-gray-600 hover:text-brand" id="nav-facts">Facts & Weather</a>
+                    <a href="#" onclick="router('nutrition')" class="nav-link text-gray-600 hover:text-brand" id="nav-nutrition">Nutrition</a>
+                    <a href="#" onclick="router('quiz')" class="nav-link text-gray-600 hover:text-brand" id="nav-quiz">Quiz</a>
+                    <a href="#" onclick="router('downloads')" class="nav-link text-gray-600 hover:text-brand" id="nav-downloads">Downloads</a>
+                    <a href="#" onclick="router('affiliates')" class="nav-link text-gray-600 hover:text-brand" id="nav-affiliates">Affiliates</a>
+                    <a href="#" onclick="router('support')" class="bg-brand hover:bg-brand-dark text-white px-5 py-2 rounded-full shadow-md transition-transform transform hover:-translate-y-0.5 font-medium">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-brand focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Featured Content -->
-    <section class="section-padding">
-        <div class="container">
-            <h2>Featured Insights</h2>
-            <p class="section-subtitle">Latest research and practical guides for organic farming</p>
-            
-            <div class="grid grid-3">
-                <!-- Feature 1 -->
-                <div class="card fade-in">
-                    <img src="https://images.unsplash.com/photo-1591288980063-7c76a1f2c4a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soil Health" class="card-img">
-                    <h3>Soil Regeneration Techniques</h3>
-                    <p>Discover methods to improve soil health and increase crop yields naturally. Learn about cover crops, composting, and no-till farming.</p>
-                    <a href="blog-post-1.html" class="btn btn-secondary btn-small">Read More</a>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="card fade-in">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Weather Impact" class="card-img">
-                    <h3>Climate & Crop Planning</h3>
-                    <p>How changing weather patterns affect organic farming. Get insights on adapting your farming practices to climate variability.</p>
-                    <a href="blog-post-2.html" class="btn btn-secondary btn-small">Read More</a>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="card fade-in">
-                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nutrition" class="card-img">
-                    <h3>Nutrition Density Study</h3>
-                    <p>Our latest research shows organic produce contains up to 60% more antioxidants. Explore the complete nutrition comparison.</p>
-                    <a href="nutrition.html" class="btn btn-secondary btn-small">Explore Data</a>
-                </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" onclick="router('home'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Home</a>
+                <a href="#" onclick="router('blogs'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Blogs</a>
+                <a href="#" onclick="router('facts'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Facts & Weather</a>
+                <a href="#" onclick="router('nutrition'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Nutrition</a>
+                <a href="#" onclick="router('quiz'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Quiz</a>
+                <a href="#" onclick="router('downloads'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Downloads</a>
+                <a href="#" onclick="router('affiliates'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-green-50">Affiliates</a>
+                <a href="#" onclick="router('support'); toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-brand font-bold bg-green-50">Donate</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- CTA Section -->
-    <section class="section-padding" style="background: linear-gradient(135deg, rgba(46,125,50,0.1) 0%, rgba(139,195,74,0.1) 100%);">
-        <div class="container">
-            <div class="grid grid-2">
-                <div>
-                    <h2>Join Our Research Community</h2>
-                    <p>Support independent research in organic agriculture. Your contribution helps fund soil testing, regional studies, and farmer education programs.</p>
-                    <a href="SupportProject.html" class="btn btn-primary">
-                        <i class="fas fa-hand-holding-heart"></i> Support Projects
-                    </a>
-                </div>
-                <div>
-                    <div class="card">
-                        <h3>Test Your Knowledge</h3>
-                        <p>Take our organic farming quiz to test your knowledge and learn new facts about sustainable agriculture practices.</p>
-                        <a href="quiz.html" class="btn btn-secondary">
-                            <i class="fas fa-question-circle"></i> Start Quiz
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main Content Area -->
+    <main id="app-content" class="flex-grow pt-20">
+        <!-- Content injected via JS -->
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" id="scrollTopBtn" class="fixed bottom-8 right-8 bg-brand hover:bg-brand-dark text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 opacity-0 invisible z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <i class="fas fa-leaf" style="color: #8bc34a; font-size: 2rem;"></i>
-                        <h3>Organiq<span>Farm</span></h3>
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-brand-light text-xl mr-2"></i>
+                        <h2 class="text-2xl font-bold">OrganiqFarm</h2>
                     </div>
-                    <p>Accelerating the global transition to verifiable, sustainable organic agriculture through open data, public education, and community funding.</p>
-                    <div class="verified-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Verified by OrganiqFarm Labs</span>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Accelerating the global transition to verified, sustainable organic agriculture through open data and community education.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-brand-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-light"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-light"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blogs & Research</a></li>
-                        <li><a href="facts.html">Weather & Facts</a></li>
-                        <li><a href="nutrition.html">Nutrition Data</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" onclick="router('blogs')" class="hover:text-brand-light">Latest Research</a></li>
+                        <li><a href="#" onclick="router('facts')" class="hover:text-brand-light">Weather Data</a></li>
+                        <li><a href="#" onclick="router('affiliates')" class="hover:text-brand-light">Affiliate Store</a></li>
+                        <li><a href="#" onclick="router('about')" class="hover:text-brand-light">About Us</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="downloads.html">Free Downloads</a></li>
-                        <li><a href="affiliates.html">Recommended Products</a></li>
-                        <li><a href="SupportProject.html">Support Research</a></li>
-                        <li><a href="quiz.html">Knowledge Quiz</a></li>
-                        <li><a href="blog-post-1.html">Soil Health Guide</a></li>
-                        <li><a href="blog-post-2.html">Climate Adaptation</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Stay Updated</h3>
-                    <p>Subscribe to our newsletter for the latest research and insights.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Newsletter</h3>
+                    <p class="text-xs text-gray-500 mb-4">Get the 2026 Agricultural Forecast Report.</p>
+                    <form onsubmit="handleSubscribe(event)" class="space-y-2">
+                        <input type="email" placeholder="Your email address" required class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand">
+                        <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white text-sm py-2 rounded font-medium transition-colors">Subscribe</button>
                     </form>
-                    <div class="social-links" style="margin-top: 1rem;">
-                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div>
+                    <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 text-center">
+                        <i class="fas fa-shield-alt text-brand-light text-2xl mb-2"></i>
+                        <h4 class="font-bold text-sm">Verified by Labs</h4>
+                        <p class="text-xs text-gray-500 mt-1">Data audited for 2026 Standards</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 OrganiqFarm. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This site is maintained by OrganiqFarm Labs. Contributions support research only and are not tax-deductible.</p>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2026 OrganiqFarm Project. All rights reserved. Open Source Initiative.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA STORE ---
+        // Generating more content to enable pagination
+        const generateBlogs = () => {
+            const baseBlogs = [
+                {
+                    id: 1,
+                    title: "The 2026 Soil Regeneration Report",
+                    date: "March 15, 2026",
+                    category: "Research",
+                    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "New data from our labs indicates a 40% increase in microbial activity in fields transitioned to polyculture systems two years ago.",
+                    content: `
+                        <p class="mb-4">Recent studies conducted across 500 transitioned farms in Southeast Asia and South America have provided the most conclusive evidence yet: regenerative agriculture is not just viable; it is outperforming conventional methods in both yield stability and soil health metrics.</p>
+                        <h3 class="text-xl font-bold mb-2">Key Findings of the 2026 Report</h3>
+                        <p class="mb-4">The N-P-K (Nitrogen, Phosphorus, Potassium) ratios in organically managed soil showed a natural stabilization without synthetic inputs within 24 months. This contradicts earlier models that suggested a 5-year recovery period.</p>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li><strong>Microbial Biomass:</strong> Increased by 40% on average.</li>
+                            <li><strong>Water Retention:</strong> Improved by 25%, reducing irrigation needs significantly.</li>
+                            <li><strong>Carbon Capture:</strong> These soils are sequestering 1.2 tons of carbon per hectare annually.</li>
+                        </ul>
+                        <p>For farmers, this means lower input costs and higher resilience against the climate anomalies predicted for late 2026.</p>
+                    `
+                },
+                {
+                    id: 2,
+                    title: "Vertical Farming: Urban Yields Double",
+                    date: "February 28, 2026",
+                    category: "Technology",
+                    image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "As cities become denser, vertical organic solutions have officially surpassed traditional yield-per-acre metrics in Mumbai and Tokyo.",
+                    content: `
+                        <p class="mb-4">The vertical farming sector has matured. What was once a novelty for high-end herbs is now a caloric backbone for megacities. In Mumbai's newest 'Green Tower' complex, rice and wheat equivalents are being tested, but leafy greens and caloric tubers are already at full production.</p>
+                        <h3 class="text-xl font-bold mb-2">Efficiency Metrics</h3>
+                        <p class="mb-4">By utilizing closed-loop water systems, these farms use 95% less water than traditional agriculture. The '2026 Urban Protocol' ensures that all nutrients used are organically sourced from composted city waste.</p>
+                    `
+                },
+                {
+                    id: 3,
+                    title: "Heirloom Seeds vs. GMO: The Nutritional Gap",
+                    date: "January 12, 2026",
+                    category: "Nutrition",
+                    image: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "A comprehensive analysis of 50 tomato varieties reveals the startling mineral deficiency in commercially modified crops.",
+                    content: `<p class="mb-4">Our labs compared 50 varieties of Heirloom tomatoes against the standard commercial 'Traveler' tomato. The results were stark. Heirloom varieties contained, on average, 400% more lycopene and 200% more magnesium.</p>`
+                },
+                {
+                    id: 4,
+                    title: "Water Conservation Techniques for Arid Zones",
+                    date: "December 05, 2025",
+                    category: "Practical",
+                    image: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "Implementing ancient clay pot irrigation (Olla) combined with modern sensors creates a 70% water reduction.",
+                    content: `<p class="mb-4">Returning to ancient wisdom, farmers in Rajasthan and Arizona are deploying the 'Olla' system—unglazed clay pots buried near roots. When combined with IoT moisture sensors, water wastage drops to near zero.</p>`
+                },
+                {
+                    id: 5,
+                    title: "The Economics of Small-Scale Organic",
+                    date: "November 20, 2025",
+                    category: "Economics",
+                    image: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "Profit margins for direct-to-consumer organic farms have stabilized at 3x that of wholesale conventional farming.",
+                    content: `<p class="mb-4">The 'Middleman-Free' movement has reached maturity. Apps connecting farmers directly to neighborhood collectives have allowed farmers to retain 90% of the retail price, compared to 15% in the traditional model.</p>`
+                },
+                {
+                    id: 6,
+                    title: "Mycelium Networks: The Underground Internet",
+                    date: "October 15, 2025",
+                    category: "Biology",
+                    image: "https://images.unsplash.com/photo-1629827367375-9b2440f66671?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "How fungi transport nutrients between trees and vegetables, creating a symbiotic immune system for the farm.",
+                    content: `<p class="mb-4">Fungal networks are the unsung heroes of the organic farm. They actively transport phosphorus to plant roots in exchange for sugars. Disturbing the soil via tilling destroys this network, which is why 'No-Till' is the gold standard for 2026.</p>`
+                },
+                {
+                    id: 7,
+                    title: "Carbon Credits for Small Farmers",
+                    date: "September 30, 2025",
+                    category: "Economics",
+                    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "New global platforms finally allow smallholders to sell verified carbon credits to international buyers.",
+                    content: `<p class="mb-4">Previously, verification costs were too high for small farms. New satellite-based biomass verification allows farmers with as little as 2 acres to participate in the carbon market.</p>`
+                },
+                {
+                    id: 8,
+                    title: "The Return of the Pollinators",
+                    date: "August 18, 2025",
+                    category: "Biology",
+                    image: "https://images.unsplash.com/photo-1473643387843-05b6302e1c31?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "Bee populations in organic zones have bounced back to 1990 levels, securing the future of fruit crops.",
+                    content: `<p class="mb-4">The ban on neonicotinoids in 2024 is paying dividends. Wild bee diversity has exploded, resulting in better fruit set rates for apples, almonds, and berries.</p>`
+                },
+                {
+                    id: 9,
+                    title: "Solar-Agro Integration",
+                    date: "July 22, 2025",
+                    category: "Technology",
+                    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800",
+                    excerpt: "Growing crops under elevated solar panels reduces water evaporation and generates passive income.",
+                    content: `<p class="mb-4">Agrivoltaics is the dual-use of land for solar energy production and agriculture. Shade-loving crops like lettuce and spinach thrive under the panels, requiring less water while the panels generate clean energy.</p>`
+                }
+            ];
+            return baseBlogs;
+        };
+
+        const blogs = generateBlogs();
+
+        const affiliates = [
+            {
+                category: "Organic Seeds",
+                image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=400",
+                desc: "Heirloom, non-GMO seeds for your home garden.",
+                items: [
+                    { name: "Tomato Seeds Pack", link: "https://www.amazon.in/s?k=heirloom+tomato+seeds" },
+                    { name: "Organic Spinach Seeds", link: "https://www.amazon.in/s?k=organic+spinach+seeds" }
+                ]
+            },
+            {
+                category: "Garden Tools",
+                image: "https://images.unsplash.com/photo-1416872927374-4c614f564970?auto=format&fit=crop&q=80&w=400",
+                desc: "Durable, sustainable tools for everyday farming.",
+                items: [
+                    { name: "Heavy Duty Trowel", link: "https://www.amazon.in/s?k=garden+trowel" },
+                    { name: "Pruning Shears", link: "https://www.amazon.in/s?k=pruning+shears" }
+                ]
+            },
+            {
+                category: "Soil Health",
+                image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=400",
+                desc: "Compost starters and natural fertilizers.",
+                items: [
+                    { name: "Vermicompost 5kg", link: "https://www.amazon.in/s?k=vermicompost" },
+                    { name: "Neem Cake Fertilizer", link: "https://www.amazon.in/s?k=neem+cake+fertilizer" }
+                ]
+            },
+            {
+                category: "Books & Education",
+                image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400",
+                desc: "Knowledge is the best tool a farmer has.",
+                items: [
+                    { name: "The Organic Manual", link: "https://www.amazon.in/s?k=organic+farming+books" },
+                    { name: "Permaculture Design", link: "https://www.amazon.in/s?k=permaculture" }
+                ]
+            }
+        ];
+
+        const pdfs = Array.from({ length: 25 }, (_, i) => ({
+            id: i + 1,
+            title: `Organic Protocol Vol. ${i + 1}: ${['Soil Health', 'Pest Control', 'Water Mgmt', 'Marketing', 'Seed Saving'][i % 5]}`,
+            price: i % 3 === 0 ? "Free" : (i % 2 === 0 ? "$1.99" : "$2.99"),
+            type: "PDF",
+            size: "2.4 MB"
+        }));
+
+        const quizQuestions = {
+            general: [
+                { q: "What is the primary benefit of cover cropping?", options: ["Weed suppression", "Looking pretty", "Attracting birds", "Using extra seeds"], a: 0 },
+                { q: "Which of these is NOT an organic fertilizer?", options: ["Compost", "Manure", "Synthetic Urea", "Bone Meal"], a: 2 },
+                { q: "What year is the target for the Global Organic Shift?", options: ["2024", "2026", "2030", "2050"], a: 1 }
+            ],
+            soil: [
+                { q: "Which soil component is most vital for water retention?", options: ["Sand", "Organic Matter", "Clay", "Silt"], a: 1 },
+                { q: "What pH range is ideal for most vegetables?", options: ["3.0-4.0", "6.0-7.0", "8.0-9.0", "1.0-2.0"], a: 1 }
+            ],
+            nutrition: [
+                { q: "Organic tomatoes typically have higher levels of?", options: ["Water", "Sugar", "Lycopene", "Sodium"], a: 2 },
+                { q: "Pesticide residue is lowest in?", options: ["Strawberries", "Spinach", "Avocados", "Grapes"], a: 2 }
+            ]
+        };
+
+        // --- APP STATE ---
+        let currentPdfCount = 10;
+        let currentQuizCategory = null;
+        let quizScore = 0;
+        let quizIndex = 0;
+        
+        // Blog Pagination State
+        let currentBlogPage = 1;
+        const blogsPerPage = 3;
+
+        // --- ROUTER ---
+        function router(page, param = null) {
+            window.scrollTo(0, 0);
+            const content = document.getElementById('app-content');
+            
+            // Update Active Nav
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const activeLink = document.getElementById(`nav-${page}`);
+            if (activeLink) activeLink.classList.add('active');
+
+            // Render Page
+            switch(page) {
+                case 'home': renderHome(content); break;
+                case 'blogs': renderBlogs(content); break;
+                case 'blog-detail': renderBlogDetail(content, param); break;
+                case 'facts': renderFacts(content); break;
+                case 'nutrition': renderNutrition(content); break;
+                case 'quiz': renderQuizHub(content); break;
+                case 'downloads': renderDownloads(content); break;
+                case 'affiliates': renderAffiliates(content); break;
+                case 'support': renderSupport(content); break;
+                case 'about': renderAbout(content); break;
+                default: renderHome(content);
+            }
+        }
+
+        // --- PAGE RENDERERS ---
+
+        function renderHome(container) {
+            container.innerHTML = `
+                <!-- Hero Section -->
+                <div class="relative bg-brand-dark text-white overflow-hidden">
+                    <div class="absolute inset-0 opacity-40">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Farm aerial">
+                    </div>
+                    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center">
+                        <span class="bg-green-500 bg-opacity-20 text-green-100 px-4 py-1 rounded-full text-sm font-semibold tracking-wider mb-6 border border-green-400">THE 2026 INITIATIVE</span>
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight animate-fade-in">
+                            Farming for a <span class="text-brand-light">Regenerative</span> Future
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mb-10">
+                            The definitive source for data-driven organic agriculture. Join the movement to verify, grow, and sustain our food systems.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="router('blogs')" class="bg-brand hover:bg-brand-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-green-500/50">Read the Research</button>
+                            <button onclick="router('support')" class="bg-white text-brand-dark hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg">Support the Cause</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Counters -->
+                <div class="bg-white py-12 border-b border-gray-100">
+                    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-brand mb-2 counter" data-target="12000">0</div>
+                            <div class="text-gray-500 text-sm uppercase tracking-wide">Farms Transitioned</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-brand mb-2 counter" data-target="45">0</div>
+                            <div class="text-gray-500 text-sm uppercase tracking-wide">Countries Active</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-brand mb-2 counter" data-target="850">0</div>
+                            <div class="text-gray-500 text-sm uppercase tracking-wide">Research Papers</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-brand mb-2 counter" data-target="2026">0</div>
+                            <div class="text-gray-500 text-sm uppercase tracking-wide">Target Year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Sections -->
+                <div class="py-20 bg-gray-50">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl font-bold text-gray-900">Why OrganiqFarm?</h2>
+                            <p class="mt-4 text-gray-600">Bridging the gap between traditional wisdom and modern data.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <!-- Card 1 -->
+                            <div class="glass-panel p-8 rounded-2xl hover:transform hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer" onclick="router('facts')">
+                                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-blue-600 text-2xl">
+                                    <i class="fas fa-cloud-sun-rain"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Smart Weather & Data</h3>
+                                <p class="text-gray-600 mb-4">Real-time localized weather impact analysis for organic growers. Adapt to climate shifts instantly.</p>
+                                <span class="text-brand font-semibold flex items-center">Check Forecast <i class="fas fa-arrow-right ml-2 text-xs"></i></span>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="glass-panel p-8 rounded-2xl hover:transform hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer" onclick="router('nutrition')">
+                                <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-6 text-red-600 text-2xl">
+                                    <i class="fas fa-apple-alt"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Nutritional Truth</h3>
+                                <p class="text-gray-600 mb-4">See the chemical difference. Visual charts comparing mineral density in organic vs. GMO produce.</p>
+                                <span class="text-brand font-semibold flex items-center">Compare Foods <i class="fas fa-arrow-right ml-2 text-xs"></i></span>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="glass-panel p-8 rounded-2xl hover:transform hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer" onclick="router('quiz')">
+                                <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Test Your Knowledge</h3>
+                                <p class="text-gray-600 mb-4">Are you ready for 2026? Take our specialized quizzes on soil health and sustainable practices.</p>
+                                <span class="text-brand font-semibold flex items-center">Start Quiz <i class="fas fa-arrow-right ml-2 text-xs"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            initCounters();
+        }
+
+        function renderBlogs(container) {
+            // Pagination Logic
+            const startIndex = (currentBlogPage - 1) * blogsPerPage;
+            const endIndex = startIndex + blogsPerPage;
+            const visibleBlogs = blogs.slice(startIndex, endIndex);
+            const totalPages = Math.ceil(blogs.length / blogsPerPage);
+
+            let blogHTML = visibleBlogs.map(blog => `
+                <div onclick="router('blog-detail', ${blog.id})" class="glass-panel bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${blog.image}" alt="${blog.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-brand-dark uppercase tracking-wide shadow-sm">${blog.category}</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-500 mb-2 flex items-center">
+                            <i class="far fa-calendar-alt mr-2"></i> ${blog.date}
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand transition-colors">${blog.title}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">${blog.excerpt}</p>
+                        <div class="flex items-center text-brand font-medium text-sm mt-auto">
+                            Read Article <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Pagination Buttons
+            let paginationHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const isActive = i === currentBlogPage;
+                paginationHTML += `
+                    <button onclick="changeBlogPage(${i})" class="px-6 py-2 rounded-full ${isActive ? 'bg-brand text-white' : 'text-gray-600 hover:bg-gray-100'} font-medium mx-1 transition-colors">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="bg-gray-50 py-16 min-h-screen">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-gray-900">Latest Intelligence</h2>
+                            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Deep dives into the science and sociology of the 2026 agricultural shift.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 animate-fade-in">
+                            ${blogHTML}
+                        </div>
+                        <div class="text-center">
+                            <div class="inline-block p-1 bg-white rounded-full shadow-sm border border-gray-200">
+                                ${paginationHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function changeBlogPage(page) {
+            currentBlogPage = page;
+            router('blogs');
+        }
+
+        function renderBlogDetail(container, id) {
+            const blog = blogs.find(b => b.id === id);
+            
+            if (!blog) {
+                container.innerHTML = `<div class="p-20 text-center">Blog not found.</div>`;
+                return;
+            }
+
+            // Sidebar Recommendations (exclude current)
+            const recommendations = blogs
+                .filter(b => b.id !== id)
+                .slice(0, 4)
+                .map(b => `
+                    <div onclick="router('blog-detail', ${b.id})" class="flex items-start mb-6 cursor-pointer group">
+                        <img src="${b.image}" class="w-20 h-20 object-cover rounded-lg mr-4 group-hover:opacity-80 transition" alt="thumbnail">
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800 group-hover:text-brand line-clamp-2">${b.title}</h4>
+                            <span class="text-xs text-gray-500 mt-1 block">${b.date}</span>
+                        </div>
+                    </div>
+                `).join('');
+
+            container.innerHTML = `
+                <div class="bg-white py-16 animate-fade-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                            <!-- Main Content -->
+                            <div class="lg:col-span-8">
+                                <div class="mb-8">
+                                    <span class="text-brand font-bold text-sm uppercase tracking-wider">${blog.category}</span>
+                                    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-2 mb-4 leading-tight">${blog.title}</h1>
+                                    <div class="flex items-center text-gray-500 text-sm">
+                                        <i class="far fa-calendar-alt mr-2"></i> ${blog.date}
+                                        <span class="mx-3">•</span>
+                                        <i class="far fa-clock mr-2"></i> 5 min read
+                                    </div>
+                                </div>
+                                <img src="${blog.image}" alt="${blog.title}" class="w-full h-96 object-cover rounded-2xl shadow-lg mb-10">
+                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                                    ${blog.content}
+                                </div>
+                                <div class="mt-12 pt-8 border-t border-gray-100">
+                                    <button onclick="router('blogs')" class="text-brand font-semibold hover:text-brand-dark flex items-center">
+                                        <i class="fas fa-arrow-left mr-2"></i> Back to All Blogs
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Sidebar -->
+                            <div class="lg:col-span-4">
+                                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 sticky top-24">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-200">Recommended Reading</h3>
+                                    <div class="space-y-2">
+                                        ${recommendations}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAffiliates(container) {
+            const itemsHTML = affiliates.map(cat => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="${cat.image}" alt="${cat.category}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">${cat.category}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${cat.desc}</p>
+                        <div class="space-y-3">
+                            ${cat.items.map(item => `
+                                <a href="${item.link}" target="_blank" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 group transition">
+                                    <span class="font-medium text-gray-800">${item.name}</span>
+                                    <i class="fas fa-external-link-alt text-gray-400 group-hover:text-brand text-xs"></i>
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="max-w-7xl mx-auto px-4 py-16">
+                    <div class="text-center mb-16">
+                        <span class="text-brand font-bold text-sm uppercase tracking-wide">Trusted Partners</span>
+                        <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Ethical Tools for 2026</h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We partner with verified suppliers. Purchases made through these Amazon.in links support our research labs directly.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        ${itemsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFacts(container) {
+            container.innerHTML = `
+                <div class="max-w-7xl mx-auto px-4 py-16">
+                    <!-- Weather Widget -->
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl p-8 text-white shadow-2xl mb-12 overflow-hidden relative">
+                        <div class="absolute right-0 top-0 opacity-10 text-9xl transform translate-x-10 -translate-y-10">
+                            <i class="fas fa-cloud-showers-heavy"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <h2 class="text-3xl font-bold mb-2">Local Agricultural Forecast</h2>
+                            <p class="text-blue-100 mb-8" id="location-name"><i class="fas fa-map-marker-alt mr-2"></i>Detecting Location...</p>
+                            
+                            <div id="weather-data" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="glass-panel bg-white/10 rounded-xl p-4 text-center">
+                                    <div class="text-sm text-blue-100 mb-1">Temperature</div>
+                                    <div class="text-3xl font-bold" id="w-temp">--°C</div>
+                                </div>
+                                <div class="glass-panel bg-white/10 rounded-xl p-4 text-center">
+                                    <div class="text-sm text-blue-100 mb-1">Wind Speed</div>
+                                    <div class="text-3xl font-bold" id="w-wind">-- km/h</div>
+                                </div>
+                                <div class="glass-panel bg-white/10 rounded-xl p-4 text-center">
+                                    <div class="text-sm text-blue-100 mb-1">Rain Risk</div>
+                                    <div class="text-3xl font-bold" id="w-rain">--%</div>
+                                </div>
+                                <div class="glass-panel bg-white/10 rounded-xl p-4 text-center">
+                                    <div class="text-sm text-blue-100 mb-1">Farming Advisory</div>
+                                    <div class="text-sm font-medium" id="w-advice">Loading...</div>
+                                </div>
+                            </div>
+                            <button onclick="forceRefreshWeather()" class="mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                                <i class="fas fa-sync-alt mr-2"></i> Refresh Location
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Impact Facts -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">The 2026 Shift: Why It Matters</h2>
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">1</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-lg font-bold text-gray-900">Carbon Sequestration</h4>
+                                        <p class="text-gray-600 mt-1">Organic soils trap 34% more atmospheric carbon than conventionally tilled soil.</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">2</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-lg font-bold text-gray-900">Biodiversity Collapse Reversed</h4>
+                                        <p class="text-gray-600 mt-1">Fields without synthetic pesticides see a 50x increase in pollinator populations within 2 seasons.</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">3</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-lg font-bold text-gray-900">Economic Resilience</h4>
+                                        <p class="text-gray-600 mt-1">Farmers relying on internal inputs (compost/seeds) are immune to global fertilizer price spikes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-2 rounded-xl bg-white shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1625246333195-00305256a836?auto=format&fit=crop&q=80" alt="Data chart" class="rounded-lg w-full">
+                            <div class="p-4">
+                                <p class="text-center text-sm text-gray-500 italic">Figure 1.2: Soil organic matter accumulation over 5 years.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            fetchWeather();
+        }
+
+        function renderNutrition(container) {
+            container.innerHTML = `
+                <div class="max-w-7xl mx-auto px-4 py-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900">The Nutrient Gap</h2>
+                        <p class="mt-4 text-gray-600">Visual proof of what you're actually eating. Data verified by Independent Labs.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-16">
+                        <div class="glass-panel bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-bold text-xl mb-6 text-center text-gray-800">Vitamin C (mg/100g)</h3>
+                            <canvas id="chart-vitc"></canvas>
+                        </div>
+                        <div class="glass-panel bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-bold text-xl mb-6 text-center text-gray-800">Antioxidant Levels (ORAC)</h3>
+                            <canvas id="chart-anti"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-gray-50 border-b border-gray-200">
+                                    <tr>
+                                        <th class="px-6 py-4 font-bold text-gray-700">Food Item</th>
+                                        <th class="px-6 py-4 font-bold text-gray-700">Key Nutrient</th>
+                                        <th class="px-6 py-4 font-bold text-green-600">Organic (Avg)</th>
+                                        <th class="px-6 py-4 font-bold text-red-500">Conventional (Avg)</th>
+                                        <th class="px-6 py-4 font-bold text-gray-700">2026 Implication</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium">Spinach</td>
+                                        <td class="px-6 py-4">Iron</td>
+                                        <td class="px-6 py-4 text-green-700 font-bold">High</td>
+                                        <td class="px-6 py-4 text-red-500">Medium</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Essential for anemia prevention</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium">Tomatoes</td>
+                                        <td class="px-6 py-4">Lycopene</td>
+                                        <td class="px-6 py-4 text-green-700 font-bold">Very High</td>
+                                        <td class="px-6 py-4 text-red-500">Low</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Cancer fighting properties</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium">Milk</td>
+                                        <td class="px-6 py-4">Omega-3</td>
+                                        <td class="px-6 py-4 text-green-700 font-bold">High</td>
+                                        <td class="px-6 py-4 text-red-500">Trace</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">Heart health critical</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+            setTimeout(initCharts, 100); // Delay slightly to ensure DOM is ready
+        }
+
+        function renderQuizHub(container) {
+            currentQuizCategory = null;
+            quizScore = 0;
+            quizIndex = 0;
+            
+            container.innerHTML = `
+                <div class="min-h-[80vh] bg-brand-dark flex items-center justify-center px-4 relative">
+                     <div class="absolute inset-0 opacity-20">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Quiz bg">
+                    </div>
+                    <div class="max-w-3xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden relative z-10 p-8" id="quiz-container">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2">Test Your Agri-Knowledge</h2>
+                            <p class="text-gray-500 mb-8">Select a category to begin your certification journey.</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <button onclick="startQuiz('general')" class="p-6 border-2 border-gray-100 rounded-xl hover:border-brand hover:bg-green-50 transition group">
+                                    <i class="fas fa-globe-americas text-4xl text-gray-400 group-hover:text-brand mb-4"></i>
+                                    <h3 class="font-bold">General Knowledge</h3>
+                                </button>
+                                <button onclick="startQuiz('soil')" class="p-6 border-2 border-gray-100 rounded-xl hover:border-brand hover:bg-green-50 transition group">
+                                    <i class="fas fa-layer-group text-4xl text-gray-400 group-hover:text-brand mb-4"></i>
+                                    <h3 class="font-bold">Soil Science</h3>
+                                </button>
+                                <button onclick="startQuiz('nutrition')" class="p-6 border-2 border-gray-100 rounded-xl hover:border-brand hover:bg-green-50 transition group">
+                                    <i class="fas fa-carrot text-4xl text-gray-400 group-hover:text-brand mb-4"></i>
+                                    <h3 class="font-bold">Nutrition Facts</h3>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderDownloads(container) {
+            container.innerHTML = `
+                <div class="max-w-7xl mx-auto px-4 py-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900">Resource Library</h2>
+                        <p class="mt-4 text-gray-600">Download verified PDF guides, almanacs, and protocols.</p>
+                    </div>
+
+                    <!-- PDF List -->
+                    <div id="pdf-grid" class="grid md:grid-cols-2 gap-4 mb-8">
+                        <!-- Injected via JS -->
+                    </div>
+
+                    <div class="text-center">
+                        <button onclick="loadMorePDFs()" class="bg-white border border-gray-300 text-gray-700 font-semibold px-8 py-3 rounded-full hover:bg-gray-50 transition shadow-sm">
+                            Load More Resources
+                        </button>
+                    </div>
+
+                    <div class="mt-20 p-8 bg-brand-accent rounded-2xl border border-brand-light/30">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
+                            <div class="mb-6 md:mb-0">
+                                <h3 class="text-xl font-bold text-brand-dark">Need Custom Data?</h3>
+                                <p class="text-brand-dark/70">Request specific datasets or regional reports from our team.</p>
+                            </div>
+                            <form onsubmit="handleRequestInfo(event)" class="flex w-full md:w-auto gap-2">
+                                <input type="text" placeholder="Describe what you need..." class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-brand w-full md:w-64">
+                                <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition">Ask</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+            renderPDFList();
+        }
+
+        function renderSupport(container) {
+            container.innerHTML = `
+                <div class="max-w-5xl mx-auto px-4 py-16">
+                    <div class="text-center mb-16">
+                        <span class="text-brand font-bold tracking-widest text-sm uppercase">Community Funded</span>
+                        <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Support the 2026 Mission</h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Your contributions fund independent soil testing kits for smallholder farmers and open-source research reports. (Not tax deductible)</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Tier 1 -->
+                        <div class="glass-panel p-8 rounded-2xl border-t-4 border-gray-300 shadow-lg text-center">
+                            <h3 class="font-bold text-xl text-gray-800">Seed Starter</h3>
+                            <div class="text-4xl font-bold text-gray-900 my-4">$5.00</div>
+                            <p class="text-gray-500 text-sm mb-6">Funds 1 packet of heirloom seeds for a community garden.</p>
+                            <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-lg transition">Contribute</button>
+                        </div>
+
+                         <!-- Tier 2 -->
+                        <div class="glass-panel p-8 rounded-2xl border-t-4 border-brand shadow-xl transform scale-105 relative bg-white">
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand text-white px-4 py-1 rounded-full text-xs font-bold shadow-md">MOST POPULAR</div>
+                            <h3 class="font-bold text-xl text-brand-dark">Soil Defender</h3>
+                            <div class="text-4xl font-bold text-gray-900 my-4">$25.00</div>
+                            <p class="text-gray-500 text-sm mb-6">Funds 1 comprehensive laboratory soil test kit.</p>
+                            <!-- RazorPay Button -->
+                            <form class="w-full">
+                                <button type="button" onclick="window.open('https://razorpay.com', '_blank')" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3 rounded-lg transition shadow-lg shadow-green-500/30">Fund a Kit</button>
+                            </form>
+                        </div>
+
+                         <!-- Tier 3 -->
+                        <div class="glass-panel p-8 rounded-2xl border-t-4 border-yellow-500 shadow-lg text-center">
+                            <h3 class="font-bold text-xl text-gray-800">Research Patron</h3>
+                            <div class="text-4xl font-bold text-gray-900 my-4">$100.00</div>
+                            <p class="text-gray-500 text-sm mb-6">Sponsors a full regional water analysis report.</p>
+                            <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-lg transition">Contribute</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 text-center">
+                         <p class="text-sm text-gray-500 mb-4">We also accept support via affiliate purchases.</p>
+                         <a href="#" onclick="router('affiliates')" class="text-brand font-semibold underline">View Affiliate Store</a>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderAbout(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto px-4 py-20">
+                     <div class="prose prose-lg mx-auto text-gray-600">
+                        <h1 class="text-center font-bold text-gray-900 mb-8">About OrganiqFarm</h1>
+                        <p class="lead text-xl text-center mb-12">
+                            To accelerate the global transition to verifiable, sustainable organic agriculture by 2026 through open data, public education, and community funding.
+                        </p>
+                        <h3>Our Model</h3>
+                        <p>We believe that information should be free, but verification costs money. That is why we operate on a hybrid model:</p>
+                        <ul>
+                            <li><strong>Open Data:</strong> Weather and basic nutritional facts are free for all.</li>
+                            <li><strong>Affiliates:</strong> We partner with ethical tool makers and seed banks.</li>
+                            <li><strong>Community:</strong> Direct funding allows us to perform independent lab tests.</li>
+                        </ul>
+                        <h3>The 2026 Goal</h3>
+                        <p>International bodies have set 2026 as a tipping point year. Our portal exists to ensure farmers and consumers are armed with the facts needed to make that transition successful.</p>
+                     </div>
+                </div>
+            `;
+        }
+
+        // --- FEATURE LOGIC ---
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                
+                const updateCounter = () => {
+                    const c = +counter.innerText;
+                    if(c < target) {
+                        counter.innerText = Math.ceil(c + increment);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Weather Logic (Persistent Location)
+        function fetchWeather() {
+            const tempEl = document.getElementById('w-temp');
+            if(!tempEl) return;
+
+            const locEl = document.getElementById('location-name');
+            const storedLat = localStorage.getItem('of_lat');
+            const storedLon = localStorage.getItem('of_lon');
+
+            if(storedLat && storedLon) {
+                // Use stored location
+                getWeatherData(storedLat, storedLon);
+            } else {
+                // Ask permission
+                locEl.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Locating you...';
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        // Store it
+                        localStorage.setItem('of_lat', lat);
+                        localStorage.setItem('of_lon', lon);
+                        getWeatherData(lat, lon);
+                    }, () => {
+                        locEl.innerText = "Location Access Denied";
+                        document.getElementById('w-temp').innerText = "22°C (Def)";
+                        document.getElementById('w-advice').innerText = "Using default data";
+                    });
+                } else {
+                    locEl.innerText = "Geolocation not supported";
+                }
+            }
+        }
+
+        function getWeatherData(lat, lon) {
+            const locEl = document.getElementById('location-name');
+            const tempEl = document.getElementById('w-temp');
+            const windEl = document.getElementById('w-wind');
+            const rainEl = document.getElementById('w-rain');
+            const adviceEl = document.getElementById('w-advice');
+
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+                .then(response => response.json())
+                .then(data => {
+                    const w = data.current_weather;
+                    locEl.innerHTML = `<i class="fas fa-map-marker-alt mr-2"></i> Lat: ${parseFloat(lat).toFixed(2)}, Long: ${parseFloat(lon).toFixed(2)}`;
+                    tempEl.innerText = `${w.temperature}°C`;
+                    windEl.innerText = `${w.windspeed} km/h`;
+                    
+                    const mockRain = Math.floor(Math.random() * 30); 
+                    rainEl.innerText = `${mockRain}%`;
+
+                    if(w.temperature > 30) adviceEl.innerText = "High heat. Irrigate in early morning.";
+                    else if(w.windspeed > 20) adviceEl.innerText = "High winds. Secure greenhouse tunnels.";
+                    else adviceEl.innerText = "Conditions optimal for planting.";
+                    
+                    adviceEl.classList.add('text-green-200');
+                })
+                .catch(err => {
+                    locEl.innerText = "Weather Unavailable";
+                    console.error(err);
+                });
+        }
+
+        function forceRefreshWeather() {
+            localStorage.removeItem('of_lat');
+            localStorage.removeItem('of_lon');
+            fetchWeather();
+        }
+
+        // Chart.js Initialization
+        function initCharts() {
+            if (typeof Chart === 'undefined') return;
+
+            const ctx1 = document.getElementById('chart-vitc');
+            const ctx2 = document.getElementById('chart-anti');
+
+            if(!ctx1 || !ctx2) return;
+
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Tomatoes', 'Spinach', 'Peppers', 'Apples'],
+                    datasets: [{
+                        label: 'Organic',
+                        data: [25, 30, 140, 12],
+                        backgroundColor: '#48bb78'
+                    }, {
+                        label: 'Conventional',
+                        data: [18, 22, 110, 8],
+                        backgroundColor: '#fc8181'
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4'],
+                    datasets: [{
+                        label: 'Soil Mineral Content (Regenerative)',
+                        data: [100, 120, 150, 190],
+                        borderColor: '#48bb78',
+                        tension: 0.4
+                    }]
+                }
+            });
+        }
+
+        // Quiz Logic
+        function startQuiz(category) {
+            currentQuizCategory = category;
+            quizScore = 0;
+            quizIndex = 0;
+            const container = document.getElementById('quiz-container');
+            showQuestion(container);
+        }
+
+        function showQuestion(container) {
+            const questions = quizQuestions[currentQuizCategory];
+            if(quizIndex >= questions.length) {
+                showQuizResult(container);
+                return;
+            }
+
+            const q = questions[quizIndex];
+            container.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-brand uppercase">${currentQuizCategory} Quiz</span>
+                        <span class="text-gray-500">Q ${quizIndex + 1}/${questions.length}</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-8 text-gray-800">${q.q}</h3>
+                    <div class="grid gap-4">
+                        ${q.options.map((opt, i) => `
+                            <button onclick="handleAnswer(${i})" class="w-full text-left p-4 rounded-lg border border-gray-200 hover:border-brand hover:bg-green-50 transition">
+                                <span class="font-bold mr-2 text-gray-400">${String.fromCharCode(65+i)}.</span> ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleAnswer(selectedIndex) {
+            const correctIndex = quizQuestions[currentQuizCategory][quizIndex].a;
+            if(selectedIndex === correctIndex) quizScore++;
+            quizIndex++;
+            showQuestion(document.getElementById('quiz-container'));
+        }
+
+        function showQuizResult(container) {
+            const total = quizQuestions[currentQuizCategory].length;
+            const pct = (quizScore / total) * 100;
+            let msg = pct > 70 ? "Excellent! You are ready for 2026." : "Keep studying our blogs!";
+
+            container.innerHTML = `
+                <div class="text-center animate-fade-in py-8">
+                    <div class="w-24 h-24 bg-${pct > 70 ? 'green' : 'orange'}-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl text-${pct > 70 ? 'green' : 'orange'}-600">
+                        <i class="fas fa-${pct > 70 ? 'trophy' : 'book-open'}"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-2">Quiz Complete</h2>
+                    <p class="text-5xl font-extrabold text-gray-800 mb-4">${quizScore}/${total}</p>
+                    <p class="text-gray-600 mb-8">${msg}</p>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="router('quiz')" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Choose Category</button>
+                        <button onclick="startQuiz('${currentQuizCategory}')" class="px-6 py-2 bg-brand text-white rounded-lg hover:bg-brand-dark">Retry</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Downloads Logic
+        function renderPDFList() {
+            const grid = document.getElementById('pdf-grid');
+            if(!grid) return;
+            
+            // Clear existing if it's a re-render
+            grid.innerHTML = '';
+            
+            const visiblePdfs = pdfs.slice(0, currentPdfCount);
+            
+            visiblePdfs.forEach(pdf => {
+                const el = document.createElement('div');
+                el.className = 'bg-white p-4 rounded-lg border border-gray-200 flex items-center justify-between hover:shadow-md transition';
+                el.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-red-100 rounded flex items-center justify-center text-red-500 mr-4">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base">${pdf.title}</h4>
+                            <span class="text-xs text-gray-500">${pdf.size}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-brand-dark">${pdf.price}</span>
+                        <button onclick="alert('Proceeding to Checkout for ${pdf.price} (Placeholder)')" class="bg-gray-100 hover:bg-brand hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-download text-sm"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        function loadMorePDFs() {
+            currentPdfCount += 5;
+            if(currentPdfCount > pdfs.length) currentPdfCount = pdfs.length;
+            renderPDFList();
+        }
+
+        // Global Interactions
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onscroll = function() {
+            const btn = document.getElementById('scrollTopBtn');
+            const nav = document.getElementById('navbar');
+            
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btn.classList.remove('opacity-0', 'invisible');
+                nav.classList.add('shadow-md');
+            } else {
+                btn.classList.add('opacity-0', 'invisible');
+                nav.classList.remove('shadow-md');
+            }
+        };
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert("Success! You've subscribed to the 2026 Forecast. Please check your inbox for verification.");
+        }
+        
+        function handleRequestInfo(e) {
+            e.preventDefault();
+            alert("Request sent! Our research team will contact you shortly.");
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            router('home');
+        });
+
+    </script>
 </body>
 </html>
